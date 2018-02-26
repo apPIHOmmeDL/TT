@@ -1,5 +1,6 @@
 package com.example.backend;
 //Siin on kommentaar
+//siin on teine kommentaar ka
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
