@@ -4,18 +4,12 @@ define('app',['exports'], function (exports) {
   Object.defineProperty(exports, "__esModule", {
     value: true
   });
-
-  function _classCallCheck(instance, Constructor) {
-    if (!(instance instanceof Constructor)) {
-      throw new TypeError("Cannot call a class as a function");
+  class App {
+    constructor() {
+      this.message = 'Hello juss!';
     }
   }
-
-  var App = exports.App = function App() {
-    _classCallCheck(this, App);
-
-    this.message = 'Tere tulemas ayyy lmao';
-  };
+  exports.App = App;
 });
 define('environment',["exports"], function (exports) {
   "use strict";
@@ -55,9 +49,7 @@ define('main',['exports', './environment'], function (exports, _environment) {
       aurelia.use.plugin('aurelia-testing');
     }
 
-    aurelia.start().then(function () {
-      return aurelia.setRoot();
-    });
+    aurelia.start().then(() => aurelia.setRoot());
   }
 });
 define('resources/index',["exports"], function (exports) {
@@ -67,7 +59,9 @@ define('resources/index',["exports"], function (exports) {
     value: true
   });
   exports.configure = configure;
-  function configure(config) {}
+  function configure(config) {
+    //config.globalResources([]);
+  }
 });
-define('text!app.html', ['module'], function(module) { module.exports = "<template>\n  <h1>${message}</h1>\n  <p>YAY</p>\n</template>\n"; });
+define('text!app.html', ['module'], function(module) { module.exports = "<template>\r\n  <h1>${message}</h1>\r\n  <p>YAYrrrrr</p>\r\n</template>\r\n"; });
 //# sourceMappingURL=app-bundle.js.map
