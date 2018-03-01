@@ -1,0 +1,10 @@
+<template>
+    <h1>Siia tulevad ${message} </h1>
+<p>Lisa õppejõud</p>
+    <form id="userform" submit.delegate="addUser()">
+        <div><label for="firstName">Eesnimi</label><input id="firstName" type="text" name="firstName" value.bind="userData.firstName"></div>
+        <div><label for="lastName">Perenimi</label><input id="lastName" type="text" name="lastName" value.bind="userData.lastName"></div>
+        <div><label for="courseName">Õppeaine</label><input id="courseName" type="text" name="courseName" value.bind="userData.courseNames"></div>
+        <input type="submit" name="Lisa õppejõud">
+    </form>
+</template>

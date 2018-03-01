@@ -1,5 +1,10 @@
 export class App {
-  constructor() {
-    this.message = 'Hello World!';
-  }
+    configureRouter(config, router) {
+        this.router = router;
+        config.title = 'My Aurelia äpp';
+        config.map([
+            { route: ['', 'home'],       name: 'home',       moduleId: 'home/index' },
+            { route: 'prof', name: 'prof',      moduleId: 'prof/prof', nav: true },
+        ]);
+    }
 }
