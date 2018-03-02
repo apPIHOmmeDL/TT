@@ -1,14 +1,33 @@
-define('app',['exports'], function (exports) {
+define('app',['exports', './prof/prof'], function (exports, _prof) {
     'use strict';
 
     Object.defineProperty(exports, "__esModule", {
         value: true
     });
+    exports.App = undefined;
     class App {
         configureRouter(config, router) {
             this.router = router;
-            config.title = 'My Aurelia äpp';
+            config.title = 'Meie Aurelia';
             config.map([{ route: ['', 'home'], name: 'home', moduleId: 'home/index' }, { route: 'prof', name: 'prof', moduleId: 'prof/prof', nav: true }]);
+        }
+        constructor() {
+            this.heading = 'Lisa ka enda õppejõud';
+            this.professors = [];
+            this.professorFirstname = '';
+            this.professorLastname = '';
+            this.professorSubject = '';
+        }
+
+        addProfessor() {
+            if (this.professorFirstname && this.professorLastname && this.professorSubject) {
+                this.professors.push(new _prof.Professor(this.professorFirstname, this.professorLastname, this.professorSubject));
+
+                // Clear Fields
+                this.professorFirstname = '';
+                this.professorLastname = '';
+                this.professorSubject = '';
+            }
         }
     }
     exports.App = App;
@@ -67,6 +86,21 @@ define('home/index',["exports"], function (exports) {
     }
     exports.Home = Home;
 });
+define('prof/prof',["exports"], function (exports) {
+    "use strict";
+
+    Object.defineProperty(exports, "__esModule", {
+        value: true
+    });
+    class Professor {
+        constructor(firstname, lastname, subject) {
+            this.firstname = firstname;
+            this.lastname = lastname;
+            this.subject = subject;
+        }
+    }
+    exports.Professor = Professor;
+});
 define('resources/index',["exports"], function (exports) {
   "use strict";
 
@@ -78,20 +112,7 @@ define('resources/index',["exports"], function (exports) {
     //config.globalResources([]);
   }
 });
-define('prof/prof',["exports"], function (exports) {
-    "use strict";
-
-    Object.defineProperty(exports, "__esModule", {
-        value: true
-    });
-    class people {
-        constructor() {
-            this.message = "Õppejõud";
-        }
-    }
-    exports.people = people;
-});
-define('text!app.html', ['module'], function(module) { module.exports = "<template>\r\n  <router-view></router-view>\r\n</template>\r\n"; });
-define('text!home/index.html', ['module'], function(module) { module.exports = "<template>\r\n    <h1>Tere-tere! </h1>\r\n    <h2> ${message}</h2>\r\n</template>"; });
-define('text!prof/prof.html', ['module'], function(module) { module.exports = "<template>\r\n    <h1>Siia tulevad ${message} </h1>\r\n<p>Lisa õppejõud</p>\r\n    <form id=\"userform\" submit.delegate=\"addUser()\">\r\n        <div><label for=\"firstName\">Eesnimi</label><input id=\"firstName\" type=\"text\" name=\"firstName\" value.bind=\"userData.firstName\"></div>\r\n        <div><label for=\"lastName\">Perenimi</label><input id=\"lastName\" type=\"text\" name=\"lastName\" value.bind=\"userData.lastName\"></div>\r\n        <div><label for=\"courseName\">Õppeaine</label><input id=\"courseName\" type=\"text\" name=\"courseName\" value.bind=\"userData.courseNames\"></div>\r\n        <input type=\"submit\" name=\"Lisa õppejõud\">\r\n    </form>\r\n</template>\r\n"; });
+define('text!app.html', ['module'], function(module) { module.exports = "<template>\n  <router-view></router-view>\n</template>\n"; });
+define('text!home/index.html', ['module'], function(module) { module.exports = "<template>\n    <h1>Tere-tere! </h1>\n    <h2> ${message}</h2>\n</template>"; });
+define('text!prof/prof.html', ['module'], function(module) { module.exports = "<template>\n    <div class=\"container\">\n        <h1>${heading}</h1>\n\n        <form submit.trigger=\"addProfessor()\">\n            <input type=\"text\" value.bind=\"professorFirstname\" placeholder=\"Eesnimi\" class=\"u-full-width\">\n            <input type=\"text\" value.bind=\"professorLastname\" placeholder=\"Perenimi\" class=\"u-full-width\">\n            <input type=\"text\" value.bind=\"professorSubject\" placeholder=\"Õppeaine\" class=\"u-full-width\">\n            <button type=\"submit\" class=\"u-full-width\">Lisa Õppejõud</button>\n        </form>\n\n        <table class=\"u-full-width\">\n            <tr>\n                <th>Eesnimi</th>\n                <th>Perenimi</th>\n                <th>Õppeaine</th>\n                <th></th>\n            </tr>\n            <tr repeat.for=\"professor of professors\">\n                <td>${professor.firstname}</td>\n                <td>${professor.lastname}</td>\n                <td>${professor.subject}</td>\n                <td><button>vaata kommentaare</button></td>\n            </tr>\n        </table>\n    </div>\n</template>"; });
 //# sourceMappingURL=app-bundle.js.map
