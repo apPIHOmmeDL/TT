@@ -1,4 +1,4 @@
-package com.example..backend.prof;
+package com.example.backend.prof;
 
 import java.util.List;
 
