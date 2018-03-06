@@ -9,13 +9,14 @@ Meie ei pushi reposse:
 -node_modules kausta
 
 -build kausta
-###Frontendi jooksutamiseks:
+
+### Frontendi jooksutamiseks:
     
     cd frontend
     au run --watch
 
 
-###Backendi jooksutamiseks:
+### Backendi jooksutamiseks:
     
     käivita mariaDB pordil 3306
     gradle bootRun
