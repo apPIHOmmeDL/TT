@@ -73,19 +73,6 @@ define('main',['exports', './environment'], function (exports, _environment) {
     aurelia.start().then(() => aurelia.setRoot());
   }
 });
-define('home/index',["exports"], function (exports) {
-    "use strict";
-
-    Object.defineProperty(exports, "__esModule", {
-        value: true
-    });
-    class Home {
-        constructor() {
-            this.message = "Lihtsalt proovin,et kas meie esileht töötab";
-        }
-    }
-    exports.Home = Home;
-});
 define('prof/prof',["exports"], function (exports) {
     "use strict";
 
@@ -112,7 +99,20 @@ define('resources/index',["exports"], function (exports) {
     //config.globalResources([]);
   }
 });
-define('text!app.html', ['module'], function(module) { module.exports = "<template>\n  <router-view></router-view>\n</template>\n"; });
-define('text!home/index.html', ['module'], function(module) { module.exports = "<template>\n    <h1>Tere-tere! </h1>\n    <h2> ${message}</h2>\n</template>"; });
-define('text!prof/prof.html', ['module'], function(module) { module.exports = "<template>\n    <div class=\"container\">\n        <h1>${heading}</h1>\n\n        <form submit.trigger=\"addProfessor()\">\n            <input type=\"text\" value.bind=\"professorFirstname\" placeholder=\"Eesnimi\" class=\"u-full-width\">\n            <input type=\"text\" value.bind=\"professorLastname\" placeholder=\"Perenimi\" class=\"u-full-width\">\n            <input type=\"text\" value.bind=\"professorSubject\" placeholder=\"Õppeaine\" class=\"u-full-width\">\n            <button type=\"submit\" class=\"u-full-width\">Lisa Õppejõud</button>\n        </form>\n\n        <table class=\"u-full-width\">\n            <tr>\n                <th>Eesnimi</th>\n                <th>Perenimi</th>\n                <th>Õppeaine</th>\n                <th></th>\n            </tr>\n            <tr repeat.for=\"professor of professors\">\n                <td>${professor.firstname}</td>\n                <td>${professor.lastname}</td>\n                <td>${professor.subject}</td>\n                <td><button>vaata kommentaare</button></td>\n            </tr>\n        </table>\n    </div>\n</template>"; });
+define('home/index',["exports"], function (exports) {
+    "use strict";
+
+    Object.defineProperty(exports, "__esModule", {
+        value: true
+    });
+    class Home {
+        constructor() {
+            this.message = "Lihtsalt proovin,et kas meie esileht töötab";
+        }
+    }
+    exports.Home = Home;
+});
+define('text!app.html', ['module'], function(module) { module.exports = "<template>\r\n  <router-view></router-view>\r\n</template>\r\n"; });
+define('text!home/index.html', ['module'], function(module) { module.exports = "<template>\r\n    <h1>Tere-tere! </h1>\r\n    <h2> ${message}</h2>\r\n</template>"; });
+define('text!prof/prof.html', ['module'], function(module) { module.exports = "<template>\r\n    <div class=\"container\">\r\n        <h1>${heading}</h1>\r\n\r\n        <form submit.trigger=\"addProfessor()\">\r\n            <input type=\"text\" value.bind=\"professorFirstname\" placeholder=\"Eesnimi\" class=\"u-full-width\">\r\n            <input type=\"text\" value.bind=\"professorLastname\" placeholder=\"Perenimi\" class=\"u-full-width\">\r\n            <input type=\"text\" value.bind=\"professorSubject\" placeholder=\"Õppeaine\" class=\"u-full-width\">\r\n            <button type=\"submit\" class=\"u-full-width\">Lisa Õppejõud</button>\r\n        </form>\r\n\r\n        <table class=\"u-full-width\">\r\n            <tr>\r\n                <th>Eesnimi</th>\r\n                <th>Perenimi</th>\r\n                <th>Õppeaine</th>\r\n                <th></th>\r\n            </tr>\r\n            <tr repeat.for=\"professor of professors\">\r\n                <td>${professor.firstname}</td>\r\n                <td>${professor.lastname}</td>\r\n                <td>${professor.subject}</td>\r\n                <td><button>vaata kommentaare</button></td>\r\n            </tr>\r\n        </table>\r\n    </div>\r\n</template>"; });
 //# sourceMappingURL=app-bundle.js.map
