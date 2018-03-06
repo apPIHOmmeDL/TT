@@ -73,6 +73,19 @@ define('main',['exports', './environment'], function (exports, _environment) {
     aurelia.start().then(() => aurelia.setRoot());
   }
 });
+define('home/index',["exports"], function (exports) {
+    "use strict";
+
+    Object.defineProperty(exports, "__esModule", {
+        value: true
+    });
+    class Home {
+        constructor() {
+            this.message = "Lihtsalt proovin,et kas meie esileht töötab";
+        }
+    }
+    exports.Home = Home;
+});
 define('prof/prof',["exports"], function (exports) {
     "use strict";
 
@@ -98,19 +111,6 @@ define('resources/index',["exports"], function (exports) {
   function configure(config) {
     //config.globalResources([]);
   }
-});
-define('home/index',["exports"], function (exports) {
-    "use strict";
-
-    Object.defineProperty(exports, "__esModule", {
-        value: true
-    });
-    class Home {
-        constructor() {
-            this.message = "Lihtsalt proovin,et kas meie esileht töötab";
-        }
-    }
-    exports.Home = Home;
 });
 define('text!app.html', ['module'], function(module) { module.exports = "<template>\r\n  <router-view></router-view>\r\n</template>\r\n"; });
 define('text!home/index.html', ['module'], function(module) { module.exports = "<template>\r\n    <h1>Tere-tere! </h1>\r\n    <h2> ${message}</h2>\r\n</template>"; });
