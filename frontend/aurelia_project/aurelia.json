@@ -46,12 +46,15 @@
           "aurelia-bootstrapper",
           "aurelia-dependency-injection",
           "aurelia-event-aggregator",
+          "aurelia-fetch-client",
           "aurelia-framework",
           "aurelia-history",
           "aurelia-history-browser",
           "aurelia-loader",
           "aurelia-loader-default",
           "aurelia-logging",
+
+
           "aurelia-logging-console",
           "aurelia-metadata",
           "aurelia-pal",
@@ -72,6 +75,11 @@
             "name": "aurelia-templating-router",
             "path": "../node_modules/aurelia-templating-router/dist/amd",
             "main": "aurelia-templating-router"
+          },
+          {
+            "name": "aurelia-configuration",
+            "path": "../node_modules/aurelia-configuration/dist/commonjs",
+            "main": "index"
           },
           {
             "name": "aurelia-testing",
