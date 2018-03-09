@@ -3,9 +3,9 @@
         <h1>${heading}</h1>
 
         <form submit.trigger="addProfessor()">
-            <input type="text" value.bind="professorFirstname" placeholder="Eesnimi" class="u-full-width">
-            <input type="text" value.bind="professorLastname" placeholder="Perenimi" class="u-full-width">
-            <input type="text" value.bind="professorSubject" placeholder="Õppeaine" class="u-full-width">
+            <input id="firstName" type="text" value.bind="professorFirstname" placeholder="Eesnimi" class="u-full-width">
+            <input id="lastName" type="text" value.bind="professorLastname" placeholder="Perenimi" class="u-full-width">
+            <input id="subject" type="text" value.bind="professorSubject" placeholder="Õppeaine" class="u-full-width">
             <button type="submit" class="u-full-width">Lisa Õppejõud</button>
         </form>
 
