@@ -4,10 +4,12 @@ import { Professor } from './prof/prof';
 export class App {
     configureRouter(config, router) {
         this.router = router;
-        config.title = 'Meie Aurelia';
+        config.title = 'Aurelia projekt';
+        config.options.pushState = true;
+        config.options.root = '/';
         config.map([
-            { route: ['', 'home'],       name: 'home',       moduleId: 'home/index' },
-            { route: 'prof', name: 'prof',      moduleId: 'prof/prof', nav: true },
+            { route: ['', 'index'],  name: 'home', moduleId: 'home/index',  nav: true, title:'Esileht' },
+            { route: 'prof',         name: 'prof', moduleId: 'prof/prof',   nav: true, title:'Professori lisamine'  },
         ]);
 
     }

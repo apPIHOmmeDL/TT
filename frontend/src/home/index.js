@@ -1,5 +1,5 @@
 export class Home{
     constructor(){
-        this.message = "Lihtsalt proovin,et kas meie esileht töötab"
+        this.message = "Lihtsalt proovin,et kas meie esileht tootab"
     }
 }
