@@ -1,5 +1,5 @@
 import { Professor } from './prof/prof';
-
+import 'bootstrap/js/bootstrap.min';
 
 export class App {
     configureRouter(config, router) {
