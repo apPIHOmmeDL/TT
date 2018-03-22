@@ -1,0 +1,45 @@
+<template bindable="router">
+    <!-- Latest compiled and minified CSS -->
+    <!--  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+     jQuery library -->
+    <!--  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+       Popper JS -->
+    <!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+
+       Latest compiled JavaScript -->
+    <!--    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+
+     Bootstrap Navigation  -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Aurelia projekt</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+
+                <li repeat.for = "row of router.navigation" class="${row.isActive ? 'active' : ''}">
+                    <a data-toggle="collapse"
+                       data-target="#bs-example-navbar-collapse-1.in"
+                       href.bind="row.href"
+                       t="${row.title}">${row.title}</a>
+                </li>
+            </ul>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                </ul>
+            </div>
+
+            <!--
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Otsi</button>
+            </form>
+            -->
+        </div>
+    </nav>
+</template>

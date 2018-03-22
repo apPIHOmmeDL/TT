@@ -46,6 +46,7 @@
           "aurelia-bootstrapper",
           "aurelia-dependency-injection",
           "aurelia-event-aggregator",
+          "aurelia-fetch-client",
           "aurelia-framework",
           "aurelia-history",
           "aurelia-history-browser",
@@ -63,6 +64,30 @@
           "aurelia-task-queue",
           "aurelia-templating",
           "aurelia-templating-binding",
+          "jquery",
+          "velocity-animate",
+          "tether",
+          {
+            "name": "aurelia-bootstrap",
+            "path": "../node_modules/aurelia-bootstrap/dist/amd",
+            "main": "index",
+            "resources": [
+              "**/*.html"
+            ]
+          },
+          {
+            "name": "bootstrap",
+            "path": "../node_modules/bootstrap/dist",
+            "main": "js/bootstrap.min",
+            "deps": [
+              "jquery",
+              "popper.js"
+          ],
+            "exports": "$",
+            "resources": [
+              "css/bootstrap.css"
+            ]
+          },
           {
             "name": "aurelia-templating-resources",
             "path": "../node_modules/aurelia-templating-resources/dist/amd",
@@ -74,12 +99,18 @@
             "main": "aurelia-templating-router"
           },
           {
+            "name": "aurelia-configuration",
+            "path": "../node_modules/aurelia-configuration/dist/commonjs",
+            "main": "index"
+          },
+          {
             "name": "aurelia-testing",
             "path": "../node_modules/aurelia-testing/dist/amd",
             "main": "aurelia-testing",
             "env": "dev"
           },
-          "text"
+          "text",
+          "popper.js"
         ]
       }
     ],
