@@ -4,6 +4,7 @@ export class Professor {
     //profsData = {};
     //profsList = [];
 
+
     constructor(firstname, lastname, subject) {
         this.firstname = firstname;
         this.lastname = lastname;

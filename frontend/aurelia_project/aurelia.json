@@ -53,8 +53,6 @@
           "aurelia-loader",
           "aurelia-loader-default",
           "aurelia-logging",
-
-
           "aurelia-logging-console",
           "aurelia-metadata",
           "aurelia-pal",
@@ -67,11 +65,24 @@
           "aurelia-templating",
           "aurelia-templating-binding",
           "jquery",
+          "velocity-animate",
+          "tether",
+          {
+            "name": "aurelia-bootstrap",
+            "path": "../node_modules/aurelia-bootstrap/dist/amd",
+            "main": "index",
+            "resources": [
+              "**/*.html"
+            ]
+          },
           {
             "name": "bootstrap",
             "path": "../node_modules/bootstrap/dist",
             "main": "js/bootstrap.min",
-            "deps": ["jquery"],
+            "deps": [
+              "jquery",
+              "popper.js"
+          ],
             "exports": "$",
             "resources": [
               "css/bootstrap.css"
@@ -98,7 +109,8 @@
             "main": "aurelia-testing",
             "env": "dev"
           },
-          "text"
+          "text",
+          "popper.js"
         ]
       }
     ],
