@@ -1,11 +1,10 @@
 <template>
     <div class="container">
         <h1>${heading}</h1>
-
-        <form submit.trigger="addProfessor()">
-            <input type="text" value.bind="professorFirstname" placeholder="Eesnimi" class="u-full-width">
-            <input type="text" value.bind="professorLastname" placeholder="Perenimi" class="u-full-width">
-            <input type="text" value.bind="professorSubject" placeholder="Õppeaine" class="u-full-width">
+        <form submit.trigger="addProf()">
+            <input type="text" value.bind="profData.firstName" placeholder="Eesnimi" class="u-full-width">
+            <input type="text" value.bind="profData.lastName" placeholder="Perenimi" class="u-full-width">
+            <input type="text" value.bind="profData.aine" placeholder="Õppeaine" class="u-full-width">
             <button type="submit" class="u-full-width">Lisa Õppejõud</button>
         </form>
 
@@ -16,12 +15,25 @@
                 <th>Õppeaine</th>
                 <th></th>
             </tr>
-            <tr repeat.for="professor of professors">
-                <td>${professor.firstname}</td>
-                <td>${professor.lastname}</td>
-                <td>${professor.subject}</td>
+            <tr repeat.for="prof of profList">
+                <td>${prof.firstName}</td>
+                <td>${prof.lastName}</td>
+                <td>${prof.aine}</td>
                 <td><button>vaata kommentaare</button></td>
             </tr>
-        </table>
+        </table><!--
+        <form id="profForm" submit.delegate="addProf()">
+            <div><label for="firstName">First name</label><input id="firstName" type="text" name="firstName" value.bind="profData.firstName"></div>
+            <div><label for="lastName">Last name</label><input id="lastName" type="text" name="lastName" value.bind="profData.lastName"></div>
+            <div><label for="aine">Aine</label><input id="aine" type="text" name="aine" value.bind="profData.aine"></div>
+            <input type="submit" name="Lisa kasutaja">
+        </form>
+
+        <p>
+        <h3>Professorid</h3>
+        <ul>
+            <li repeat.for="prof of profList">${prof.firstName} ${prof.lastName}</li>
+        </ul>
+        </p>->>
     </div>
 </template>
