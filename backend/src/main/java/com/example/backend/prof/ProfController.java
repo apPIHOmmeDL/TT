@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.CrossOrigin;
+
 
 @RestController
 public class ProfController {
@@ -16,7 +18,7 @@ public class ProfController {
 	public ProfController(ProfService profService) {
 		this.profService = profService;
 	}
-	
+	@CrossOrigin(origins = "http://localhost:9000")
 	@RequestMapping(value="/profs/add", method=RequestMethod.POST,
 			consumes = "application/json")
 	public Prof addProf(@RequestBody Prof prof) {
