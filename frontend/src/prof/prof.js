@@ -22,5 +22,6 @@ export class prof {
             .then(data => {
                console.log(data.firstName)
             });
+        location.reload();
     }
 }
