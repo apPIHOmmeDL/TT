@@ -1,11 +1,12 @@
 import {HttpClient, json} from 'aurelia-fetch-client'
+import environment from '../environment'
 
 export class prof {
 
     activate() {
         let client = new HttpClient();
 
-        client.fetch('http://localhost:8080/profs')
+        client.fetch(environment.URL + 'profs')
             .then(response => response.json())
             .then(profs => this.profList = profs);
     }
@@ -13,7 +14,7 @@ export class prof {
     addProf() {
         let client = new HttpClient();
 
-        client.fetch('http://localhost:8080/profs/add', {
+        client.fetch(environment.URL + 'profs/add', {
             'method': "POST",
             'body': json(this.profData)
         })
@@ -21,5 +22,6 @@ export class prof {
             .then(data => {
                console.log(data.firstName)
             });
+        location.reload();
     }
 }

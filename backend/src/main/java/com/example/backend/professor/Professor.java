@@ -1,4 +1,4 @@
-package com.example.backend.prof;
+package com.example.backend.professor;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,7 +10,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Prof {
+public class Professor {
 	@Id
 	@GeneratedValue
 	long id;
