@@ -1,0 +1,25 @@
+<template>
+    <div class="container text-center">
+        <h1>${heading}</h1>
+        <form submit.delegate="executeSearchP()">
+            <input type="text" value.bind="query">
+            <button type="submit">Search</button>
+            </form>
+        <div>
+        <table class="u-full-width">
+            <tr>
+                <th>Eesnimi</th>
+                <th>Perenimi</th>
+                <th>Õppeaine</th>
+                <th></th>
+            </tr>
+            <tr repeat.for="prof of profList">
+                <td>${prof.firstName}</td>
+                <td>${prof.lastName}</td>
+                <td>${prof.aine}</td>
+                <td><button>vaata kommentaare</button></td>
+            </tr>
+        </table>
+        </div>
+    </div>
+</template>
