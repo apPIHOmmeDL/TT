@@ -16,5 +16,4 @@ public class Prof {
 	long id;
 	String firstName;
 	String lastName;
-	String aine;
 }
