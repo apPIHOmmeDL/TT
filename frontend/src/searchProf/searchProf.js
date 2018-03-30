@@ -1,8 +1,9 @@
 import {HttpClient, json} from 'aurelia-fetch-client'
 
-export class prof {
-
-
+export class searchProf{
+    constructor(){
+        this.message = "kas meie esileht tootab"
+    }
 
     activate() {
         let client = new HttpClient();
@@ -21,7 +22,7 @@ export class prof {
         })
             .then(response => response.json())
             .then(data => {
-               console.log(data.firstName)
+                console.log(data.firstName)
             });
     }
 

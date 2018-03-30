@@ -1,28 +1,27 @@
 <template>
 
-    <div class="container">
-        <h1>${heading}</h1>
+<div class="container">
+    <h1>Lisa ka enda õppejõud</h1>
+    <form submit.trigger="addProf()">
+        <input type="text" value.bind="profData.firstName" placeholder="Eesnimi" class="u-full-width">
+        <input type="text" value.bind="profData.lastName" placeholder="Perenimi" class="u-full-width">
+        <input type="text" value.bind="profData.aine" placeholder="Õppeaine" class="u-full-width">
+        <button type="submit" class="u-full-width">Lisa Õppejõud</button>
+    </form>
 
-        <form submit.trigger="addProfessor()">
-            <input id="firstName" type="text" value.bind="professorFirstname" placeholder="Eesnimi" class="u-full-width">
-            <input id="lastName" type="text" value.bind="professorLastname" placeholder="Perenimi" class="u-full-width">
-            <input id="subject" type="text" value.bind="professorSubject" placeholder="Õppeaine" class="u-full-width">
-            <button type="submit" class="u-full-width">Lisa Õppejõud</button>
-        </form>
-
-        <table class="u-full-width">
-            <tr>
-                <th>Eesnimi</th>
-                <th>Perenimi</th>
-                <th>Õppeaine</th>
-                <th></th>
-            </tr>
-            <tr repeat.for="professor of professors">
-                <td>${professor.firstname}</td>
-                <td>${professor.lastname}</td>
-                <td>${professor.subject}</td>
-                <td><button>vaata kommentaare</button></td>
-            </tr>
-        </table>
-    </div>
+    <table class="u-full-width">
+        <tr>
+            <th>Eesnimi</th>
+            <th>Perenimi</th>
+            <th>Õppeaine</th>
+            <th></th>
+        </tr>
+        <tr repeat.for="prof of profList">
+            <td>${prof.firstName}</td>
+            <td>${prof.lastName}</td>
+            <td>${prof.aine}</td>
+            <td><button>vaata kommentaare</button></td>
+        </tr>
+    </table>
+</div>
 </template>
