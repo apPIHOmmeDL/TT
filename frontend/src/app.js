@@ -1,4 +1,5 @@
 import { Professor } from './prof/prof';
+
 // import 'bootstrap';
 
 export class App {
@@ -8,13 +9,14 @@ export class App {
         config.options.pushState = true;
         config.options.root = '/';
         config.map([
-            { route: ['', 'index'],  name: 'home', moduleId: 'home/index',  nav: true, title:'Esileht' },
-            { route: 'prof',         name: 'prof', moduleId: 'prof/prof',   nav: true, title:'Professori lisamine'  },
+            { route: ['', 'index'],  name: 'home', moduleId: 'home/index',                    nav: true, title:'Esileht' },
+            { route: 'prof',         name: 'prof', moduleId: 'prof/prof',                     nav: true, title:'Professori lisamine'  },
+            { route: 'searchProf',   name: 'searchProf', moduleId: 'searchProf/searchProf',   nav: true, title:'Professori otsimine'  }
         ]);
-
     }
+
     constructor(){
-        this.heading = 'Lisa ka enda õppejõud';
+
         this.professors = [];
         this.professorFirstname = '';
         this.professorLastname = '';
