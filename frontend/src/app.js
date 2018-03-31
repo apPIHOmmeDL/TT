@@ -1,4 +1,5 @@
 import { Professor } from './prof/prof';
+import { Subject } from './subjects/subs';
 // import 'bootstrap';
 
 export class App {
@@ -10,8 +11,8 @@ export class App {
         config.map([
             { route: ['', 'index'],  name: 'home', moduleId: 'home/index',  nav: true, title:'Esileht' },
             { route: 'prof',         name: 'prof', moduleId: 'prof/prof',   nav: true, title:'Õppejõu lisamine'  },
+            { route: 'subs',         name: 'subs', moduleId: 'subject/subject',   nav: true, title:'Õppeanete lisamine'  },
         ]);
-
     }
     constructor(){
         this.heading = 'Lisa ka enda õppejõud';
