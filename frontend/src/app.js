@@ -9,7 +9,7 @@ export class App {
         config.options.root = '/';
         config.map([
             { route: ['', 'index'],  name: 'home', moduleId: 'home/index',  nav: true, title:'Esileht' },
-            { route: 'prof',         name: 'prof', moduleId: 'prof/prof',   nav: true, title:'Professori lisamine'  },
+            { route: 'prof',         name: 'prof', moduleId: 'prof/prof',   nav: true, title:'Õppejõu lisamine'  },
         ]);
 
     }
