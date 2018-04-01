@@ -1,5 +1,4 @@
 import { Professor } from './prof/prof';
-import { Subject } from './subjects/subs';
 // import 'bootstrap';
 
 export class App {
