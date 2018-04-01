@@ -24,4 +24,11 @@ export class prof {
             });
         location.reload();
     }
+
+    profView(firstn, lastn){
+        window.location.href = "viewprof";
+        this.firstn = firstn;
+        this.lastn = lastn;
+        window.alert(firstn + lastn);
+    }
 }

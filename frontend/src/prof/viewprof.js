@@ -1,7 +1,7 @@
 
-    export class Tada {
+    export class viewProf{
 
-        viewProf(){
+        profView(){
             window.location = 'http://www.google.com';
             window.alert(5 + 6);
         }
