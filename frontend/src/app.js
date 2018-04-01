@@ -11,7 +11,8 @@ export class App {
         config.map([
             { route: ['', 'index'],  name: 'home', moduleId: 'home/index',                    nav: true, title:'Esileht' },
             { route: 'prof',         name: 'prof', moduleId: 'prof/prof',                     nav: true, title:'Professori lisamine'  },
-            { route: 'searchProf',   name: 'searchProf', moduleId: 'searchProf/searchProf',   nav: true, title:'Professori otsimine'  }
+            { route: 'searchProf',   name: 'searchProf', moduleId: 'searchProf/searchProf',   nav: true, title:'Professori otsimine'  },
+            { route: 'comment',      name: 'comment', moduleId: 'comment/comment',            nav: true, title:'kommentaar'  }
         ]);
     }
 
