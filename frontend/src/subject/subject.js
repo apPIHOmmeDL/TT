@@ -1,7 +1,7 @@
 import {HttpClient, json} from 'aurelia-fetch-client'
 import environment from '../environment'
 
-export class subjs {
+export class sub {
 
     activate() {
         let client = new HttpClient();

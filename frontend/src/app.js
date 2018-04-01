@@ -1,7 +1,9 @@
 import { Professor } from './prof/prof';
+
 // import 'bootstrap';
 
 export class App {
+
     configureRouter(config, router) {
         this.router = router;
         config.title = 'Aurelia projekt';

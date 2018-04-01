@@ -3,6 +3,7 @@ import environment from '../environment'
 
 export class prof {
 
+
     activate() {
         let client = new HttpClient();
 
@@ -25,10 +26,12 @@ export class prof {
         location.reload();
     }
 
-    profView(firstn, lastn){
+    profView(firstname, lastname){
         window.location.href = "viewprof";
-        this.firstn = firstn;
-        this.lastn = lastn;
-        window.alert(firstn + lastn);
+        this.fname = firstname;
+        this.lname = lastname;
+        window.alert(firstname + " " + lastname);
     }
+
+
 }
