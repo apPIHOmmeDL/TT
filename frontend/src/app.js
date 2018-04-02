@@ -1,5 +1,5 @@
 import { Professor } from './prof/prof';
-
+import {PLATFORM} from 'aurelia-pal';
 
 // import 'bootstrap';
 
@@ -11,10 +11,10 @@ export class App {
         config.options.pushState = true;
         config.options.root = '/';
         config.map([
-            { route: ['', 'index'],  name: 'home', moduleId: 'home/index',  nav: true, title:'Esileht' },
-            { route: 'prof',         name: 'prof', moduleId: 'prof/prof',   nav: true, title:'Õppejõu lisamine'  },
-            { route: 'subs',         name: 'subs', moduleId: 'subject/subject',   nav: true, title:'Õppeanete lisamine'  },
-            { route: 'viewprof',     name: 'viewprof', moduleId: 'prof/viewprof',   nav: true, title:'Õppejõu vaatamine'  },
+            { route: ['', 'index'],  name: 'home', moduleId: PLATFORM.moduleName('home/index'),  nav: true, title:'Esileht' },
+            { route: 'prof',         name: 'prof', moduleId: PLATFORM.moduleName('prof/prof'),   nav: true, title:'Õppejõu lisamine'  },
+            { route: 'subs',         name: 'subs', moduleId: PLATFORM.moduleName('subject/subject'),   nav: true, title:'Õppeanete lisamine'  },
+            { route: 'viewprof/:id',     name: 'viewprof', moduleId: PLATFORM.moduleName('prof/viewprof'),  title:'Õppejõu vaatamine'  },
         ]);
     }
     constructor(){
