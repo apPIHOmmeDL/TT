@@ -1,10 +1,13 @@
 import {HttpClient, json} from 'aurelia-fetch-client'
 import environment from '../environment'
+import {inject} from 'aurelia-framework';
+import {Router} from 'aurelia-router';
 
 export class prof {
 
 
-    activate() {
+
+     activate() {
         let client = new HttpClient();
 
         client.fetch(environment.URL + 'profs')
@@ -27,11 +30,7 @@ export class prof {
     }
 
     profView(firstname, lastname){
-        window.location.href = "viewprof";
-        this.fname = firstname;
-        this.lname = lastname;
         window.alert(firstname + " " + lastname);
     }
-
 
 }
