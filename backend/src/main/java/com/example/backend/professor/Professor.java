@@ -1,11 +1,12 @@
 package com.example.backend.professor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
+import com.example.backend.teaching.Teaching;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.List;
 
 @Entity
 @Getter
@@ -16,4 +17,7 @@ public class Professor {
 	long id;
 	String firstName;
 	String lastName;
+
+	@OneToMany(mappedBy = "professor")
+	List<Teaching> teachings;
 }

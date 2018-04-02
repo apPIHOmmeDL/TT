@@ -1,11 +1,13 @@
 package com.example.backend.subject;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
+import com.example.backend.school.School;
+import com.example.backend.teaching.Teaching;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.List;
 
 @Entity
 @Getter
@@ -15,5 +17,10 @@ public class Subject {
     @GeneratedValue
     long id;
     String title;
-    String school;
+
+    @ManyToOne
+    School school;
+
+    @OneToMany(mappedBy = "subject")
+    List<Teaching> teachings;
 }

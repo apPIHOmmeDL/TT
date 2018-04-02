@@ -2,6 +2,7 @@ package com.example.backend.professor;
 
 import java.util.List;
 
+import com.example.backend.teaching.Teaching;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
