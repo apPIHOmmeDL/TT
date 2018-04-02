@@ -1,5 +1,6 @@
 import { Professor } from './prof/prof';
 
+
 // import 'bootstrap';
 
 export class App {
@@ -13,7 +14,7 @@ export class App {
             { route: ['', 'index'],  name: 'home', moduleId: 'home/index',  nav: true, title:'Esileht' },
             { route: 'prof',         name: 'prof', moduleId: 'prof/prof',   nav: true, title:'Õppejõu lisamine'  },
             { route: 'subs',         name: 'subs', moduleId: 'subject/subject',   nav: true, title:'Õppeanete lisamine'  },
-            { route: 'viewprof',         name: 'viewprof', moduleId: 'prof/viewprof',   nav: false, title:'Õppejõu vaatamine'  },
+            { route: 'viewprof',     name: 'viewprof', moduleId: 'prof/viewprof',   nav: true, title:'Õppejõu vaatamine'  },
         ]);
     }
     constructor(){

@@ -24,4 +24,5 @@ export class sub {
             });
         location.reload();
     }
+
 }

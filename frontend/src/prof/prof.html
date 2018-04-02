@@ -13,7 +13,7 @@
                 <th>Eesnimi</th>
                 <th>Perenimi</th>
                 <th>Õppeaine</th>
-                <th></th>
+                <th><button click.delegate="profView(prof.firstName, prof.lastName)">vaata kommentaare</button></th>
             </tr>
             <tr repeat.for="prof of profList">
                 <td>${prof.firstName}</td>
