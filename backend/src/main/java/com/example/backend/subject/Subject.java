@@ -21,6 +21,6 @@ public class Subject {
     @ManyToOne
     School school;
 
-    @OneToMany(mappedBy = "subject")
+    @OneToMany(mappedBy = "subject",  cascade=CascadeType.DETACH)
     List<Teaching> teachings;
 }

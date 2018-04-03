@@ -1,17 +1,12 @@
+import {HttpClient, json} from 'aurelia-fetch-client'
+import environment from "../environment";
 
 export class viewProf {
-   /* constructor(){
-    this.fname = 'nana';
-    this.lname = 'tadaa';
-    }*/
-
     activate(params, routeConfig){
-        this.routeConfig = routeConfig;
+        let client = new HttpClient();
 
-        console.log(params);
-        var id = params.id;
-        console.log(id);
-        //var lastname = params['lName'];
-        //console.log(lastname);
+        client.fetch(environment.URL + 'profs/' + params.id)
+            .then(response => response.json())
+            .then(singleProf => this.singleProf = singleProf);
     }
 }
