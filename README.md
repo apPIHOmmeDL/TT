@@ -10,6 +10,11 @@ Meie ei pushi reposse:
 
 -build kausta
 
+-src\main\resources\application.yml
+
+-.idea kausta
+
+
 ### Frontendi jooksutamiseks:
     
     cd frontend
