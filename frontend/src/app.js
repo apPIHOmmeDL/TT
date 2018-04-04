@@ -15,6 +15,7 @@ export class App {
             { route: 'prof',         name: 'prof', moduleId: PLATFORM.moduleName('prof/prof'),   nav: true, title:'Õppejõu lisamine'  },
             { route: 'subs',         name: 'subs', moduleId: PLATFORM.moduleName('subject/subject'),   nav: true, title:'Õppeanete lisamine'  },
             { route: 'viewprof/:id',     name: 'viewprof', moduleId: PLATFORM.moduleName('prof/viewprof'),  title:'Õppejõu vaatamine'  },
+            { route: 'comment/:id',     name: 'comment', moduleId: PLATFORM.moduleName('prof/comment'),  title:'Kommentaari lisamine'  },
         ]);
     }
     constructor(){
