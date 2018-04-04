@@ -10,6 +10,11 @@ Meie ei pushi reposse:
 
 -build kausta
 
+-src\main\resources\application.yml
+
+-.idea kausta
+
+
 ### Frontendi jooksutamiseks:
     
     cd frontend
@@ -18,8 +23,9 @@ Meie ei pushi reposse:
 
 ### Backendi jooksutamiseks:
     
-    käivita mariaDB pordil 3306
     gradle bootRun
+    kui väga suures hädas oled, siis gradle install võib ka aidata
+
 
 #### Kui npm install ei tööta:
 
