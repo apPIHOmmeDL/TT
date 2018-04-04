@@ -23,8 +23,9 @@ Meie ei pushi reposse:
 
 ### Backendi jooksutamiseks:
     
-    käivita mariaDB pordil 3306
     gradle bootRun
+    kui väga suures hädas oled, siis gradle install võib ka aidata
+
 
 #### Kui npm install ei tööta:
 
