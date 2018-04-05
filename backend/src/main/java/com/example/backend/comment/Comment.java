@@ -1,6 +1,7 @@
 package com.example.backend.comment;
 
 import com.example.backend.teaching.Teaching;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -18,6 +19,7 @@ public class Comment {
     long id;
     String comment;
 
+    @JsonIgnore
     @ManyToOne
     Teaching teaching;
 }

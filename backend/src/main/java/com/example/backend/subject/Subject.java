@@ -4,6 +4,7 @@ import javax.persistence.*;
 
 import com.example.backend.school.School;
 import com.example.backend.teaching.Teaching;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -18,6 +19,7 @@ public class Subject {
     long id;
     String title;
 
+    @JsonIgnore
     @ManyToOne
     School school;
 
