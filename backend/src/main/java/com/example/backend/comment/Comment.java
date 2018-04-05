@@ -17,7 +17,7 @@ public class Comment {
     @GeneratedValue
     long id;
     String comment;
-/*
+
     @ManyToOne
-    Teaching teaching;*/
+    Teaching teaching;
 }

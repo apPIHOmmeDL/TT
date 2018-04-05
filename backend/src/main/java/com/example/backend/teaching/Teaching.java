@@ -24,10 +24,10 @@ public class Teaching {
 
     @ManyToOne
     Subject subject;
-/*
+
     @OneToMany(mappedBy = "teaching", cascade=CascadeType.ALL)
     List<Comment> comments;
 
     @OneToMany(mappedBy = "teaching", cascade=CascadeType.ALL)
-    List<Rating> ratings;*/
+    List<Rating> ratings;
 }

@@ -17,7 +17,7 @@ public class Rating {
     @GeneratedValue
     long id;
     Byte rating;
-/*
+
     @ManyToOne
-    Teaching teaching;*/
+    Teaching teaching;
 }
