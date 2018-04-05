@@ -4,7 +4,6 @@
         <form submit.trigger="addProf()">
             <input type="text" value.bind="profData.firstName" placeholder="Eesnimi" class="u-full-width">
             <input type="text" value.bind="profData.lastName" placeholder="Perenimi" class="u-full-width">
-            <input type="text" value.bind="profData.aine" placeholder="Õppeaine" class="u-full-width">
             <button type="submit" class="u-full-width">Lisa Õppejõud</button>
         </form>
 
@@ -12,7 +11,6 @@
             <tr>
                 <th>Eesnimi</th>
                 <th>Perenimi</th>
-                <th>Õppeaine</th>
                 <th></th>
             </tr>
             <tr repeat.for="prof of profList">

@@ -35,8 +35,7 @@ export class prof {
     }
 
     profView(firstname, lastname, id){
-
-        window.alert(firstname + " " + lastname + " " + id);
+        //window.alert(firstname + " " + lastname + " " + id);
         this.router.navigate(`viewprof` +'/'+ id);
     }
 
