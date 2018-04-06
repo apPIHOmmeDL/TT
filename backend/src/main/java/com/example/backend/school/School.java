@@ -1,6 +1,7 @@
 package com.example.backend.school;
 
 import com.example.backend.subject.Subject;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -16,6 +17,7 @@ public class School {
     long id;
     String name;
 
-    @OneToMany(mappedBy = "school", cascade=CascadeType.ALL)
+    @OneToMany(mappedBy = "school",  cascade=CascadeType.ALL)
+    @JsonBackReference
     List<Subject> subjects;
 }
