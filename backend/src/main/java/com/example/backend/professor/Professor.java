@@ -18,6 +18,6 @@ public class Professor {
 	String firstName;
 	String lastName;
 
-	@OneToMany(mappedBy = "professor",  cascade=CascadeType.DETACH)
+	@OneToMany(mappedBy = "professor",  cascade=CascadeType.ALL)
 	List<Teaching> teachings;
 }

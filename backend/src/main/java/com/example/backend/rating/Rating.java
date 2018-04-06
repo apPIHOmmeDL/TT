@@ -1,6 +1,7 @@
 package com.example.backend.rating;
 
 import com.example.backend.teaching.Teaching;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -17,7 +18,8 @@ public class Rating {
     @GeneratedValue
     long id;
     Byte rating;
-/*
+
+    @JsonIgnore
     @ManyToOne
-    Teaching teaching;*/
+    Teaching teaching;
 }
