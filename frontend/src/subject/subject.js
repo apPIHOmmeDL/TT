@@ -3,12 +3,20 @@ import environment from '../environment'
 
 export class sub {
 
-    activate() {
+  /*  activate() {
         let client = new HttpClient();
 
         client.fetch(environment.URL + 'subs')
             .then(response => response.json())
             .then(subjs => this.subjList = subjs);
+    } */
+
+    activate(params, routeConfig){
+        let client = new HttpClient();
+
+        client.fetch(environment.URL + 'profs/' + params.id)
+            .then(response => response.json())
+            .then(singleProf => this.singleProf = singleProf);
     }
 
     addSubj() {

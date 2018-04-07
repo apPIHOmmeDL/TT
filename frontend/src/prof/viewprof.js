@@ -21,6 +21,10 @@ export class viewProf {
 
     subjView(id){
         //window.alert(firstname + " " + lastname + " " + id);
-        this.router.navigate(`viewprof` +'/'+ id);
+        this.router.navigate(`comment` +'/'+ id);
+    }
+
+    subjAdd(id){
+        this.router.navigate(`subs` +'/'+ id);
     }
 }
