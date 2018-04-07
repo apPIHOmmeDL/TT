@@ -30,4 +30,24 @@ export class comment{
         location.reload();
     }
 
+   Result() {
+
+        var text = document.getElementById("commentText").value;
+     /*  document.getElementById("demo").innerHTML = text;
+       var node = document.createElement("P");
+       var textnode = document.createTextNode(text);
+       node.appendChild(textnode);
+       document.getElementById("demo").appendChild(node);*/
+
+
+      var table = document.getElementById("demo");
+       var row = table.insertRow(0);
+       var cell1 = row.insertCell(0);
+       var cell2 = row.insertCell(1);
+       cell1.innerHTML = "Like/dislike";
+       cell2.innerHTML = text;
+
+       //
+
+    }
 }

@@ -1,6 +1,11 @@
 import {HttpClient, json} from 'aurelia-fetch-client'
+import {bindable} from 'aurelia-framework';
 
 export class searchProf{
+    @bindable execute;
+    @bindable delay;
+    timeoutHandle;
+
     constructor(){
         this.message = "kas meie esileht tootab"
     }
@@ -26,5 +31,22 @@ export class searchProf{
             });
     }
 
+
+    executeSearchP() {
+            clearTimeout(this.timeoutHandle);
+            this.execute({ query: this.query });
+    }
+
+        _query = '';
+    get query() {
+            return this._query;
+    }
+
+    set query(newValue) {
+            this._query = newValue;
+            clearTimeout(this.timeoutHandle);
+            this.timeoutHandle = setTimeout(() => this.executeSearchP(), this.delay);
+
+    }
 
 }

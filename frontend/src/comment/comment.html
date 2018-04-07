@@ -1,19 +1,17 @@
 <template>
     <div class="container">
-        <h1>Prooviks: </h1>
-        <h1>Õppejõud: ${singleProf.firstName} ${singleProf.lastName}</h1>
+        <h1>Õppejõud:Prooviks ${singleProf.firstName} ${singleProf.lastName}</h1>
         <h3>Õppeaine: ${singleProf.firstName} </h3>
-
+        <br/>
+        <br/>
         <div class="form-group">
-            <form submit.trigger="addComment()">
+            <form submit.trigger="Result()">
                 <label for="exampleFormControlTextarea3">Kommentaari sisu</label>
                 <textarea  id="commentText" class="form-control" id="exampleFormControlTextarea3" value.bind="commentData.comment" rows="7"></textarea>
                 <input type="submit"class="btn btn-success" value="Lisa kommentaar">
             </form>
-
-
         </div>
-        <div>
+      <!--  <div>
             <table class="u-full-width">
                 <tr>
                     <th>Kommentaarid</th>
@@ -22,8 +20,14 @@
                 <tr repeat.for="comment of commentList">
                     <td>${comment.comment}</td>
                 </tr>
+                <tr></tr>
+            </table>
+        </div>-->
+        <div>
+            <table  id="demo">
+                <tr>
+                </tr>
             </table>
         </div>
-
     </div>
 </template>
