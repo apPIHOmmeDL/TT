@@ -6,7 +6,8 @@ import com.example.backend.comment.Comment;
 import com.example.backend.professor.Professor;
 import com.example.backend.rating.Rating;
 import com.example.backend.subject.Subject;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -20,17 +21,19 @@ public class Teaching {
     @GeneratedValue
     long id;
 
-    @JsonIgnore
     @ManyToOne
+    @JsonBackReference
     Professor professor;
 
-    @JsonIgnore
     @ManyToOne
+    @JsonManagedReference
     Subject subject;
 
-    @OneToMany(mappedBy = "teaching", cascade=CascadeType.ALL)
+    @OneToMany(mappedBy = "teaching",  cascade=CascadeType.ALL)
+    @JsonManagedReference
     List<Comment> comments;
 
-    @OneToMany(mappedBy = "teaching", cascade=CascadeType.ALL)
+    @OneToMany(mappedBy = "teaching",  cascade=CascadeType.ALL)
+    @JsonManagedReference
     List<Rating> ratings;
 }

@@ -3,6 +3,7 @@ package com.example.backend.professor;
 import javax.persistence.*;
 
 import com.example.backend.teaching.Teaching;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -19,5 +20,6 @@ public class Professor {
 	String lastName;
 
 	@OneToMany(mappedBy = "professor",  cascade=CascadeType.ALL)
+	@JsonManagedReference
 	List<Teaching> teachings;
 }
