@@ -19,10 +19,10 @@ export class prof {
 
     addProf() {
         let client = new HttpClient();
-
+        debugger;
         client.fetch(environment.URL + 'profs/add', {
             'method': "POST",
-            'body': json(this.profData)
+            'body': JSON.stringify(this.profData)
         })
             .then(response => response.json())
             .then(data => {

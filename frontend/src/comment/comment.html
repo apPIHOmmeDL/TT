@@ -1,25 +1,17 @@
 <template>
     <div class="container">
-        <h1> EESNIMI ${fname} PERENIMI ${lname}</h1>
-        <p>vali õppeaine</p>
+        <h1>Prooviks: </h1>
+        <h1>Õppejõud: ${singleProf.firstName} ${singleProf.lastName}</h1>
+        <h3>Õppeaine: ${singleProf.firstName} </h3>
 
-        <div class="dropdown">
-            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                Dropdown
-                <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                <li><a href="#">Action</a></li>
-                <li><a href="#">Another action</a></li>
-                <li><a href="#">Something else here</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="#">Separated link</a></li>
-            </ul>
-        </div>
         <div class="form-group">
-            <label for="exampleFormControlTextarea3">Kommentaar</label>
-            <textarea class="form-control" id="exampleFormControlTextarea3" rows="7"></textarea>
-            <button type="button" class="btn btn-primary">Lisa kommentaar</button>
+            <form submit.trigger="addComment()">
+                <label for="exampleFormControlTextarea3">Kommentaari sisu</label>
+                <textarea  id="commentText" class="form-control" id="exampleFormControlTextarea3" value.bind="commentData.comment" rows="7"></textarea>
+                <input type="submit"class="btn btn-success" value="Lisa kommentaar">
+            </form>
+
+
         </div>
         <div>
             <table class="u-full-width">
@@ -29,7 +21,6 @@
                 </tr>
                 <tr repeat.for="comment of commentList">
                     <td>${comment.comment}</td>
-                    <td><button>vaata kommentaare</button></td>
                 </tr>
             </table>
         </div>

@@ -21,6 +21,7 @@ public class ProfessorController {
 	}
 	@CrossOrigin(origins = "http://localhost:9000")
 	@RequestMapping(value="/profs/add", method=RequestMethod.POST,
+			produces = "application/json",
 			consumes = "application/json")
 	public Professor addProfessor(@RequestBody Professor professor) {
 		return professorService.addProfessor(professor);
