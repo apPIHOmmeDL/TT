@@ -1,33 +1,36 @@
 <template>
     <div class="container">
-        <h1>Õppejõud:Prooviks ${singleProf.firstName} ${singleProf.lastName}</h1>
-        <h3>Õppeaine: ${singleProf.firstName} </h3>
+        <h1>Õppejõud: Eesnimi Perenimi</h1>
+        <h3>Õppeaine: Aine</h3>
         <br/>
         <br/>
         <div class="form-group">
-            <form submit.trigger="Result()">
-                <label for="exampleFormControlTextarea3">Kommentaari sisu</label>
-                <textarea  id="commentText" class="form-control" id="exampleFormControlTextarea3" value.bind="commentData.comment" rows="7"></textarea>
-                <input type="submit"class="btn btn-success" value="Lisa kommentaar">
+            <form class="form-inline"  role="form">
+                <label>Kommentaari sisu: </label><br/>
+                <textarea value.bind="commentData" rows="4" cols="80"></textarea><br>
+                <button class="btn btn-success" click.trigger="createComment()">Lisa kommentaar </button>
             </form>
+
         </div>
-      <!--  <div>
+        <label>Kommentaarid: </label>
+        <div class="container">
             <table class="u-full-width">
-                <tr>
-                    <th>Kommentaarid</th>
-                    <th></th>
-                </tr>
                 <tr repeat.for="comment of commentList">
-                    <td>${comment.comment}</td>
+                    <td>
+                        <button click.trigger="likeComment($index)" class="btn btn-success btn-sm">Like</button>
+                        <button click.trigger="dislikeComment($index)" class="btn btn-danger btn-sm">Dislike</button>
+                    </td>
+                    <td>
+                        ${comment}
+                    </td>
+                    <td>
+                        <button click.trigger="deleteComment($index)" class="btn btn-default btn-sm" style="float: right;">Kustuta</button>
+                    </td>
+
                 </tr>
-                <tr></tr>
-            </table>
-        </div>-->
-        <div>
-            <table  id="demo">
-                <tr>
-                </tr>
+
             </table>
         </div>
+
     </div>
 </template>

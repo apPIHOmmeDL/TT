@@ -1,19 +1,21 @@
 import {HttpClient, json} from 'aurelia-fetch-client'
 import {bindable} from 'aurelia-framework';
+import environment from "../environment";
 
 export class searchProf{
-    @bindable execute;
-    @bindable delay;
-    timeoutHandle;
+
 
     constructor(){
-        this.message = "kas meie esileht tootab"
+      /*  this.professors= [{name: 'Kalle Kane', subject: 'mata'},
+            {name: 'Jaak Hart', subject: 'laulmine'},
+            {name: 'Georg Cahill', subject: 'kehaline'}
+        ]*/
     }
 
     activate() {
         let client = new HttpClient();
 
-        client.fetch('http://localhost:8080/profs')
+        client.fetch(environment.URL + 'profs')
             .then(response => response.json())
             .then(profs => this.profList = profs);
     }
@@ -21,7 +23,7 @@ export class searchProf{
     addProf() {
         let client = new HttpClient();
 
-        client.fetch('http://localhost:8080/profs/add', {
+        client.fetch(environment.URL + 'profs/add', {
             'method': "POST",
             'body': json(this.profData)
         })
@@ -31,22 +33,5 @@ export class searchProf{
             });
     }
 
-
-    executeSearchP() {
-            clearTimeout(this.timeoutHandle);
-            this.execute({ query: this.query });
-    }
-
-        _query = '';
-    get query() {
-            return this._query;
-    }
-
-    set query(newValue) {
-            this._query = newValue;
-            clearTimeout(this.timeoutHandle);
-            this.timeoutHandle = setTimeout(() => this.executeSearchP(), this.delay);
-
-    }
 
 }

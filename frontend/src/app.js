@@ -17,6 +17,7 @@ export class App {
             { route: 'viewprof/:id',     name: 'viewprof', moduleId: PLATFORM.moduleName('prof/viewprof'),  title:'Õppejõu vaatamine'  },
             { route: 'comment',     name: 'comment', moduleId: PLATFORM.moduleName('comment/comment'), nav: true, title:'kommentaar'  },
             { route: 'searchProf',     name: 'searchProf', moduleId: PLATFORM.moduleName('searchProf/searchProf'), nav: true, title:'searchProf'  },
+
         ]);
     }
     constructor(){

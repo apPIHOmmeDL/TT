@@ -1,53 +1,40 @@
 import {HttpClient, json} from 'aurelia-fetch-client'
 import environment from "../environment";
 
+
 export class comment{
+
+    activate(params, routeConfig){
+        let client = new HttpClient();
+
+        client.fetch(environment.URL + 'profs/' + params.id)
+            .then(response => response.json())
+            .then(singleProf => this.singleProf = singleProf);
+    }
     constructor(){
-        this.fname = 'trrrrrr';
-        this.lname = 'lalala';
+        this.commentData ='';
+        this.commentList =[];
+        this.firstName = 'Jaan';
+        this.lastName = 'Varik'
+    }
+    get profFullName(){
+        return '${this.firstName} ${this.lastName}';//return '${this.firstName} ${this.lastName}';
     }
 
-    activate() {
-        let client = new HttpClient();
-
-        client.fetch(environment.URL + 'comment')
-            .then(response => response.json())
-            .then(comments => this.commentList = comments);
+    createComment(){
+        this.commentList.push(this.commentData);
+        this.commentData ='';
     }
 
-    addComment(){
-        let client = new HttpClient();
-
-        client.fetch(environment.URL + 'comment/add', {
-            'method': "POST",
-            'body': JSON.stringify(this.commentData)
-
-        })
-            .then(response => response.json())
-            .then(data => {
-                console.log(data.commentName)
-            });
-        location.reload();
+    deleteComment(index){
+        this.commentList.splice(index, 1);
     }
 
-   Result() {
+    likeComment(index){
 
-        var text = document.getElementById("commentText").value;
-     /*  document.getElementById("demo").innerHTML = text;
-       var node = document.createElement("P");
-       var textnode = document.createTextNode(text);
-       node.appendChild(textnode);
-       document.getElementById("demo").appendChild(node);*/
+    }
 
-
-      var table = document.getElementById("demo");
-       var row = table.insertRow(0);
-       var cell1 = row.insertCell(0);
-       var cell2 = row.insertCell(1);
-       cell1.innerHTML = "Like/dislike";
-       cell2.innerHTML = text;
-
-       //
+    dislikeComment(index){
 
     }
 }
