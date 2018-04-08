@@ -1,36 +1,34 @@
 <template>
     <div class="container">
-        <h1> EESNIMI ${fname} PERENIMI ${lname}</h1>
-        <p>vali õppeaine</p>
-
-        <div class="dropdown">
-            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                Dropdown
-                <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                <li><a href="#">Action</a></li>
-                <li><a href="#">Another action</a></li>
-                <li><a href="#">Something else here</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="#">Separated link</a></li>
-            </ul>
-        </div>
+        <h1>Õppejõud: Eesnimi Perenimi</h1>
+        <h3>Õppeaine: Aine</h3>
+        <br/>
+        <br/>
         <div class="form-group">
-            <label for="exampleFormControlTextarea3">Kommentaar</label>
-            <textarea class="form-control" id="exampleFormControlTextarea3" rows="7"></textarea>
-            <button type="button" class="btn btn-primary">Lisa kommentaar</button>
+            <form class="form-inline"  role="form">
+                <label>Kommentaari sisu: </label><br/>
+                <textarea value.bind="commentData" rows="4" cols="80"></textarea><br>
+                <button class="btn btn-success" click.trigger="createComment()">Lisa kommentaar </button>
+            </form>
+
         </div>
-        <div>
+        <label>Kommentaarid: </label>
+        <div class="container">
             <table class="u-full-width">
-                <tr>
-                    <th>Kommentaarid</th>
-                    <th></th>
-                </tr>
                 <tr repeat.for="comment of commentList">
-                    <td>${comment.comment}</td>
-                    <td><button>vaata kommentaare</button></td>
+                    <td>
+                        <button click.trigger="likeComment($index)" class="btn btn-success btn-sm">Like</button>
+                        <button click.trigger="dislikeComment($index)" class="btn btn-danger btn-sm">Dislike</button>
+                    </td>
+                    <td>
+                        ${comment}
+                    </td>
+                    <td>
+                        <button click.trigger="deleteComment($index)" class="btn btn-default btn-sm" style="float: right;">Kustuta</button>
+                    </td>
+
                 </tr>
+
             </table>
         </div>
 

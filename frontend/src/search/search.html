@@ -1,11 +1,15 @@
 <template>
     <div class="container text-center">
         <h1>${heading}</h1>
+
         <form submit.delegate="executeSearchP()">
-            <input type="text" value.bind="query">
-            <button type="submit">Search</button>
+            <input type="text" id="searchInput" value.bind="query">
+            <button type="submit" class="btn btn-success">Search</button>
             </form>
         <div>
+            <ul>
+                <li repeat.for="professor of professors">${professor.name}</li>
+            </ul>
         <table class="u-full-width">
             <tr>
                 <th>Eesnimi</th>
@@ -15,7 +19,7 @@
             <tr repeat.for="prof of profList">
                 <td>${prof.firstName}</td>
                 <td>${prof.lastName}</td>
-                <td><button>vaata kommentaare</button></td>
+                <td><button click.delegate="profView(prof.firstName, prof.lastName, prof.id)" class="btn btn-success">vaata õppejõudu!</button>
             </tr>
         </table>
         </div>
