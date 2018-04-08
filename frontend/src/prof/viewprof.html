@@ -6,7 +6,16 @@
         <table class="u-full-width">
             <tr>
                 <th>Õppeaine</th>
-                <th>Õppeasutus </th>
+                <th>Õppeasutus</th>
+                <th></th>
+            </tr>
+            <tr repeat.for="singleProf of singleProf">
+                <td>${singleProf.title}</td>
+                <td>${singleProf.school}</td>
+                <td><button click.delegate="comment(singleProf.id)">vaata õppejõudu</button></td>
+            </tr>
+            <tr class="u-full-width">
+                <td><button click.delegate="subjAdd(singleProf.id)">Lisa õppeaine</button></td>
             </tr>
         </table>
     </div>
