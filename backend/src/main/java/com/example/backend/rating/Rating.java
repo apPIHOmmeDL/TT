@@ -1,7 +1,7 @@
 package com.example.backend.rating;
 
 import com.example.backend.teaching.Teaching;
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -20,6 +20,6 @@ public class Rating {
     Byte rating;
 
     @ManyToOne
-    @JsonBackReference
+    @JsonIgnore
     Teaching teaching;
 }

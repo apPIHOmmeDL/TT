@@ -19,6 +19,7 @@ public class ProfessorController {
 	public ProfessorController(ProfessorService professorService) {
 		this.professorService = professorService;
 	}
+
 	@CrossOrigin(origins = "http://localhost:9000")
 	@RequestMapping(value="/profs/add", method=RequestMethod.POST,
 			produces = "application/json",

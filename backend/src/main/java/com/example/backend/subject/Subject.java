@@ -4,8 +4,7 @@ import javax.persistence.*;
 
 import com.example.backend.school.School;
 import com.example.backend.teaching.Teaching;
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -21,10 +20,9 @@ public class Subject {
     String title;
 
     @ManyToOne
-    @JsonManagedReference
     School school;
 
     @OneToMany(mappedBy = "subject",  cascade=CascadeType.ALL)
-    @JsonBackReference
+    @JsonIgnore
     List<Teaching> teachings;
 }
