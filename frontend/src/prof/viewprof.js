@@ -19,7 +19,7 @@ export class viewProf {
         this.router = router;
     }
 
-    subjView(id){
+    cmntView(id){
         //window.alert(firstname + " " + lastname + " " + id);
         this.router.navigate(`comment` +'/'+ id);
     }

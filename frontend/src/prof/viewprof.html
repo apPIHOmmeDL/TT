@@ -12,7 +12,7 @@
             <tr repeat.for="singleP of singleProf.teachings">
                 <td>${singleP.subject.school.name}</td>
                 <td>${singleP.subject.title}</td>
-                <td><button click.delegate="comment(singleProf.id)">vaata kommentaare</button></td>
+                <td><button click.delegate="cmntView(singleP.id)">vaata kommentaare</button></td>
             </tr>
             <tr class="u-full-width">
                 <td><button click.delegate="subjAdd(singleProf.id)">Lisa õppeaine</button></td>
