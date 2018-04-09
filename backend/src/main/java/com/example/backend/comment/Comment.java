@@ -1,7 +1,7 @@
 package com.example.backend.comment;
 
 import com.example.backend.teaching.Teaching;
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -20,6 +20,6 @@ public class Comment {
     String comment;
 
     @ManyToOne
-    @JsonBackReference
+    @JsonIgnore
     Teaching teaching;
 }
