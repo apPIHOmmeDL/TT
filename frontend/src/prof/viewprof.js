@@ -19,9 +19,9 @@ export class viewProf {
         this.router = router;
     }
 
-    cmntView(id){
+    cmntView(pid, sid){
         //window.alert(firstname + " " + lastname + " " + id);
-        this.router.navigate(`comment` +'/'+ id);
+        this.router.navigate(`comment` +'/'+ pid +'/'+ sid);
     }
 
     subjAdd(id){

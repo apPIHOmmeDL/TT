@@ -6,11 +6,17 @@ export class comment{
 
     activate(params, routeConfig){
         let client = new HttpClient();
+        console.log(params);
 
         client.fetch(environment.URL + 'profs/' + params.id)
             .then(response => response.json())
             .then(singleProf => this.singleProf = singleProf);
+
+        client.fetch(environment.URL + 'profs')
+            .then(response => response.json())
+            .then(profs => this.profList = profs);
     }
+
     constructor(){
         this.commentData ='';
         this.commentList =[];
