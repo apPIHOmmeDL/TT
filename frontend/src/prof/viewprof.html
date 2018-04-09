@@ -9,10 +9,10 @@
                 <th>Õppeasutus</th>
                 <th></th>
             </tr>
-            <tr repeat.for="singleProf of singleProf">
-                <td>${singleProf.title}</td>
-                <td>${singleProf.school}</td>
-                <td><button click.delegate="comment(singleProf.id)">vaata õppejõudu</button></td>
+            <tr repeat.for="singleP of singleProf.teachings">
+                <td>${singleP.subject.school.name}</td>
+                <td>${singleP.subject.title}</td>
+                <td><button click.delegate="comment(singleProf.id)">vaata kommentaare</button></td>
             </tr>
             <tr class="u-full-width">
                 <td><button click.delegate="subjAdd(singleProf.id)">Lisa õppeaine</button></td>
