@@ -1,7 +1,7 @@
 <template>
     <div class="container">
-        <h1>Õppejõud: Eesnimi Perenimi</h1>
-        <h3>Õppeaine: Aine</h3>
+        <h1>${singleProf.firstName} ${singleProf.lastName}</h1>
+        <h3>${singleSubj.title}</h3>
         <br/>
         <br/>
         <div class="form-group">
@@ -15,7 +15,7 @@
         <label>Kommentaarid: </label>
         <div class="container">
             <table class="u-full-width">
-                <tr repeat.for="comment of commentList">
+                <tr repeat.for="comment of singleProf.teachings[sid].comments">
                     <td>
                         <button click.trigger="likeComment($index)" class="btn btn-success btn-sm">Like</button>
                         <button click.trigger="dislikeComment($index)" class="btn btn-danger btn-sm">Dislike</button>

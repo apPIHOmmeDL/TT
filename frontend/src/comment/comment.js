@@ -7,21 +7,21 @@ export class comment{
     activate(params, routeConfig){
         let client = new HttpClient();
         console.log(params);
-
-        client.fetch(environment.URL + 'profs/' + params.id)
+        console.log(params.pid);
+        console.log(params.sid);
+       // console.log(pid.teachings[sid].subject.title);
+        client.fetch(environment.URL + 'profs/' + params.pid)
             .then(response => response.json())
             .then(singleProf => this.singleProf = singleProf);
 
-        client.fetch(environment.URL + 'profs')
+        client.fetch(environment.URL + 'subjects/' + params.sid)
             .then(response => response.json())
-            .then(profs => this.profList = profs);
+            .then(singleSubj => this.singleSubj = singleSubj);
+
     }
 
-    constructor(){
-        this.commentData ='';
-        this.commentList =[];
-        this.firstName = 'Jaan';
-        this.lastName = 'Varik'
+    constructor(router){
+        this.router = router;
     }
 
     get profFullName(){
