@@ -1,15 +1,15 @@
 import {HttpClient, json} from 'aurelia-fetch-client'
 import environment from '../environment'
 
-export class sub {
+export class subject {
 
-  /*  activate() {
+   activate() {
         let client = new HttpClient();
 
-        client.fetch(environment.URL + 'subs')
+        client.fetch(environment.URL + 'subjects')
             .then(response => response.json())
             .then(subjs => this.subjList = subjs);
-    } */
+    }
 
     activate(params, routeConfig){
         let client = new HttpClient();
@@ -22,9 +22,9 @@ export class sub {
     addSubj() {
         let client = new HttpClient();
 
-        client.fetch(environment.URL + 'subj/add', {
+        client.fetch(environment.URL + 'subjects/add', {
             'method': "POST",
-            'body': json(this.subjData)
+            'body': JSON.stringify(this.subjData)
         })
             .then(response => response.json())
             .then(data => {

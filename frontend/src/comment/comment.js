@@ -17,6 +17,7 @@ export class comment{
         this.firstName = 'Jaan';
         this.lastName = 'Varik'
     }
+
     get profFullName(){
         return '${this.firstName} ${this.lastName}';//return '${this.firstName} ${this.lastName}';
     }
