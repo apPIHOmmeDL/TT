@@ -2,10 +2,10 @@
     <div class="container">
         <h1>${singleProf.firstName} ${singleProf.lastName}, ${singleProf.teachings[ssid].subject.title}</h1>
         <br/>
-        <br/>
-        <button click.trigger="likeComment(comment.comment.id)">Meeldib</button>
-        <button click.trigger="dislikeComment(comment.comment.id)">Ei meeldi</button>
-        <br/>
+        <h1>
+            <a click.delegate="likeSubject(singleProf.teachings[ssid].subject.id)">&#128077;</a>
+            <a click.delegate="dislikeSubject(singleProf.teachings[ssid].subject.id)">&#128078;</a>
+        </h1>
         <br/>
         <form class="u-full-width"  role="form">
             <label for="1">Lisa kommentaar:</label>
@@ -22,8 +22,8 @@
                     ${comment.comment}
                 </td>
                 <td>
-                    <button click.trigger="likeComment(comment.comment.id)">Meeldib</button>
-                    <button click.trigger="dislikeComment(comment.comment.id)">Ei meeldi</button>
+                    <a click.delegate="likeComment(comment.id)">&#128077;</a>
+                    <a click.delegate="dislikeComment(comment.id)">&#128078;</a>
                 </td>
                 <td>
                     <button click.trigger="deleteComment($index)" class="btn btn-default btn-sm" style="float: right;">Kustuta</button>

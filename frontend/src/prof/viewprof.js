@@ -56,4 +56,13 @@ export class viewProf {
             });
         location.reload();
     }
+
+    likeSubject(id){
+        console.log(id);
+    }
+
+
+    dislikeSubject(id){
+        console.log(id);
+    }
 }

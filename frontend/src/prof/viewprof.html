@@ -13,10 +13,14 @@
                 <td>${singleP.subject.title}</td>
                 <td>${singleP.subject.school.name}</td>
                 <td><button click.delegate="cmntView(singleProf.id, singleProf.teachings.indexOf(singleP),0)">vaata kommentaare</button></td>
+                <td>
+                    <a click.delegate="likeSubject(singleProf.teachings.indexOf(singleP))">&#128077;</a>
+                    <a click.delegate="dislikeSubject(singleProf.teachings.indexOf(singleP))">&#128078;</a>
+                </td>
             </tr>
-            <!--<tr class="u-full-width">
-                <td><button click.delegate="subjAdd(singleProf.id)">Lisa õppeaine</button></td>
-            </tr>-->
+
+
+
         </table>
         <form submit.trigger="addTeaching(singleProf.id, subject)">
 

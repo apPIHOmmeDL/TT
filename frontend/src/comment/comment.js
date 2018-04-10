@@ -26,11 +26,20 @@ export class comment{
         this.commentList.splice(index, 1);
     }
 
-    likeComment(index){
-
+    likeComment(id){
+        console.log(id);
     }
 
-    dislikeComment(index){
+    dislikeComment(id){
+        console.log(id);
+    }
 
+    likeSubject(id){
+        console.log(id);
+    }
+
+
+    dislikeSubject(id){
+        console.log(id);
     }
 }
