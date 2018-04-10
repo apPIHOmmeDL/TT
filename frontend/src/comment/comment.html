@@ -3,7 +3,10 @@
         <h1>${singleProf.firstName} ${singleProf.lastName}, ${singleProf.teachings[ssid].subject.title}</h1>
         <br/>
         <br/>
-
+        <button click.trigger="likeComment(comment.comment.id)">Meeldib</button>
+        <button click.trigger="dislikeComment(comment.comment.id)">Ei meeldi</button>
+        <br/>
+        <br/>
         <form class="u-full-width"  role="form">
             <label for="1">Lisa kommentaar:</label>
             <textarea value.bind="comment" placeholder="Kommentaar" class="u-full-width" id="1"></textarea>
