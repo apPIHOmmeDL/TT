@@ -14,25 +14,23 @@
                 <td>${singleP.subject.school.name}</td>
                 <td><button click.delegate="cmntView(singleProf.id, singleProf.teachings.indexOf(singleP),0)">vaata kommentaare</button></td>
                 <td>
-                    <a click.delegate="likeSubject(singleProf.teachings.indexOf(singleP))">&#128077;</a>
-                    <a click.delegate="dislikeSubject(singleProf.teachings.indexOf(singleP))">&#128078;</a>
+                    <a click.delegate="likeSubject(singleProf.teachings.indexOf(singleP))" style="color:green">17 &#128077;</a>
+                    <a click.delegate="dislikeSubject(singleProf.teachings.indexOf(singleP))" style="color:red">&#128078; 25</a>
                 </td>
             </tr>
-
-
-
         </table>
+
         <form submit.trigger="addTeaching(singleProf.id, subject)">
-
-            <select class="u-full-width">
-                <option>-----vali õppeasutus-----</option>
-                <option repeat.for="school of schoolList._embedded.schools">${school.name}</option>
-            </select>
-
-            <input type="text" class="u-full-width"  placeholder="Õppeaine" value.bind="subject.name">
-
-            <button type="submit" class="u-full-width">Lisa Õppeaine</button>
-
+            <div class="seven columns">
+            <h2>Lisa uus õppeaine</h2>
+                <select class="u-full-width">
+                    <option>-----vali õppeasutus-----</option>
+                    <option repeat.for="school of schoolList._embedded.schools">${school.name}</option>
+                </select>
+                <input type="text" class="u-full-width"  placeholder="Õppeaine nimetus" value.bind="subject.name">
+                <button type="submit" class="button-primary">Lisa Õppeaine</button>
+            </div>
         </form>
+
     </div>
 </template>

@@ -1,18 +1,22 @@
 <template>
     <div class="container">
+        <div class="eleven columns">
         <h1>${singleProf.firstName} ${singleProf.lastName}, ${singleProf.teachings[ssid].subject.title}</h1>
         <br/>
-        <h1>
-            <a click.delegate="likeSubject(singleProf.teachings[ssid].subject.id)">&#128077;</a>
-            <a click.delegate="dislikeSubject(singleProf.teachings[ssid].subject.id)">&#128078;</a>
-        </h1>
+        <h2>
+            <a click.delegate="likeSubject(singleProf.teachings[ssid].subject.id)" style="color:green">5 &#128077;</a>
+            <a click.delegate="dislikeSubject(singleProf.teachings[ssid].subject.id)" style="color:red">&#128078; 5</a>
+        </h2>
         <br/>
-        <form class="u-full-width"  role="form">
-            <label for="1">Lisa kommentaar:</label>
-            <textarea value.bind="comment" placeholder="Kommentaar" class="u-full-width" id="1"></textarea>
-            <button type="submit" class="button" click.trigger="createComment()">Lisa kommentaar </button>
+        <form  role="form">
+            <div class="seven columns">
+                <label for="1"><h4>Lisa kommentaar:</h4></label>
+                <textarea value.bind="comment" placeholder="Kommentaar" class="u-full-width" id="1"></textarea>
+                <br/>
+                <button type="submit" class="button-primary" click.trigger="createComment()">Lisa kommentaar </button>
+            </div>
         </form>
-
+        <br/>
         <table class="u-full-width">
 
             <th><h2>Kommentaarid:</h2></th>
@@ -22,16 +26,12 @@
                     ${comment.comment}
                 </td>
                 <td>
-                    <a click.delegate="likeComment(comment.id)">&#128077;</a>
-                    <a click.delegate="dislikeComment(comment.id)">&#128078;</a>
+                    <a click.delegate="likeComment(comment.id)" style="color:green">1 &#128077;</a>
+                    <a click.delegate="dislikeComment(comment.id)"style="color:red">&#128078; 56 </a>
                 </td>
-                <td>
-                    <button click.trigger="deleteComment($index)" class="btn btn-default btn-sm" style="float: right;">Kustuta</button>
-                </td>
-
             </tr>
         </table>
-
+        </div>
 
     </div>
 </template>
