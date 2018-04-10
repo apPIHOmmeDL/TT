@@ -22,7 +22,7 @@ public class Teaching {
     @ManyToOne
     Professor professor;
 
-    @ManyToOne
+    @ManyToOne(cascade=CascadeType.ALL)
     Subject subject;
 
     @OneToMany(mappedBy = "teaching",  cascade=CascadeType.ALL)
