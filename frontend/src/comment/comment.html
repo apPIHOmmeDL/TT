@@ -1,20 +1,17 @@
 <template>
     <div class="container">
         <h1>${singleProf.firstName} ${singleProf.lastName}</h1>
-        <h3>${singleSubj.title}</h3>
+        <h3>${singleProf.teachings[ssid].subject.title}</h3>
         <br/>
         <br/>
-        <div class="form-group">
-            <form class="form-inline"  role="form">
-                <label>Kommentaari sisu: </label><br/>
-                <textarea value.bind="commentData" rows="4" cols="80"></textarea><br>
-                <button class="btn btn-success" click.trigger="createComment()">Lisa kommentaar </button>
-            </form>
+        <form class="form-inline"  role="form">
+            <textarea value.bind="comment" placeholder="Kommentaar" class="u-full-width"></textarea>
+            <button type="submit" class="button" click.trigger="createComment()">Lisa kommentaar </button>
+        </form>
 
-        </div>
-        <label>Kommentaarid: </label>
-        <div class="container">
-            <table class="u-full-width">
+        <table class="u-full-width">
+
+            <th>Kommentaarid:</th>
                 <tr repeat.for="comment of singleProf.teachings[sid].comments">
                     <td>
                         <button click.trigger="likeComment($index)" class="btn btn-success btn-sm">Like</button>
@@ -28,9 +25,6 @@
                     </td>
 
                 </tr>
-
             </table>
-        </div>
-
     </div>
 </template>
