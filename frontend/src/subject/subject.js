@@ -9,13 +9,17 @@ export class subject {
         client.fetch(environment.URL + 'profs/' + params.id)
             .then(response => response.json())
             .then(singleProf => this.singleProf = singleProf);
+
+        client.fetch(environment.URL + 'schools/')
+            .then(response => response.json())
+            .then(schoolsz => this.schoolList = schoolsz);
     }
 
     constructor(router){
         this.router = router;
     }
 
-    addSubj() {
+    addSubject() {
         let client = new HttpClient();
 
         client.fetch(environment.URL + 'subjects/add', {
