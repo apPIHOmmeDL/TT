@@ -8,12 +8,12 @@
             <a click.delegate="dislikeSubject(singleProf.teachings[ssid].subject.id)" style="color:red">&#128078; 5</a>
         </h2>
         <br/>
-        <form  role="form">
+        <form  role="form" submit.trigger="addComment(comment)">
             <div class="seven columns">
                 <label for="1"><h4>Lisa kommentaar:</h4></label>
-                <textarea value.bind="comment" placeholder="Kommentaar" class="u-full-width" id="1"></textarea>
+                <textarea value.bind="comment.name" placeholder="Kommentaar" class="u-full-width" id="1"></textarea>
                 <br/>
-                <button type="submit" class="button-primary" click.trigger="createComment()">Lisa kommentaar </button>
+                <button type="submit" class="button-primary">Lisa kommentaar </button>
             </div>
         </form>
         <br/>
