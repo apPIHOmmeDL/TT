@@ -1,20 +1,14 @@
 <template>
     <div class="container">
         <h1>Lisa õppeaine ${singleProf.firstName} ${singleProf.lastName} jaoks</h1>
-
         <form submit.trigger="addSubject()">
-
             <select class="u-full-width">
                 <option>-----vali õppeasutus-----</option>
                 <option repeat.for="school of schoolList._embedded.schools">${school.name}</option>
             </select>
-
             <input type="text" class="u-full-width"  placeholder="Õppeaine">
-
             <button type="submit" class="u-full-width">Lisa Õppeaine</button>
-
         </form>
-
         <table class="u-full-width">
                 <tr>
                     <th>Õppeaine</th>
@@ -26,8 +20,6 @@
                     <td>${singleP.subject.school.name}</td>
                     <td><button click.delegate="cmntView(singleProf.id, singleProf.teachings.indexOf(singleP),0)">vaata kommentaare</button></td>
              </tr>
-
         </table>
-
     </div>
 </template>
