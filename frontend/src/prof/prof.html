@@ -1,8 +1,6 @@
 <template>
     <div class="container">
-
         <h1>${heading}</h1>
-
         <form submit.trigger="addProf()">
             <div class="seven columns">
                 <input type="text" value.bind="profData.firstName" placeholder="Eesnimi" class="u-full-width">
@@ -10,7 +8,6 @@
                 <button type="submit" class="button-primary">Lisa Õppejõud</button>
             </div>
         </form>
-
         <table class="u-full-width">
             <tr>
                 <th>Eesnimi</th>
@@ -20,7 +17,6 @@
             <tr repeat.for="prof of profList">
                 <td>${prof.firstName}</td>
                 <td>${prof.lastName}</td>
-                <td>${prof.aine}</td>
                 <td><button click.delegate="profView(prof.firstName, prof.lastName, prof.id)">vaata õppejõudu</button></td>
             </tr>
         </table>

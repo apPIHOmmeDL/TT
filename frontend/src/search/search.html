@@ -5,17 +5,12 @@
         <form submit.delegate="executeSearchP()">
             <input type="text" id="searchInput" value.bind="query">
             <button type="submit" class="btn btn-success">Search</button>
-            </form>
+        </form>
         <div>
             <ul>
                 <li repeat.for="professor of professors">${professor.name}</li>
             </ul>
         <table class="u-full-width">
-            <tr>
-                <th>Eesnimi</th>
-                <th>Perenimi</th>
-                <th></th>
-            </tr>
             <tr repeat.for="prof of profList">
                 <td>${prof.firstName}</td>
                 <td>${prof.lastName}</td>
