@@ -9,6 +9,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.TestExecutionListener;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -28,6 +29,7 @@ public class ProfessorTests {
         testProfessor = new Professor();
         testTeaching1 = new Teaching();
         testTeaching2 = new Teaching();
+        testTeachings = new ArrayList<Teaching>();
     }
 
     @Test
@@ -46,12 +48,12 @@ public class ProfessorTests {
         testProfessor.setLastName("Nool");
         assertEquals("Nool", testProfessor.getLastName());
     }
-/*
+
     @Test
     public void testIfCorrectLengthArrayIsReturned() {
         testTeachings.add(testTeaching1);
         testTeachings.add(testTeaching2);
         testProfessor.setTeachings(testTeachings);
-        assertEquals(2, testTeachings.size());
-    }*/
+        assertEquals(2, testProfessor.getTeachings().size());
+    }
 }

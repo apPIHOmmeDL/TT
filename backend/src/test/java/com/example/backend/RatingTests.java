@@ -35,4 +35,6 @@ public class RatingTests {
         testRating.setRating(1);
         assertEquals(1, testRating.getRating());
     }
+
+
 }
