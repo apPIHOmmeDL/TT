@@ -17,7 +17,7 @@ public class Rating {
     @Id
     @GeneratedValue
     long id;
-    Byte rating;
+    int rating;
 
     @ManyToOne
     @JsonIgnore
