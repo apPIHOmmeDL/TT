@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.util.List;
 
+@RestController
 public class SchoolController {
     private SchoolService schoolService;
 

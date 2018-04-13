@@ -1,7 +1,7 @@
 package com.example.backend.rating;
 
 import com.example.backend.teaching.Teaching;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -20,6 +20,6 @@ public class Rating {
     int rating;
 
     @ManyToOne
-    @JsonIgnore
+    @JsonIgnoreProperties({"professor", "subject", "comments", "ratings"})
     Teaching teaching;
 }

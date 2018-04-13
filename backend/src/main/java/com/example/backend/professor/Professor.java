@@ -20,6 +20,6 @@ public class Professor {
 	String lastName;
 
 	@OneToMany(mappedBy = "professor",  cascade=CascadeType.ALL)
-			@JsonIgnoreProperties({"professor"})
+	@JsonIgnoreProperties({"professor"})
 	List<Teaching> teachings;
 }
