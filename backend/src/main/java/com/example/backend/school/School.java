@@ -2,6 +2,7 @@ package com.example.backend.school;
 
 import com.example.backend.subject.Subject;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -18,6 +19,6 @@ public class School {
     String name;
 
     @OneToMany(mappedBy = "school",  cascade=CascadeType.ALL)
-    @JsonIgnore
+    @JsonIgnoreProperties({"school", "teachings"})
     List<Subject> subjects;
 }
