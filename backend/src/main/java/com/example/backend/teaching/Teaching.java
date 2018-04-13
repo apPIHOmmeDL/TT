@@ -6,6 +6,7 @@ import com.example.backend.comment.Comment;
 import com.example.backend.professor.Professor;
 import com.example.backend.rating.Rating;
 import com.example.backend.subject.Subject;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -20,9 +21,11 @@ public class Teaching {
     long id;
 
     @ManyToOne
+    @JsonIgnoreProperties({"teachings"})
     Professor professor;
 
     @ManyToOne(cascade=CascadeType.ALL)
+    @JsonIgnoreProperties({"teachings"})
     Subject subject;
 
     @OneToMany(mappedBy = "teaching",  cascade=CascadeType.ALL)
