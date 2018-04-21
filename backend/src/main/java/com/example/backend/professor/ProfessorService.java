@@ -25,4 +25,8 @@ public class ProfessorService {
 	Professor getProfessorById(long professorId) {
 		return professorRepository.findOne(professorId);
 	}
+
+	List<Professor> searchProfessors(String searchString) {
+		return professorRepository.findBylastName(searchString);
+	}
 }

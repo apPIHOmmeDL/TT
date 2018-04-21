@@ -1,5 +1,5 @@
 MIS FORMAADIS ANDMEBAASIST ANDMED TULEVAD NING MIS FORMAADIS NEID SISESTADA?
-KOMMENTAAR(RIDA 6), REITING(RIDA 47), ÕPETAMINE(RIDA 88), ÕPPEJÕUD(RIDA 190), AINE(RIDA 335), KOOL(RIDA 433) (EESTI KEELES, ET OLEKS LIHTSAM CTRL+F)
+KOMMENTAAR(RIDA 6), REITING(RIDA 47), ÕPETAMINE(RIDA 88), ÕPPEJÕUD(RIDA 190), AINE(RIDA 335), KOOL(RIDA 433), OTSING(RIDA 516)(EESTI KEELES, ET OLEKS LIHTSAM CTRL+F)
 ESMALT LISTI PÄRING, SIIS OBJEKTI PÄRING NING LÕPUS LISAMISE PÄRING
 
 
@@ -511,3 +511,66 @@ localhost:8080/schools/add
 {
 	"name": "kooli nimi"
 }
+
+
+OTSING (AINULT PROFESSORI PERENIME JÄRGI)
+localhost:8080/profs/search/Valk
+[
+    {
+        "id": 8,
+        "firstName": "Katrin",
+        "lastName": "Valk",
+        "teachings": [
+            {
+                "id": 20,
+                "subject": {
+                    "id": 4,
+                    "title": "Matemaatiline analüüs",
+                    "school": {
+                        "id": 1,
+                        "name": "Tallinna Tehnikaülikool"
+                    }
+                },
+                "comments": [
+                    {
+                        "id": 9,
+                        "comment": "Porttitor condimentum facilisis eu non sodales.",
+                        "teaching": {
+                            "id": 20
+                        }
+                    }
+                ],
+                "ratings": [
+                    {
+                        "id": 50,
+                        "rating": 1,
+                        "teaching": {
+                            "id": 20
+                        }
+                    }
+                ]
+            },
+            {
+                "id": 21,
+                "subject": {
+                    "id": 6,
+                    "title": "Matemaatiline analüüs",
+                    "school": {
+                        "id": 2,
+                        "name": "Tartu Ülikool"
+                    }
+                },
+                "comments": [
+                    {
+                        "id": 14,
+                        "comment": "Morbi vehicula in.",
+                        "teaching": {
+                            "id": 21
+                        }
+                    }
+                ],
+                "ratings": []
+            }
+        ]
+    }
+]
