@@ -9,13 +9,13 @@
                 <th>Õppeasutus</th>
                 <th></th>
             </tr>
-            <tr repeat.for="singleP of singleProf.teachings">
-                <td>${singleP.subject.title}</td>
-                <td>${singleP.subject.school.name}</td>
-                <td><button click.delegate="cmntView(singleProf.id, singleP.id , singleProf.teachings.indexOf(singleP),0)">vaata kommentaare</button></td>
+            <tr repeat.for="teaching of singleProf.teachings">
+                <td>${teaching.subject.title}</td>
+                <td>${teaching.subject.school.name}</td>
+                <td><button click.delegate="cmntView(singleProf.id, teaching.id , singleProf.teachings.indexOf(teaching),0)">vaata kommentaare</button></td>
                 <td>
-                    <a click.delegate="likeSubject(singleProf.teachings.indexOf(singleP))" style="color:green">${singleP.teachingRatings.filter(yleshaal).length} &#128077;</a>
-                    <a click.delegate="dislikeSubject(singleProf.teachings.indexOf(singleP))" style="color:red">&#128078; ${singleP.teachingRatings.filter(alahaal).length}</a>
+                    <a click.delegate="rateSubject(teaching.id, 1)" style="color:green">${teaching.teachingRatings.filter(yleshaal).length} &#128077;</a>
+                    <a click.delegate="rateSubject(teaching.id, 0)" style="color:red">&#128078; ${teaching.teachingRatings.filter(alahaal).length}</a>
                 </td>
             </tr>
         </table>
