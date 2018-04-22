@@ -1,7 +1,7 @@
 package com.example.backend;
 
 import com.example.backend.comment.Comment;
-import com.example.backend.rating.Rating;
+import com.example.backend.teachingRating.TeachingRating;
 import com.example.backend.teaching.Teaching;
 import org.junit.Before;
 import org.junit.Test;
@@ -24,9 +24,9 @@ public class TeachingTests {
     private Comment testComment1;
     private Comment testComment2;
     private List<Comment> testComments;
-    private Rating testRating1;
-    private Rating testRating2;
-    private List<Rating> testRatings;
+    private TeachingRating testTeachingRating1;
+    private TeachingRating testTeachingRating2;
+    private List<TeachingRating> testTeachingRatings;
 
     @Before
     public void setUp() {
@@ -34,9 +34,9 @@ public class TeachingTests {
         testComment1 = new Comment();
         testComment2 = new Comment();
         testComments = new ArrayList<Comment>();
-        testRating1 = new Rating();
-        testRating2 = new Rating();
-        testRatings = new ArrayList<Rating>();
+        testTeachingRating1 = new TeachingRating();
+        testTeachingRating2 = new TeachingRating();
+        testTeachingRatings = new ArrayList<TeachingRating>();
     }
 
     @Test
@@ -49,10 +49,10 @@ public class TeachingTests {
         testComments.add(testComment1);
         testComments.add(testComment2);
         testTeaching.setComments(testComments);
-        testRatings.add(testRating1);
-        testRatings.add(testRating2);
-        testTeaching.setRatings(testRatings);
+        testTeachingRatings.add(testTeachingRating1);
+        testTeachingRatings.add(testTeachingRating2);
+        testTeaching.setTeachingRatings(testTeachingRatings);
         assertEquals(2, testTeaching.getComments().size());
-        assertEquals(2, testTeaching.getRatings().size());
+        assertEquals(2, testTeaching.getTeachingRatings().size());
     }
 }
