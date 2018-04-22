@@ -86,11 +86,48 @@ export class comment{
 
     likeSubject(id){
         console.log(id + ' Liked');
+
+        let ratingJSON = "{\n" +
+            "\t\"rating\": \"" + 1 +"\",\n" +
+            "\t\"teaching\":{\n" +
+            "\t\t\"id\":"+ id +"\n" +
+            "\t}\n" +
+            "}";
+
+        let client = new HttpClient();
+        client.fetch(environment.URL + 'teachingRatings/add', {
+            'method': "POST",
+            'body': ratingJSON
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+            });
+        location.reload();
     }
 
 
     dislikeSubject(id){
         console.log(id + ' Disliked');
+
+        let ratingJSON = "{\n" +
+            "\t\"rating\": \"" + 0 +"\",\n" +
+            "\t\"teaching\":{\n" +
+            "\t\t\"id\":"+ id +"\n" +
+            "\t}\n" +
+            "}";
+
+        let client = new HttpClient();
+        client.fetch(environment.URL + 'teachingRatings/add', {
+            'method': "POST",
+            'body': ratingJSON
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+            });
+        location.reload();
+
     }
 
     addComment(comment)

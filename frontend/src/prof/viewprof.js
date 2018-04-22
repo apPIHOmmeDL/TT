@@ -58,7 +58,8 @@ export class viewProf {
     }
 
     likeSubject(id){
-        console.log(id);
+        console.log(id.teaching);
+
     }
 
 

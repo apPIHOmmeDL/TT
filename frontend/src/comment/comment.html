@@ -5,8 +5,8 @@
         </h1>
         <br/>
         <h2>
-            <a click.delegate="likeSubject(singleProf.teachings[ssid].subject.id)" style="color:green">${teachins.teachingRatings.filter(yleshaal).length} &#128077;</a>
-            <a click.delegate="dislikeSubject(singleProf.teachings[ssid].subject.id)" style="color:red">&#128078; ${teachins.teachingRatings.filter(alahaal).length}</a>
+            <a click.delegate="likeSubject(singleProf.teachings[ssid].id)" style="color:green">${teachins.teachingRatings.filter(yleshaal).length} &#128077;</a>
+            <a click.delegate="dislikeSubject(singleProf.teachings[ssid].id)" style="color:red">&#128078; ${teachins.teachingRatings.filter(alahaal).length}</a>
         </h2>
         <br/>
         <form  role="form" submit.trigger="addComment(comment)">
