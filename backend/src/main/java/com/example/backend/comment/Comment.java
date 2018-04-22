@@ -20,6 +20,7 @@ public class Comment {
     String comment;
 
     @OneToMany(mappedBy = "comment",  cascade=CascadeType.ALL)
+    @JsonIgnoreProperties({"comment"})
     List<CommentRating> commentRatings;
 
     @ManyToOne

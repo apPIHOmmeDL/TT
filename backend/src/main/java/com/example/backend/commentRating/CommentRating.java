@@ -17,6 +17,6 @@ public class CommentRating {
     int rating;
 
     @ManyToOne
-    @JsonIgnoreProperties({"commentRatings"})
+    @JsonIgnoreProperties({"commentRatings", "comment", "teaching"})
     Comment comment;
 }

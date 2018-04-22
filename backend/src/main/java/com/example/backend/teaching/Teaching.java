@@ -24,7 +24,7 @@ public class Teaching {
     @JsonIgnoreProperties({"teachings"})
     Professor professor;
 
-    @ManyToOne(cascade=CascadeType.ALL)
+    @ManyToOne
     @JsonIgnoreProperties({"teachings"})
     Subject subject;
 
