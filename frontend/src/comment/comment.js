@@ -41,12 +41,47 @@ export class comment{
     }
 
     likeComment(id){
-        console.log(teachingRatings);
         console.log(id + ' Liked');
+
+        let ratingJSON = "{\n" +
+            "\t\"rating\": \"" + 1 +"\",\n" +
+            "\t\"comment\":{\n" +
+            "\t\t\"id\":"+ id +"\n" +
+            "\t}\n" +
+            "}";
+
+        let client = new HttpClient();
+        client.fetch(environment.URL + 'commentRatings/add', {
+            'method': "POST",
+            'body': ratingJSON
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+            });
+        location.reload();
     }
 
     dislikeComment(id){
         console.log(id + ' Disliked');
+
+        let ratingJSON = "{\n" +
+            "\t\"rating\": \"" + 0 +"\",\n" +
+            "\t\"comment\":{\n" +
+            "\t\t\"id\":"+ id +"\n" +
+            "\t}\n" +
+            "}";
+
+        let client = new HttpClient();
+        client.fetch(environment.URL + 'commentRatings/add', {
+            'method': "POST",
+            'body': ratingJSON
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+            });
+        location.reload();
     }
 
     likeSubject(id){
@@ -78,4 +113,5 @@ export class comment{
             });
         location.reload();
     }
+
 }
