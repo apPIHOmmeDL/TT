@@ -1,5 +1,5 @@
 MIS FORMAADIS ANDMEBAASIST ANDMED TULEVAD NING MIS FORMAADIS NEID SISESTADA?
-KOMMENTAAR(RIDA 6), KOMMENTAARI REITING(RIDA 69), ÕPETAMINE(RIDA 110), ÕPETAMISE REITING(RIDA 250) ÕPPEJÕUD(RIDA 290), AINE(RIDA 455), KOOL(RIDA 569), OTSING(RIDA 652)(EESTI KEELES, ET OLEKS LIHTSAM CTRL+F)
+KOMMENTAAR(RIDA 6), KOMMENTAARI REITING(RIDA 69), ÕPETAMINE(RIDA 110), ÕPETAMISE REITING(RIDA 250) ÕPPEJÕUD(RIDA 290), AINE(RIDA 455), KOOL(RIDA 569), PROFESSORI OTSING(RIDA 652), AINE OTSING(RIDA 735) (EESTI KEELES, ET OLEKS LIHTSAM CTRL+F)
 ESMALT LISTI PÄRING, SIIS OBJEKTI PÄRING NING LÕPUS LISAMISE PÄRING
 
 
@@ -671,12 +671,22 @@ localhost:8080/profs/search/Valk
                     {
                         "id": 9,
                         "comment": "Porttitor condimentum facilisis eu non sodales.",
+                        "commentRatings": [
+                            {
+                                "id": 9,
+                                "rating": 0
+                            },
+                            {
+                                "id": 42,
+                                "rating": 1
+                            }
+                        ],
                         "teaching": {
                             "id": 20
                         }
                     }
                 ],
-                "ratings": [
+                "teachingRatings": [
                     {
                         "id": 50,
                         "rating": 1,
@@ -700,12 +710,104 @@ localhost:8080/profs/search/Valk
                     {
                         "id": 14,
                         "comment": "Morbi vehicula in.",
+                        "commentRatings": [
+                            {
+                                "id": 8,
+                                "rating": 0
+                            },
+                            {
+                                "id": 11,
+                                "rating": 1
+                            }
+                        ],
                         "teaching": {
                             "id": 21
                         }
                     }
                 ],
-                "ratings": []
+                "teachingRatings": []
+            }
+        ]
+    }
+]
+
+
+OTSING (AINULT PROFESSORI PERENIME JÄRGI)
+localhost:8080/subjects/search/arvutid
+[
+    {
+        "id": 1,
+        "title": "Arvutid",
+        "school": {
+            "id": 1,
+            "name": "Tallinna Tehnikaülikool"
+        },
+        "teachings": [
+            {
+                "id": 6,
+                "professor": {
+                    "id": 3,
+                    "firstName": "Andres",
+                    "lastName": "Saar"
+                }
+            },
+            {
+                "id": 10,
+                "professor": {
+                    "id": 4,
+                    "firstName": "Jaan",
+                    "lastName": "Ivanov"
+                }
+            },
+            {
+                "id": 14,
+                "professor": {
+                    "id": 5,
+                    "firstName": "Kaisa",
+                    "lastName": "Mägi"
+                }
+            },
+            {
+                "id": 19,
+                "professor": {
+                    "id": 7,
+                    "firstName": "Sergei",
+                    "lastName": "Smirnov"
+                }
+            },
+            {
+                "id": 22,
+                "professor": {
+                    "id": 9,
+                    "firstName": "Teet",
+                    "lastName": "Sepp"
+                }
+            }
+        ]
+    },
+    {
+        "id": 9,
+        "title": "Arvutid",
+        "school": {
+            "id": 3,
+            "name": "Tallinna Ülikool"
+        },
+        "teachings": [
+            {
+                "id": 9,
+                "professor": {
+                    "id": 3,
+                    "firstName": "Andres",
+                    "lastName": "Saar"
+                }
+            },
+            {
+                "id": 18,
+                "professor": {
+                    "id": 6,
+                    "firstName": "Magnus",
+                    "lastName": "Mõttus"
+                }
             }
         ]
     }
