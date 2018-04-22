@@ -11,8 +11,12 @@ export class comment{
         client.fetch(environment.URL + 'profs/' + params.pid)
             .then(response => response.json())
             .then(singleProf => this.singleProf = singleProf);
-    }
 
+        client.fetch(environment.URL + 'teachings/' + params.tid)
+            .then(response => response.json())
+            .then(teachin => this.teachins = teachin);
+
+    }
 
     constructor(router){
         this.router = router;
@@ -27,21 +31,31 @@ export class comment{
         this.commentList.splice(index, 1);
     }
 
+    yleshaal(haal){
+        if (haal.rating === 1)
+            return haal;
+    }
+    alahaal(haal){
+        if (haal.rating === 0)
+            return haal;
+    }
+
     likeComment(id){
-        console.log(id);
+        console.log(teachingRatings);
+        console.log(id + ' Liked');
     }
 
     dislikeComment(id){
-        console.log(id);
+        console.log(id + ' Disliked');
     }
 
     likeSubject(id){
-        console.log(id);
+        console.log(id + ' Liked');
     }
 
 
     dislikeSubject(id){
-        console.log(id);
+        console.log(id + ' Disliked');
     }
 
     addComment(comment)
