@@ -8,6 +8,8 @@ export class search{
 
     constructor(router){
         this.router = router;
+        this.professors = [];
+        this.searchString = '';
     }
 
     activate() {
@@ -15,20 +17,17 @@ export class search{
 
         client.fetch(environment.URL + 'profs')
             .then(response => response.json())
-            .then(profs => this.profList = profs);
+            .then(profs => this.professors = profs);
     }
 
-    searchProf(){
+    searchProfessors(){
         console.log('Search prof reached');
-        debugger;
         let client = new HttpClient();
-
-        client.fetch(environment.URL + 'profs/search/'+ this.searchStr )
+        debugger;
+        let professors = this.professors;
+        client.fetch(environment.URL + 'profs/search/'+ this.searchString)
             .then(response => response.json())
-            .then(function(profs) {
-                debugger;
-                this.profList = profs
-            });
+            .then(profs => this.professors =  profs);
     }
 
 }
