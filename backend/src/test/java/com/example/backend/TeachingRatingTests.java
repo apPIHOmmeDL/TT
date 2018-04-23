@@ -1,13 +1,11 @@
 package com.example.backend;
 
-import com.example.backend.rating.Rating;
-import org.hibernate.type.ByteType;
+import com.example.backend.teachingRating.TeachingRating;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
-import sun.management.snmp.jvminstr.JvmThreadInstanceEntryImpl;
 
 import java.util.Objects;
 
@@ -16,24 +14,24 @@ import static org.junit.Assert.assertFalse;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class RatingTests {
+public class TeachingRatingTests {
 
-    private Rating testRating;
+    private TeachingRating testTeachingRating;
 
     @Before
     public void setUp() {
-        testRating = new Rating();
+        testTeachingRating = new TeachingRating();
     }
 
     @Test
     public void testIfNewIdIsNotNull() {
-        assertFalse(Objects.isNull(testRating.getId()));
+        assertFalse(Objects.isNull(testTeachingRating.getId()));
     }
 
     @Test
     public void testIfCorrectCommentIsReturned() {
-        testRating.setRating(1);
-        assertEquals(1, testRating.getRating());
+        testTeachingRating.setRating(1);
+        assertEquals(1, testTeachingRating.getRating());
     }
 
 

@@ -1,11 +1,12 @@
 <template>
     <div class="container">
         <div class="eleven columns">
-        <h1>${singleProf.firstName} ${singleProf.lastName}, ${singleProf.teachings[ssid].subject.title}</h1>
+        <h1>${singleProf.firstName} ${singleProf.lastName}, ${singleProf.teachings[ssid].subject.title}
+        </h1>
         <br/>
         <h2>
-            <a click.delegate="likeSubject(singleProf.teachings[ssid].subject.id)" style="color:green">5 &#128077;</a>
-            <a click.delegate="dislikeSubject(singleProf.teachings[ssid].subject.id)" style="color:red">&#128078; 5</a>
+            <a click.delegate="rateSubject(singleProf.teachings[ssid].id , 1)" style="color:green">${teachins.teachingRatings.filter(yleshaal).length} &#128077;</a>
+            <a click.delegate="rateSubject(singleProf.teachings[ssid].id , 0)" style="color:red">&#128078; ${teachins.teachingRatings.filter(alahaal).length}</a>
         </h2>
         <br/>
         <form  role="form" submit.trigger="addComment(comment)">
@@ -25,8 +26,11 @@
                     ${comment.comment}
                 </td>
                 <td>
-                    <a click.delegate="likeComment(comment.id)" style="color:green">1 &#128077;</a>
-                    <a click.delegate="dislikeComment(comment.id)"style="color:red">&#128078; 56 </a>
+                    <a click.delegate="rateComment(comment.id, 1)" style="color:green">
+                        ${comment.commentRatings.filter(yleshaal).length}
+                        &#128077;</a>
+                    <a click.delegate="rateComment(comment.id, 0)"style="color:red">
+                        &#128078; ${comment.commentRatings.filter(alahaal).length} </a>
                 </td>
             </tr>
         </table>

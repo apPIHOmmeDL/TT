@@ -20,9 +20,10 @@ public class Subject {
     String title;
 
     @ManyToOne
+    @JsonIgnoreProperties({"subjects"})
     School school;
 
     @OneToMany(mappedBy = "subject",  cascade=CascadeType.ALL)
-    @JsonIgnoreProperties({"subject", "comments", "ratings"})
+    @JsonIgnoreProperties({"subject", "comments", "teachingRatings"})
     List<Teaching> teachings;
 }

@@ -1,7 +1,6 @@
 package com.example.backend.school;
 
 import com.example.backend.subject.Subject;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.Setter;

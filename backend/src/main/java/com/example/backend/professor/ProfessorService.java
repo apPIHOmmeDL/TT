@@ -26,7 +26,7 @@ public class ProfessorService {
 		return professorRepository.findOne(professorId);
 	}
 
-	List<Professor> searchProfByLastName(String searchStr){
-		return professorRepository.findByLastName(searchStr);
+	List<Professor> searchProfessors(String searchString) {
+		return professorRepository.findBylastName(searchString);
 	}
 }

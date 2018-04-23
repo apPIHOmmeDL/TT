@@ -1,5 +1,5 @@
 MIS FORMAADIS ANDMEBAASIST ANDMED TULEVAD NING MIS FORMAADIS NEID SISESTADA?
-KOMMENTAAR(RIDA 6), REITING(RIDA 47), ÕPETAMINE(RIDA 88), ÕPPEJÕUD(RIDA 190), AINE(RIDA 335), KOOL(RIDA 433) (EESTI KEELES, ET OLEKS LIHTSAM CTRL+F)
+KOMMENTAAR(RIDA 6), KOMMENTAARI REITING(RIDA 69), ÕPETAMINE(RIDA 110), ÕPETAMISE REITING(RIDA 250) ÕPPEJÕUD(RIDA 290), AINE(RIDA 455), KOOL(RIDA 569), PROFESSORI OTSING(RIDA 652), AINE OTSING(RIDA 735) (EESTI KEELES, ET OLEKS LIHTSAM CTRL+F)
 ESMALT LISTI PÄRING, SIIS OBJEKTI PÄRING NING LÕPUS LISAMISE PÄRING
 
 
@@ -11,6 +11,12 @@ localhost:8080/comments
     {
         "id": 1,
         "comment": "Lorem ipsum aliquet varius eleifend etiam proin, pellentesque ipsum proin hendrerit mattis conubia, libero venenatis habitasse netus venenatis.",
+        "commentRatings": [
+            {
+                "id": 6,
+                "rating": 0
+            }
+        ],
         "teaching": {
             "id": 14
         }
@@ -18,6 +24,16 @@ localhost:8080/comments
     {
         "id": 2,
         "comment": "Proin feugiat nostra malesuada tempor viverra lacinia nec potenti.",
+        "commentRatings": [
+            {
+                "id": 25,
+                "rating": 1
+            },
+            {
+                "id": 49,
+                "rating": 1
+            }
+        ],
         "teaching": {
             "id": 3
         }
@@ -29,8 +45,14 @@ localhost:8080/comments/1
 {
     "id": 1,
     "comment": "Lorem ipsum aliquet varius eleifend etiam proin, pellentesque ipsum proin hendrerit mattis conubia, libero venenatis habitasse netus venenatis.",
+    "commentRatings": [
+    {
+        "id": 6,
+        "rating": 0
+    }
+    ],
     "teaching": {
-        "id": 14
+    "id": 14
     }
 }
 
@@ -44,44 +66,44 @@ localhost:8080/comments/add
 }
 
 
-REITING
+KOMMENTAARI REITING
 
-REITINGU LISTI PÄRING
-localhost:8080/ratings
+KOMMENTAARI REITINUG LISTI PÄRING
+localhost:8080/commentRatings
 [
     {
         "id": 1,
         "rating": 0,
-        "teaching": {
+        "comment": {
             "id": 8
         }
     },
     {
         "id": 2,
         "rating": 0,
-        "teaching": {
+        "comment": {
             "id": 12
         }
     }
 ]
 
-ÜHE REITINGU PÄRING
-localhost:8080/ratings/1
+ÜHE KOMMENTAARI REITINGU PÄRING
+localhost:8080/commentRatings/1
 {
     "id": 1,
     "rating": 0,
-    "teaching": {
+    "comment": {
         "id": 8
     }
 }
 
-REITINGU LISAMINE
-localhost:8080/ratings/add
+ÕPETAMISE REITINGU LISAMINE
+localhost:8080/commentRatings/add
 {
-	"rating": 0,
-	"teaching": {
-		"id": 2
-	}
+    "rating": 0,
+    "comment": {
+        "id": 2
+    }
 }
 
 
@@ -90,7 +112,7 @@ localhost:8080/ratings/add
 ÕPETAMISE LISTI PÄRING
 localhost:8080/teachings
 [
-	 {
+    {
         "id": 13,
         "professor": {
             "id": 4,
@@ -106,7 +128,7 @@ localhost:8080/teachings
             }
         },
         "comments": [],
-        "ratings": []
+        "teachingRatings": []
     },
     {
         "id": 14,
@@ -127,12 +149,18 @@ localhost:8080/teachings
             {
                 "id": 1,
                 "comment": "Lorem ipsum aliquet varius eleifend etiam proin, pellentesque ipsum proin hendrerit mattis conubia, libero venenatis habitasse netus venenatis.",
+                "commentRatings": [
+                    {
+                        "id": 6,
+                        "rating": 0
+                    }
+                ],
                 "teaching": {
                     "id": 14
                 }
             }
         ],
-        "ratings": [
+        "teachingRatings": [
             {
                 "id": 8,
                 "rating": 0,
@@ -152,47 +180,119 @@ localhost:8080/teachings
 ]
 
 ÜHE ÕPETAMISE PÄRING
-localhost:8080/teachings/13
+localhost:8080/teachings/4
 {
-    "id": 13,
+    "id": 4,
     "professor": {
-        "id": 4,
-        "firstName": "Jaan",
-        "lastName": "Ivanov"
-    },
+    "id": 2,
+        "firstName": "Kalle",
+        "lastName": "Kukk"
+},
     "subject": {
-        "id": 8,
+    "id": 10,
         "title": "Infosüsteemide arendamine",
         "school": {
-            "id": 2,
-            "name": "Tartu Ülikool"
+        "id": 3,
+            "name": "Tallinna Ülikool"
+    }
+},
+    "comments": [
+    {
+        "id": 7,
+        "comment": "Elementum gravida turpis ut nulla placerat tortor laoreet donec aptent hendrerit nullam.",
+        "commentRatings": [
+            {
+                "id": 24,
+                "rating": 1
+            }
+        ],
+        "teaching": {
+            "id": 4
         }
     },
-    "comments": [],
-    "ratings": []
+    {
+        "id": 24,
+        "comment": "Cras ipsum elementum auctor interdum enim taciti mi sed himenaeos eu.",
+        "commentRatings": [
+            {
+                "id": 39,
+                "rating": 1
+            }
+        ],
+        "teaching": {
+            "id": 4
+        }
+    }
+    ],
+        "teachingRatings": [
+        {
+            "id": 3,
+            "rating": 1,
+            "teaching": {
+                "id": 4
+            }
+        }
+    ]
 }
 
-ÕPETAMISE LISAMINE (IGA KORD LISAB UUE AINE, OLEMASOLEVAGA EI SAA SIDUDA; ON VALIDA KAS NII, VÕI UUE AINE LISAMINE VIIA ERALDI KOHTA NING KOODI NATUKE ÜMBER KIRJUTADES VALIDA LISTIST OLEMASOLEV AINE)
+ÕPETAMISE LISAMINE (AINE ON PEAB JUBA OLEMAS OLEMA)
 localhost:8080/teachings/add
 {
-	"professor": {
-		"id": 1
-	},
-	"subject": {
-		"title": "Proov",
-		"school": {
-			"id": 1
-		}
-	}
+    "professor": {
+        "id": 4
+    },
+    "subject": {
+        "id": 4
+    }
 }
 
+
+ÕPETAMISE REITING
+
+ÕPETAMISE REITINGU LISTI PÄRING
+localhost:8080/teachingRatings
+    [
+    {
+        "id": 1,
+        "rating": 0,
+        "teaching": {
+            "id": 8
+        }
+    },
+    {
+        "id": 2,
+        "rating": 0,
+        "teaching": {
+            "id": 12
+        }
+    }
+]
+
+ÜHE ÕPETAMISE REITINGU PÄRING
+localhost:8080/teachingRatings/1
+{
+    "id": 1,
+    "rating": 0,
+    "teaching": {
+        "id": 8
+    }
+}
+
+ÕPETAMISE REITINGU LISAMINE
+localhost:8080/teachingRatings/add
+{
+    "rating": 0,
+    "teaching": {
+        "id": 2
+    }
+}
 
 ÕPPEJÕUD
 
 ÕPPEJÕUDUDE LISTI PÄRING
 localhost:8080/profs
 [
-	{
+    {
         "id": 7,
         "firstName": "Sergei",
         "lastName": "Smirnov",
@@ -208,7 +308,7 @@ localhost:8080/profs
                     }
                 },
                 "comments": [],
-                "ratings": [
+                "teachingRatings": [
                     {
                         "id": 19,
                         "rating": 1,
@@ -246,12 +346,22 @@ localhost:8080/profs
                     {
                         "id": 9,
                         "comment": "Porttitor condimentum facilisis eu non sodales.",
+                        "commentRatings": [
+                            {
+                                "id": 9,
+                                "rating": 0
+                            },
+                            {
+                                "id": 42,
+                                "rating": 1
+                            }
+                        ],
                         "teaching": {
                             "id": 20
                         }
                     }
                 ],
-                "ratings": [
+                "teachingRatings": [
                     {
                         "id": 50,
                         "rating": 1,
@@ -275,12 +385,22 @@ localhost:8080/profs
                     {
                         "id": 14,
                         "comment": "Morbi vehicula in.",
+                        "commentRatings": [
+                            {
+                                "id": 8,
+                                "rating": 0
+                            },
+                            {
+                                "id": 11,
+                                "rating": 1
+                            }
+                        ],
                         "teaching": {
                             "id": 21
                         }
                     }
                 ],
-                "ratings": []
+                "teachingRatings": []
             }
         ]
     }
@@ -293,34 +413,34 @@ localhost:8080/profs/7
     "firstName": "Sergei",
     "lastName": "Smirnov",
     "teachings": [
-        {
-            "id": 19,
-            "subject": {
+    {
+        "id": 19,
+        "subject": {
+            "id": 1,
+            "title": "Arvutid",
+            "school": {
                 "id": 1,
-                "title": "Arvutid",
-                "school": {
-                    "id": 1,
-                    "name": "Tallinna Tehnikaülikool"
+                "name": "Tallinna Tehnikaülikool"
+            }
+        },
+        "comments": [],
+        "teachingRatings": [
+            {
+                "id": 19,
+                "rating": 1,
+                "teaching": {
+                    "id": 19
                 }
             },
-            "comments": [],
-            "ratings": [
-                {
-                    "id": 19,
-                    "rating": 1,
-                    "teaching": {
-                        "id": 19
-                    }
-                },
-                {
-                    "id": 30,
-                    "rating": 1,
-                    "teaching": {
-                        "id": 19
-                    }
+            {
+                "id": 30,
+                "rating": 1,
+                "teaching": {
+                    "id": 19
                 }
-            ]
-        }
+            }
+        ]
+    }
     ]
 }
 
@@ -337,7 +457,7 @@ AINE
 AINETE LISTI PÄRING
 localhost:8080/subjects
 [
-	{
+    {
         "id": 4,
         "title": "Matemaatiline analüüs",
         "school": {
@@ -359,6 +479,14 @@ localhost:8080/subjects
                     "id": 8,
                     "firstName": "Katrin",
                     "lastName": "Valk"
+                }
+            },
+            {
+                "id": 75,
+                "professor": {
+                    "id": 4,
+                    "firstName": "Jaan",
+                    "lastName": "Ivanov"
                 }
             }
         ]
@@ -397,27 +525,35 @@ localhost:8080/subjects/4
     "id": 4,
     "title": "Matemaatiline analüüs",
     "school": {
-        "id": 1,
+    "id": 1,
         "name": "Tallinna Tehnikaülikool"
-    },
+},
     "teachings": [
-        {
-            "id": 3,
-            "professor": {
-                "id": 1,
-                "firstName": "Mihkel",
-                "lastName": "Tamm"
-            }
-        },
-        {
-            "id": 20,
-            "professor": {
-                "id": 8,
-                "firstName": "Katrin",
-                "lastName": "Valk"
-            }
+    {
+        "id": 3,
+        "professor": {
+            "id": 1,
+            "firstName": "Mihkel",
+            "lastName": "Tamm"
         }
-    ]
+    },
+    {
+        "id": 20,
+        "professor": {
+            "id": 8,
+            "firstName": "Katrin",
+            "lastName": "Valk"
+        }
+    },
+    {
+        "id": 75,
+        "professor": {
+            "id": 4,
+            "firstName": "Jaan",
+            "lastName": "Ivanov"
+        }
+    }
+]
 }
 
 AINE LISAMISE PÄRING
@@ -511,3 +647,168 @@ localhost:8080/schools/add
 {
 	"name": "kooli nimi"
 }
+
+
+OTSING (AINULT PROFESSORI PERENIME JÄRGI)
+localhost:8080/profs/search/Valk
+[
+    {
+        "id": 8,
+        "firstName": "Katrin",
+        "lastName": "Valk",
+        "teachings": [
+            {
+                "id": 20,
+                "subject": {
+                    "id": 4,
+                    "title": "Matemaatiline analüüs",
+                    "school": {
+                        "id": 1,
+                        "name": "Tallinna Tehnikaülikool"
+                    }
+                },
+                "comments": [
+                    {
+                        "id": 9,
+                        "comment": "Porttitor condimentum facilisis eu non sodales.",
+                        "commentRatings": [
+                            {
+                                "id": 9,
+                                "rating": 0
+                            },
+                            {
+                                "id": 42,
+                                "rating": 1
+                            }
+                        ],
+                        "teaching": {
+                            "id": 20
+                        }
+                    }
+                ],
+                "teachingRatings": [
+                    {
+                        "id": 50,
+                        "rating": 1,
+                        "teaching": {
+                            "id": 20
+                        }
+                    }
+                ]
+            },
+            {
+                "id": 21,
+                "subject": {
+                    "id": 6,
+                    "title": "Matemaatiline analüüs",
+                    "school": {
+                        "id": 2,
+                        "name": "Tartu Ülikool"
+                    }
+                },
+                "comments": [
+                    {
+                        "id": 14,
+                        "comment": "Morbi vehicula in.",
+                        "commentRatings": [
+                            {
+                                "id": 8,
+                                "rating": 0
+                            },
+                            {
+                                "id": 11,
+                                "rating": 1
+                            }
+                        ],
+                        "teaching": {
+                            "id": 21
+                        }
+                    }
+                ],
+                "teachingRatings": []
+            }
+        ]
+    }
+]
+
+
+OTSING (AINULT PROFESSORI PERENIME JÄRGI)
+localhost:8080/subjects/search/arvutid
+[
+    {
+        "id": 1,
+        "title": "Arvutid",
+        "school": {
+            "id": 1,
+            "name": "Tallinna Tehnikaülikool"
+        },
+        "teachings": [
+            {
+                "id": 6,
+                "professor": {
+                    "id": 3,
+                    "firstName": "Andres",
+                    "lastName": "Saar"
+                }
+            },
+            {
+                "id": 10,
+                "professor": {
+                    "id": 4,
+                    "firstName": "Jaan",
+                    "lastName": "Ivanov"
+                }
+            },
+            {
+                "id": 14,
+                "professor": {
+                    "id": 5,
+                    "firstName": "Kaisa",
+                    "lastName": "Mägi"
+                }
+            },
+            {
+                "id": 19,
+                "professor": {
+                    "id": 7,
+                    "firstName": "Sergei",
+                    "lastName": "Smirnov"
+                }
+            },
+            {
+                "id": 22,
+                "professor": {
+                    "id": 9,
+                    "firstName": "Teet",
+                    "lastName": "Sepp"
+                }
+            }
+        ]
+    },
+    {
+        "id": 9,
+        "title": "Arvutid",
+        "school": {
+            "id": 3,
+            "name": "Tallinna Ülikool"
+        },
+        "teachings": [
+            {
+                "id": 9,
+                "professor": {
+                    "id": 3,
+                    "firstName": "Andres",
+                    "lastName": "Saar"
+                }
+            },
+            {
+                "id": 18,
+                "professor": {
+                    "id": 6,
+                    "firstName": "Magnus",
+                    "lastName": "Mõttus"
+                }
+            }
+        ]
+    }
+]

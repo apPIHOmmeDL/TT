@@ -34,4 +34,9 @@ public class SubjectController {
     public Subject getSubject(@PathVariable("id") long subjectId) {
         return subjectService.getSubjectById(subjectId);
     }
+
+    @RequestMapping(value = "/subjects/search/{searchString}", method=RequestMethod.GET)
+    public List<Subject> searchSubjects(@PathVariable("searchString") String searchString) {
+        return subjectService.searchSubjects(searchString);
+    }
 }

@@ -11,8 +11,12 @@ export class comment{
         client.fetch(environment.URL + 'profs/' + params.pid)
             .then(response => response.json())
             .then(singleProf => this.singleProf = singleProf);
-    }
 
+        client.fetch(environment.URL + 'teachings/' + params.tid)
+            .then(response => response.json())
+            .then(teachin => this.teachins = teachin);
+
+    }
 
     constructor(router){
         this.router = router;
@@ -27,21 +31,57 @@ export class comment{
         this.commentList.splice(index, 1);
     }
 
-    likeComment(id){
-        console.log(id);
+    yleshaal(haal){
+        if (haal.rating === 1)
+            return haal;
+    }
+    alahaal(haal){
+        if (haal.rating === 0)
+            return haal;
     }
 
-    dislikeComment(id){
-        console.log(id);
+    rateComment(id, rating){
+        console.log(id + ' Liked');
+
+        let ratingJSON = "{\n" +
+            "\t\"rating\": \"" + rating +"\",\n" +
+            "\t\"comment\":{\n" +
+            "\t\t\"id\":"+ id +"\n" +
+            "\t}\n" +
+            "}";
+
+        let client = new HttpClient();
+        client.fetch(environment.URL + 'commentRatings/add', {
+            'method': "POST",
+            'body': ratingJSON
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+            });
+        location.reload();
     }
 
-    likeSubject(id){
-        console.log(id);
-    }
+    rateSubject(id, rating){
+        console.log(id + ' Liked');
 
+        let ratingJSON = "{\n" +
+            "\t\"rating\": \"" + rating +"\",\n" +
+            "\t\"teaching\":{\n" +
+            "\t\t\"id\":"+ id +"\n" +
+            "\t}\n" +
+            "}";
 
-    dislikeSubject(id){
-        console.log(id);
+        let client = new HttpClient();
+        client.fetch(environment.URL + 'teachingRatings/add', {
+            'method': "POST",
+            'body': ratingJSON
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+            });
+        location.reload();
     }
 
     addComment(comment)
@@ -64,4 +104,5 @@ export class comment{
             });
         location.reload();
     }
+
 }

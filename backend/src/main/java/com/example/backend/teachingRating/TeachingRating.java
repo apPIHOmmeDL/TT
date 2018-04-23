@@ -1,4 +1,4 @@
-package com.example.backend.rating;
+package com.example.backend.teachingRating;
 
 import com.example.backend.teaching.Teaching;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -13,13 +13,13 @@ import javax.persistence.ManyToOne;
 @Entity
 @Getter
 @Setter
-public class Rating {
+public class TeachingRating {
     @Id
     @GeneratedValue
     long id;
     int rating;
 
     @ManyToOne
-    @JsonIgnoreProperties({"professor", "subject", "comments", "ratings"})
+    @JsonIgnoreProperties({"professor", "subject", "comments", "teachingRatings"})
     Teaching teaching;
 }

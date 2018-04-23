@@ -57,12 +57,35 @@ export class viewProf {
         location.reload();
     }
 
-    likeSubject(id){
-        console.log(id);
+    rateSubject(id, rating){
+        console.log(id );
+
+        let ratingJSON = "{\n" +
+            "\t\"rating\": \"" + rating +"\",\n" +
+            "\t\"teaching\":{\n" +
+            "\t\t\"id\":"+ id +"\n" +
+            "\t}\n" +
+            "}";
+
+        let client = new HttpClient();
+        client.fetch(environment.URL + 'teachingRatings/add', {
+            'method': "POST",
+            'body': ratingJSON
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+            });
+        location.reload();
+
     }
 
-
-    dislikeSubject(id){
-        console.log(id);
+    yleshaal(haal){
+        if (haal.rating === 1)
+            return haal;
+    }
+    alahaal(haal){
+        if (haal.rating === 0)
+            return haal;
     }
 }

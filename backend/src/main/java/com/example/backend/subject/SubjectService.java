@@ -25,4 +25,8 @@ public class SubjectService {
     Subject getSubjectById(long subjectId) {
         return subjectRepository.findOne(subjectId);
     }
+
+    List<Subject> searchSubjects(String searchString) {
+        return subjectRepository.findByTitleLike(searchString);
+    }
 }

@@ -38,9 +38,8 @@ public class ProfessorController {
 		return professorService.getProfessorById(professorId);
 	}
 
-
-    @RequestMapping(value = "/profs/search/{searchStr}", method=RequestMethod.GET)
-	public List<Professor>searchProf(@PathVariable("searchStr")String searchStr){
-        return professorService.searchProfByLastName("searchStr");
+	@RequestMapping(value = "/profs/search/{searchString}", method=RequestMethod.GET)
+	public List<Professor> searchProfessors(@PathVariable("searchString") String searchString) {
+		return professorService.searchProfessors(searchString);
 	}
 }
