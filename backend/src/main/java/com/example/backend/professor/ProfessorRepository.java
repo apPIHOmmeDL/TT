@@ -9,4 +9,6 @@ import org.springframework.stereotype.Repository;
 public interface ProfessorRepository extends CrudRepository<Professor, Long>{
 	@Override
 	public List<Professor> findAll();
+
+	public List<Professor> findByLastName(String searchStr);
 }

@@ -2,14 +2,12 @@ import {HttpClient, json} from 'aurelia-fetch-client'
 import {bindable} from 'aurelia-framework';
 import environment from "../environment";
 
-export class searchProf{
+export class search{
 
 
-    constructor(){
-      /*  this.professors= [{name: 'Kalle Kane', subject: 'mata'},
-            {name: 'Jaak Hart', subject: 'laulmine'},
-            {name: 'Georg Cahill', subject: 'kehaline'}
-        ]*/
+
+    constructor(router){
+        this.router = router;
     }
 
     activate() {
@@ -20,20 +18,17 @@ export class searchProf{
             .then(profs => this.profList = profs);
     }
 
-    addProf() {
+    searchProf(){
+        console.log('Search prof reached');
+        debugger;
         let client = new HttpClient();
 
-        client.fetch(environment.URL + 'profs/add', {
-            'method': "POST",
-            'body': json(this.profData)
-        })
+        client.fetch(environment.URL + 'profs/search/'+ this.searchStr )
             .then(response => response.json())
-            .then(data => {
-                console.log(data.firstName)
+            .then(function(profs) {
+                debugger;
+                this.profList = profs
             });
     }
-
-
-
 
 }

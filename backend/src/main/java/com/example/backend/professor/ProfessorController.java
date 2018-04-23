@@ -37,4 +37,10 @@ public class ProfessorController {
 	public Professor getProfessor(@PathVariable("id") long professorId) {
 		return professorService.getProfessorById(professorId);
 	}
+
+
+    @RequestMapping(value = "/profs/search/{searchStr}", method=RequestMethod.GET)
+	public List<Professor>searchProf(@PathVariable("searchStr")String searchStr){
+        return professorService.searchProfByLastName("searchStr");
+	}
 }
