@@ -10,5 +10,5 @@ public interface SubjectRepository extends CrudRepository<Subject, Long>{
     @Override
     public List<Subject> findAll();
 
-    public List<Subject> findByTitleLike(String searchString);
+    public List<Subject> findByTitleContaining(String searchString);
 }
