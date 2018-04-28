@@ -4,8 +4,6 @@ import environment from "../environment";
 
 export class search{
 
-
-
     constructor(router){
         this.router = router;
         this.professors = [];
@@ -28,6 +26,10 @@ export class search{
         client.fetch(environment.URL + 'profs/search/'+ this.searchString)
             .then(response => response.json())
             .then(profs => this.professors =  profs);
+    }
+
+    profView(firstName, lastName, id){
+        this.router.navigate(`viewprof` +'/'+ id);
     }
 
 }

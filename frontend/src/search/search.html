@@ -1,33 +1,23 @@
 <template>
     <div class="container text-center">
         <h1>Otsi õppejõudu või õppeainet</h1>
-<!--
-        <form submit.delegate="executeSearch()">
-            <input type="text" id="searchInput" value.bind="query">
-            <button type="submit" class="btn btn-success">Search</button>
-        </form>
-        <div>
-            <ul>
-                <li repeat.for="professor of professors">${professor.name}</li>
-            </ul>
-        <table class="u-full-width">
-            <tr repeat.for="prof of profList">
-                <td>${prof.firstName}</td>
-                <td>${prof.lastName}</td>
-                <td><button click.delegate="profView(prof.firstName, prof.lastName, prof.id)" class="btn btn-success">vaata õppejõudu!</button>
-            </tr>
-        </table>
-        </div>-->
-        <div>
-            <h3>õpsid</h3>
+        <div class="container text-center">
+            <h3>Õppejõud</h3>
             <form id="searchForm" submit.delegate="searchProfessors()">
                 <input type="text" name="lastNameFilter" id="lastNameFilter" value.bind="searchString"/>
-                <input type="submit" name="searchP" id="searchP" value="Otsi2"/>
+                <input type="submit" name="searchP" class="button-primary" id="searchP" value="Otsi"/>
             </form>
-            <ul>
-                <li repeat.for="professor of professors">${professor.firstName} ${professor.lastName}</li>
-            </ul>
-
+            <table class="u-full-width">
+                <tr repeat.for="professor of professors">
+                    <td>${professor.firstName}</td>
+                    <td>${professor.lastName}</td>
+                    <td>
+                        <button click.delegate="profView(professor.firstName, professor.lastName, professor.id)" class="button-primary">
+                            Vaata õppejõudu!
+                        </button>
+                    </td>
+                </tr>
+            </table>
         </div>
     </div>
 </template>

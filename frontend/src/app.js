@@ -16,7 +16,7 @@ export class App {
             { route: 'subs/:id',         name: 'subs', moduleId: PLATFORM.moduleName('subject/subject'),       title:'Õppeanete lisamine'  },
             { route: 'viewprof/:id',     name: 'viewprof', moduleId: PLATFORM.moduleName('prof/viewprof'),  title:'Õppejõu vaatamine'  },
             { route: 'comment/:pid/:tid/:sid',     name: 'comment', moduleId: PLATFORM.moduleName('comment/comment'),  title:'Kommentaari lisamine'  },
-            { route: 'search',         name: 'search', moduleId: PLATFORM.moduleName('search/search'),   nav: true, title:'otsing'  },
+            { route: 'search',         name: 'search', moduleId: PLATFORM.moduleName('search/search'),   nav: true, title:'Otsing'  },
         ]);
     }
     constructor(){
