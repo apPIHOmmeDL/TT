@@ -27,6 +27,6 @@ public class SubjectService {
     }
 
     List<Subject> searchSubjects(String searchString) {
-        return subjectRepository.findByTitleLike(searchString);
+        return subjectRepository.findByTitleContaining(searchString);
     }
 }

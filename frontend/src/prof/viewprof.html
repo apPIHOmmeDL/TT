@@ -25,7 +25,7 @@
             <h2>Lisa uus õppeaine</h2>
                 <select class="u-full-width" style>
                     <option>-----vali õppeasutus-----</option>
-                    <option repeat.for="school of schoolList._embedded.schools">${school.name}</option>
+                    <option repeat.for="school of schoolList">${school.name}</option>
                 </select>
                 <input type="text" class="u-full-width"  placeholder="Õppeaine nimetus" value.bind="subject.name">
                 <button type="submit" class="button-primary">Lisa Õppeaine</button>
