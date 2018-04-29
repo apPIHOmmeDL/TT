@@ -12,12 +12,17 @@
                         <tr>
                             <td>1.</td>
                             <td><a href="viewprof/${teachings[0].professor.id}">${teachings[0].professor.firstName} ${teachings[0].professor.lastName}, ${teachings[0].subject.title}</a></td>
-                            <td>5.00</td>
+                            <td>
+                                <a style="color:green">${teachings[0].teachingRatings.filter(yleshaal).length} &#128077;</a>
+                                <a style="color:red">&#128078; ${teachings[0].teachingRatings.filter(alahaal).length}</a>
+                            </td>
                         </tr>
                         <tr>
                             <td>2.</td>
                             <td><a href="viewprof/${teachings[1].professor.id}">${teachings[1].professor.firstName} ${teachings[1].professor.lastName}, ${teachings[1].subject.title}</a></td>
-                            <td>4.98</td>
+                            <td><a style="color:green">${teachings[1].teachingRatings.filter(yleshaal).length} &#128077;</a>
+                                <a style="color:red">&#128078; ${teachings[1].teachingRatings.filter(alahaal).length}</a>
+                            </td>
                         </tr>
                         <tr>
 

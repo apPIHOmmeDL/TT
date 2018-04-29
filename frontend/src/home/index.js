@@ -43,4 +43,13 @@ export class home{
         te.sort(sortFunction);
         this.teachings = te;
     }
+
+    yleshaal(haal){
+        if (haal.rating === 1)
+            return haal;
+    }
+    alahaal(haal){
+        if (haal.rating === 0)
+            return haal;
+    }
 }
