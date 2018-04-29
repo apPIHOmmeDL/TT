@@ -17,7 +17,7 @@
             <tr repeat.for="prof of profList">
                 <td>${prof.firstName}</td>
                 <td>${prof.lastName}</td>
-                <td><button click.delegate="profView(prof.firstName, prof.lastName, prof.id)">vaata õppejõudu</button></td>
+                <td><button click.delegate="profView(prof.id)">vaata õppejõudu</button></td>
             </tr>
         </table>
     </div>

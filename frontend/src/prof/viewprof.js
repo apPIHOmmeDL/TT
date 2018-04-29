@@ -24,7 +24,6 @@ export class viewProf {
     }
 
     cmntView(pid, tid, sid){
-        //window.alert(firstname + " " + lastname + " " + id);
         this.router.navigate(`comment` +'/'+ pid +'/'+ tid +'/'+ sid);
     }
 

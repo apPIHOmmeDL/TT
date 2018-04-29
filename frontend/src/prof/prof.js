@@ -30,12 +30,12 @@ export class prof {
             });
         location.reload();
     }
+
     constructor(router){
         this.router = router;
     }
 
-    profView(firstname, lastname, id){
-        //window.alert(firstname + " " + lastname + " " + id);
+    profView(id){
         this.router.navigate(`viewprof` +'/'+ id);
     }
 
