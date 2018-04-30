@@ -19,24 +19,4 @@ export class App {
             { route: 'search',         name: 'search', moduleId: PLATFORM.moduleName('search/search'),   nav: true, title:'Otsing'  },
         ]);
     }
-    constructor(){
-        this.heading = 'Lisa ka enda õppejõud';
-        this.professors = [];
-        this.professorFirstname = '';
-        this.professorLastname = '';
-        this.professorSubject = '';
-    }
-
-    addProfessor(){
-        if(this.professorFirstname && this.professorLastname && this.professorSubject) {
-            this.professors.push(new Professor(this.professorFirstname, this.professorLastname, this.professorSubject));
-
-            // Clear Fields
-            this.professorFirstname = '';
-            this.professorLastname = '';
-            this.professorSubject = '';
-        }
-    }
-
-
 }

@@ -16,7 +16,7 @@ export class viewProf {
 
         client.fetch(environment.URL + 'schools/')
             .then(response => response.json())
-            .then(schoolsz => this.schoolList = schoolsz);
+            .then(schools => this.schoolList = schools);
     }
 
     constructor(router){
@@ -56,27 +56,22 @@ export class viewProf {
         location.reload();
     }
 
-    rateSubject(id, rating){
-        console.log(id );
-
-        let ratingJSON = "{\n" +
-            "\t\"rating\": \"" + rating +"\",\n" +
-            "\t\"teaching\":{\n" +
-            "\t\t\"id\":"+ id +"\n" +
-            "\t}\n" +
-            "}";
-
+    rateSubject(ratingMark, teachingId){
+        var ratingData = new Object();
+        ratingData.rating = ratingMark;
+        ratingData.teaching = Object();
+        ratingData.teaching.id = teachingId;
         let client = new HttpClient();
+        console.log(ratingData);
         client.fetch(environment.URL + 'teachingRatings/add', {
             'method': "POST",
-            'body': ratingJSON
+            'body': JSON.stringify(ratingData)
         })
             .then(response => response.json())
             .then(data => {
                 console.log(data)
             });
         location.reload();
-
     }
 
     yleshaal(haal){
