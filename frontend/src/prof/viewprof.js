@@ -17,6 +17,10 @@ export class viewProf {
         client.fetch(environment.URL + 'schools/')
             .then(response => response.json())
             .then(schools => this.schoolList = schools);
+
+        client.fetch(environment.URL + 'subjects/')
+            .then(response => response.json())
+            .then(subjects => this.subjectList = subjects);
     }
 
     constructor(router){
@@ -31,19 +35,10 @@ export class viewProf {
         this.router.navigate(`subs` +'/'+ id);
     }
 
-    addTeaching(profId, subject){
-        let teachingJSON = "{\n" +
-            "\t\"professor\": {\n" +
-            "\t\"id\": "+ profId +"\n" +
-            "\t},\n" +
-            "\t\"subject\": {\n" +
-            "\t\t\"title\": \""+ subject.name +"\",\n" +
-            "\t\t\"school\": {\n" +
-            "\t\t\t\"id\": 1\n" +
-            "\t\t}\n" +
-            "\t}\n" +
-            "}"
-        //console.log(teachingJSON);
+    addTeaching(profId, schoolId, subjectId){
+        var teachingData = new Object();
+        //TODO
+
         let client = new HttpClient();
         client.fetch(environment.URL + 'teachings/add', {
             'method': "POST",
