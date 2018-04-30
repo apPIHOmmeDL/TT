@@ -4,7 +4,6 @@ import {inject} from 'aurelia-framework';
 import {Router} from 'aurelia-router';
 
 export class viewProf {
-
     static inject() { return [Router]; }
 
     activate(params, routeConfig){
@@ -35,21 +34,25 @@ export class viewProf {
         this.router.navigate(`subs` +'/'+ id);
     }
 
-    addTeaching(profId, schoolId, subjectId){
-        var teachingData = new Object();
-        //TODO
+    addTeaching(profId, subjectId){
 
+        var teachingData = new Object();
+        teachingData.professor = Object();
+        teachingData.professor.id = profId;
+        teachingData.subject = Object();
+        teachingData.subject.id = subjectId;
+
+        console.log(teachingData);
         let client = new HttpClient();
         client.fetch(environment.URL + 'teachings/add', {
             'method': "POST",
-            'body': teachingJSON
+            'body': JSON.stringify(teachingData)
         })
             .then(response => response.json())
             .then(data => {
                 console.log(data)
             });
-        location.reload();
-    }
+}
 
     rateSubject(ratingMark, teachingId){
         var ratingData = new Object();
