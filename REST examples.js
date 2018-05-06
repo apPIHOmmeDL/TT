@@ -1,5 +1,5 @@
 MIS FORMAADIS ANDMEBAASIST ANDMED TULEVAD NING MIS FORMAADIS NEID SISESTADA?
-KOMMENTAAR(RIDA 6), KOMMENTAARI REITING(RIDA 69), ÕPETAMINE(RIDA 110), ÕPETAMISE REITING(RIDA 250) ÕPPEJÕUD(RIDA 290), AINE(RIDA 455), KOOL(RIDA 569), PROFESSORI OTSING(RIDA 652), AINE OTSING(RIDA 735) (EESTI KEELES, ET OLEKS LIHTSAM CTRL+F)
+KOMMENTAAR(RIDA 6), KOMMENTAARI REITING(RIDA 69), ÕPETAMINE(RIDA 110), ÕPETAMISE REITING(RIDA 250) ÕPPEJÕUD(RIDA 290), AINE(RIDA 455), KOOL(RIDA 641), PROFESSORI OTSING(RIDA 724), AINE OTSING(RIDA 807) (EESTI KEELES, ET OLEKS LIHTSAM CTRL+F)
 ESMALT LISTI PÄRING, SIIS OBJEKTI PÄRING NING LÕPUS LISAMISE PÄRING
 
 
@@ -471,7 +471,30 @@ localhost:8080/subjects
                     "id": 1,
                     "firstName": "Mihkel",
                     "lastName": "Tamm"
-                }
+                },
+                "teachingRatings": [
+                    {
+                        "id": 16,
+                        "rating": 0,
+                        "teaching": {
+                            "id": 3
+                        }
+                    },
+                    {
+                        "id": 26,
+                        "rating": 1,
+                        "teaching": {
+                            "id": 3
+                        }
+                    },
+                    {
+                        "id": 29,
+                        "rating": 0,
+                        "teaching": {
+                            "id": 3
+                        }
+                    }
+                ]
             },
             {
                 "id": 20,
@@ -479,15 +502,16 @@ localhost:8080/subjects
                     "id": 8,
                     "firstName": "Katrin",
                     "lastName": "Valk"
-                }
-            },
-            {
-                "id": 75,
-                "professor": {
-                    "id": 4,
-                    "firstName": "Jaan",
-                    "lastName": "Ivanov"
-                }
+                },
+                "teachingRatings": [
+                    {
+                        "id": 50,
+                        "rating": 1,
+                        "teaching": {
+                            "id": 20
+                        }
+                    }
+                ]
             }
         ]
     },
@@ -505,7 +529,30 @@ localhost:8080/subjects
                     "id": 4,
                     "firstName": "Jaan",
                     "lastName": "Ivanov"
-                }
+                },
+                "teachingRatings": [
+                    {
+                        "id": 7,
+                        "rating": 1,
+                        "teaching": {
+                            "id": 11
+                        }
+                    },
+                    {
+                        "id": 13,
+                        "rating": 0,
+                        "teaching": {
+                            "id": 11
+                        }
+                    },
+                    {
+                        "id": 44,
+                        "rating": 1,
+                        "teaching": {
+                            "id": 11
+                        }
+                    }
+                ]
             },
             {
                 "id": 16,
@@ -513,7 +560,8 @@ localhost:8080/subjects
                     "id": 6,
                     "firstName": "Magnus",
                     "lastName": "Mõttus"
-                }
+                },
+                "teachingRatings": []
             }
         ]
     }
@@ -527,33 +575,57 @@ localhost:8080/subjects/4
     "school": {
     "id": 1,
         "name": "Tallinna Tehnikaülikool"
-},
+    },
     "teachings": [
-    {
-        "id": 3,
-        "professor": {
-            "id": 1,
-            "firstName": "Mihkel",
-            "lastName": "Tamm"
+        {
+            "id": 3,
+            "professor": {
+                "id": 1,
+                "firstName": "Mihkel",
+                "lastName": "Tamm"
+            },
+            "teachingRatings": [
+                {
+                    "id": 16,
+                    "rating": 0,
+                    "teaching": {
+                        "id": 3
+                    }
+                },
+                {
+                    "id": 26,
+                    "rating": 1,
+                    "teaching": {
+                        "id": 3
+                    }
+                },
+                {
+                    "id": 29,
+                    "rating": 0,
+                    "teaching": {
+                        "id": 3
+                    }
+                }
+            ]
+        },
+        {
+            "id": 20,
+            "professor": {
+                "id": 8,
+                "firstName": "Katrin",
+                "lastName": "Valk"
+            },
+            "teachingRatings": [
+                {
+                    "id": 50,
+                    "rating": 1,
+                    "teaching": {
+                        "id": 20
+                    }
+                }
+            ]
         }
-    },
-    {
-        "id": 20,
-        "professor": {
-            "id": 8,
-            "firstName": "Katrin",
-            "lastName": "Valk"
-        }
-    },
-    {
-        "id": 75,
-        "professor": {
-            "id": 4,
-            "firstName": "Jaan",
-            "lastName": "Ivanov"
-        }
-    }
-]
+    ]
 }
 
 AINE LISAMISE PÄRING

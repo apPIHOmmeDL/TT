@@ -24,6 +24,6 @@ public class Subject {
     School school;
 
     @OneToMany(mappedBy = "subject",  cascade=CascadeType.ALL)
-    @JsonIgnoreProperties({"subject", "comments", "teachingRatings"})
+    @JsonIgnoreProperties({"subject", "comments"})
     List<Teaching> teachings;
 }
