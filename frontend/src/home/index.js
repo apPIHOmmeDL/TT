@@ -15,33 +15,81 @@ export class home{
         client.fetch(environment.URL + 'teachings')
             .then(response => response.json())
             .then(teachings => {this.sortTeachingsByRatings(teachings)});
+
+        client.fetch(environment.URL + 'profs')
+            .then(response => response.json())
+            .then(profs => {this.sortProfsByRatings(profs)});
+
+        client.fetch(environment.URL + 'subjects')
+            .then(response => response.json())
+            .then(subjects => {this.sortSubjectsByRatings(subjects)});
     }
 
-    sortTeachingsByRatings(te){
+    sortProfsByRatings(profs){
 
         function sortFunction (a, b){
             var bRating = 0;
             var aRating = 0;
 
-            for(let i = 0; i < a.teachingRatings.length; i++){
-                var teachingRating =  a.teachingRatings[i];
-                if (teachingRating.rating === 0)
-                    aRating = aRating -1;
-                else aRating = aRating + 1;
+            for(let j = 0; j < a.teachings.length; j++){
+
+                for(let i = 0; i < a.teachings[j].teachingRatings.length; i++){
+                    var teachingRating =  a.teachings[j].teachingRatings[i];
+                    if (teachingRating.rating === 0)
+                        aRating = aRating -1;
+                    else aRating = aRating + 1;
+                }
             }
 
-            for(let i = 0; i < b.teachingRatings.length; i++){
-                var teachingRating =  b.teachingRatings[i];
-                if (teachingRating.rating === 0)
-                    bRating = bRating - 1;
-                else bRating = bRating + 1;
+            for(let j = 0; j < b.teachings.length; j++) {
+
+                for (let i = 0; i < b.teachings[j].teachingRatings.length; i++) {
+                    var teachingRating = b.teachings[j].teachingRatings[i];
+                    if (teachingRating.rating === 0)
+                        bRating = bRating - 1;
+                    else bRating = bRating + 1;
+                }
             }
 
             return bRating - aRating;
         }
 
-        te.sort(sortFunction);
-        this.teachings = te;
+        profs.sort(sortFunction);
+        this.profs = profs;
+    }
+
+    sortSubjectsByRatings(subjects){
+        console.log(subjects);
+        function sortFunction (a, b){
+            var bRating = 0;
+            var aRating = 0;
+
+            for(let j = 0; j < a.teachings.length; j++){
+
+                for(let i = 0; i < a.teachings[j].teachingRatings.length; i++){
+
+                    var teachingRating =  a.teachings[j].teachingRatings[i];
+                    if (teachingRating.rating === 0)
+                        aRating = aRating - 1;
+                    else aRating = aRating + 1;
+                }
+            }
+
+            for(let j = 0; j < b.teachings.length; j++) {
+
+                for (let i = 0; i < b.teachings[j].teachingRatings.length; i++) {
+                    var teachingRating = b.teachings[j].teachingRatings[i];
+                    if (teachingRating.rating === 0)
+                        bRating = bRating - 1;
+                    else bRating = bRating + 1;
+                }
+            }
+            console.log(aRating, bRating);
+            return bRating - aRating;
+        }
+        subjects.sort(sortFunction);
+        this.subjects = subjects;
+        console.log(subjects);
     }
 
     yleshaal(haal){

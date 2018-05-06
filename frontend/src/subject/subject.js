@@ -33,7 +33,6 @@ export class subject {
         location.reload();
     }
     cmntView(pid, sid){
-        //window.alert(firstname + " " + lastname + " " + id);
         this.router.navigate(`comment` +'/'+ pid +'/'+ sid);
     }
 

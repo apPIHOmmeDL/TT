@@ -6,25 +6,37 @@
                     <form action="search()">
                         <input type="submit" class="btn btn-info btn-lg" value="Otsi õppejõudu!" />
                     </form>
-                    <h3>Õppejõud</h3>
+                    <h3>Parimad Õppejõud</h3>
                     <table class="table table-hover">
                         <tbody>
                         <tr>
                             <td>1.</td>
-                            <td><a href="viewprof/${teachings[0].professor.id}">${teachings[0].professor.firstName} ${teachings[0].professor.lastName}, ${teachings[0].subject.title}</a></td>
-                            <td>
+                            <td><a href="viewprof/${profs[0].id}">${profs[0].firstName} ${profs[0].lastName}</a></td>
+                           <!-- <td>
                                 <a style="color:green">${teachings[0].teachingRatings.filter(yleshaal).length} &#128077;</a>
                                 <a style="color:red">&#128078; ${teachings[0].teachingRatings.filter(alahaal).length}</a>
-                            </td>
+                            </td> -->
                         </tr>
                         <tr>
                             <td>2.</td>
-                            <td><a href="viewprof/${teachings[1].professor.id}">${teachings[1].professor.firstName} ${teachings[1].professor.lastName}, ${teachings[1].subject.title}</a></td>
-                            <td><a style="color:green">${teachings[1].teachingRatings.filter(yleshaal).length} &#128077;</a>
-                                <a style="color:red">&#128078; ${teachings[1].teachingRatings.filter(alahaal).length}</a>
-                            </td>
+                            <td><a href="viewprof/${profs[1].id}">${profs[1].firstName} ${profs[1].lastName}</a></td>
                         </tr>
+
                         <tr>
+                            <td>3.</td>
+                            <td><a href="viewprof/${profs[2].id}">${profs[2].firstName} ${profs[2].lastName}</a></td>
+                        </tr>
+
+                        <tr>
+                            <td>4.</td>
+                            <td><a href="viewprof/${profs[3].id}">${profs[3].firstName} ${profs[3].lastName}</a></td>
+                        </tr>
+
+                        <tr>
+                            <td>5.</td>
+                            <td><a href="viewprof/${profs[4].id}">${profs[4].firstName} ${profs[4].lastName}</a></td>
+                        </tr>
+
 
                         </tbody>
                     </table>
@@ -36,19 +48,35 @@
                     <form action="searchF.html">
                         <input type="submit" class="btn btn-info btn-lg" value="Otsi õppeainet!" />
                     </form>
-                    <h3>Õppeained</h3>
+                    <h3>Parimad Õppeained</h3>
                     <table class="table table-hover">
                         <tbody>
                         <tr>
                             <td>1.</td>
-                            <td><a href="singleViewCourse.html">Side</a></td>
+                            <td><a href=" ">${subjects[0].title}</a></td>
                             <td>5.00</td>
                         </tr>
                         <tr>
                             <td>2.</td>
-                            <td><a href="singleViewCourse.html">Ettevõtluse alused</a></td>
+                            <td><a>${subjects[1].title}</a></td>
                             <td>4.98</td>
                         </tr>
+                        <tr>
+                            <td>3.</td>
+                            <td><a href=" ">${subjects[2].title}</a></td>
+                            <td>4.98</td>
+                        </tr>
+                        <tr>
+                            <td>4.</td>
+                            <td><a href=" ">${subjects[3].title}</a></td>
+                            <td>4.98</td>
+                        </tr>
+                        <tr>
+                            <td>5.</td>
+                            <td><a href=" ">${subjects[4].title}</a></td>
+                            <td>4.98</td>
+                        </tr>
+                        <tr>
 
                         </tbody>
                     </table>
