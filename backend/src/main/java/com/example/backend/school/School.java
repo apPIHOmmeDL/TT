@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 import java.util.List;
 
 @Entity
@@ -15,6 +16,8 @@ public class School {
     @Id
     @GeneratedValue
     long id;
+
+    @Size(min = 2, max = 50, message = "Kooli nimi peab olema vahemikus 2 kuni 50 tähte!")
     String name;
 
     @OneToMany(mappedBy = "school",  cascade=CascadeType.ALL)

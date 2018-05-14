@@ -2,58 +2,100 @@ package com.example.backend;
 
 import com.example.backend.professor.Professor;
 import com.example.backend.teaching.Teaching;
+import org.junit.AfterClass;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.TestExecutionListener;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import javax.validation.ConstraintViolation;
+import javax.validation.Validation;
+import javax.validation.Validator;
+import javax.validation.ValidatorFactory;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class ProfessorTests {
-    private Professor testProfessor;
-    private Teaching testTeaching1;
-    private Teaching testTeaching2;
-    private List<Teaching> testTeachings;
 
-    @Before
-    public void setUp() {
-        testProfessor = new Professor();
-        testTeaching1 = new Teaching();
-        testTeaching2 = new Teaching();
-        testTeachings = new ArrayList<Teaching>();
+    private static ValidatorFactory validatorFactory;
+    private static Validator validator;
+
+    @BeforeClass
+    public static void createValidator() {
+        validatorFactory = Validation.buildDefaultValidatorFactory();
+        validator = validatorFactory.getValidator();
+    }
+
+    @AfterClass
+    public static void close() {
+        validatorFactory.close();
     }
 
     @Test
-    public void testIfNewIdIsNotNull() {
-        assertFalse(Objects.isNull(testProfessor.getId()));
+    public void shouldHaveNoViolations() {
+        //given:
+        Professor professor = new Professor();
+        professor.setFirstName("Eesnimi");
+        professor.setLastName("Perenimi");
+
+        //when:
+        Set<ConstraintViolation<Professor>> violations
+                = validator.validate(professor);
+
+        //then:
+        assertTrue(violations.isEmpty());
     }
 
     @Test
-    public void testIfCorrectFirstNameIsReturned() {
-        testProfessor.setFirstName("Erki");
-        assertEquals("Erki", testProfessor.getFirstName());
+    public void shouldHaveNameTooShortViolation() {
+        //given too short name:
+        Professor professor = new Professor();
+        professor.setFirstName("E");
+
+        //when:
+        Set<ConstraintViolation<Professor>> violations
+                = validator.validate(professor);
+
+        //then:
+        assertEquals(violations.size(), 1);
+
+        ConstraintViolation<Professor> violation
+                = violations.iterator().next();
+        assertEquals("Eesnimi peab olema vahemikus 2 kuni 50 tähte!",
+                violation.getMessage());
+        assertEquals("firstName", violation.getPropertyPath().toString());
+        assertEquals("E", violation.getInvalidValue());
     }
 
     @Test
-    public void testIfCorrectLastNameIsReturned() {
-        testProfessor.setLastName("Nool");
-        assertEquals("Nool", testProfessor.getLastName());
-    }
+    public void shouldHaveNameTooLongViolation() {
+        //given too long name:
+        Professor professor = new Professor();
+        professor.setLastName("abcdefghijklmnopqrsšzžtuvwõäöüxyabcdefghijklmnopqrs");
 
-    @Test
-    public void testIfCorrectLengthArrayIsReturned() {
-        testTeachings.add(testTeaching1);
-        testTeachings.add(testTeaching2);
-        testProfessor.setTeachings(testTeachings);
-        assertEquals(2, testProfessor.getTeachings().size());
+        //when:
+        Set<ConstraintViolation<Professor>> violations
+                = validator.validate(professor);
+
+        //then:
+        assertEquals(violations.size(), 1);
+
+        ConstraintViolation<Professor> violation
+                = violations.iterator().next();
+        assertEquals("Perenimi peab olema vahemikus 2 kuni 50 tähte!",
+                violation.getMessage());
+        assertEquals("lastName", violation.getPropertyPath().toString());
+        assertEquals("abcdefghijklmnopqrsšzžtuvwõäöüxyabcdefghijklmnopqrs", violation.getInvalidValue());
     }
 }

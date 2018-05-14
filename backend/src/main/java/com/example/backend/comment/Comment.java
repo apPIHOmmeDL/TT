@@ -8,6 +8,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 import java.util.List;
 
 @Entity
@@ -17,6 +18,8 @@ public class Comment {
     @Id
     @GeneratedValue
     long id;
+
+    @Size(min = 2, max = 50, message = "Kommentaar peab olema vahemikus 2 kuni 200 tähte!")
     String comment;
 
     @OneToMany(mappedBy = "comment",  cascade=CascadeType.ALL)

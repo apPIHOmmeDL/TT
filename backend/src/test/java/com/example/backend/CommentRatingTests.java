@@ -1,9 +1,7 @@
 package com.example.backend;
 
-import com.example.backend.teaching.Teaching;
-import com.example.backend.teachingRating.TeachingRating;
+import com.example.backend.commentRating.CommentRating;
 import org.junit.AfterClass;
-import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -14,16 +12,14 @@ import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
 import javax.validation.Validator;
 import javax.validation.ValidatorFactory;
-import java.util.Objects;
 import java.util.Set;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class TeachingRatingTests {
+public class CommentRatingTests {
 
     private static ValidatorFactory validatorFactory;
     private static Validator validator;
@@ -42,12 +38,12 @@ public class TeachingRatingTests {
     @Test
     public void shouldHaveNoViolations() {
         //given:
-        TeachingRating teachingRating = new TeachingRating();
-        teachingRating.setRating(0);
+        CommentRating commentRating = new CommentRating();
+        commentRating.setRating(0);
 
         //when:
-        Set<ConstraintViolation<TeachingRating>> violations
-                = validator.validate(teachingRating);
+        Set<ConstraintViolation<CommentRating>> violations
+                = validator.validate(commentRating);
 
         //then:
         assertTrue(violations.isEmpty());
@@ -56,16 +52,16 @@ public class TeachingRatingTests {
     @Test
     public void shouldDetectTooLowRating() {
         //given:
-        TeachingRating teachingRating = new TeachingRating();
-        teachingRating.setRating(-1);
+        CommentRating commentRating = new CommentRating();
+        commentRating.setRating(-1);
 
         //when:
-        Set<ConstraintViolation<TeachingRating>> violations
-                = validator.validate(teachingRating);
+        Set<ConstraintViolation<CommentRating>> violations
+                = validator.validate(commentRating);
 
         assertEquals(violations.size(), 1);
 
-        ConstraintViolation<TeachingRating> violation
+        ConstraintViolation<CommentRating> violation
                 = violations.iterator().next();
         assertEquals("Hinne peab olema vähemalt 0!",
                 violation.getMessage());
@@ -76,16 +72,16 @@ public class TeachingRatingTests {
     @Test
     public void shouldDetectTooHighRating() {
         //given:
-        TeachingRating teachingRating = new TeachingRating();
-        teachingRating.setRating(2);
+        CommentRating commentRating = new CommentRating();
+        commentRating.setRating(2);
 
         //when:
-        Set<ConstraintViolation<TeachingRating>> violations
-                = validator.validate(teachingRating);
+        Set<ConstraintViolation<CommentRating>> violations
+                = validator.validate(commentRating);
 
         assertEquals(violations.size(), 1);
 
-        ConstraintViolation<TeachingRating> violation
+        ConstraintViolation<CommentRating> violation
                 = violations.iterator().next();
         assertEquals("Hinne peab olema maksimaalselt 1!",
                 violation.getMessage());
