@@ -12,10 +12,6 @@ export class home{
     activate() {
         let client = new HttpClient();
 
-        client.fetch(environment.URL + 'teachings')
-            .then(response => response.json())
-            .then(teachings => {this.sortTeachingsByRatings(teachings)});
-
         client.fetch(environment.URL + 'profs')
             .then(response => response.json())
             .then(profs => {this.sortProfsByRatings(profs)});
@@ -58,8 +54,25 @@ export class home{
         this.profs = profs;
     }
 
+    getRatingsTotal(prof, rating){
+        let ratingsum = 0;
+        for(let i = 0; i< prof.teachings.length; i++){
+            for(let j = 0; j< prof.teachings[i].teachingRatings.length; j++){
+                if (rating == 1) {
+                    if (prof.teachings[i].teachingRatings[j].rating == 1)
+                    ratingsum = ratingsum +1;
+                }
+                else {
+                    if (prof.teachings[i].teachingRatings[j].rating == 0)
+                    ratingsum = ratingsum +1 ;
+                }
+            }
+        }
+        console.log(ratingsum);
+        return ratingsum;
+    }
+
     sortSubjectsByRatings(subjects){
-        console.log(subjects);
         function sortFunction (a, b){
             var bRating = 0;
             var aRating = 0;
@@ -84,12 +97,10 @@ export class home{
                     else bRating = bRating + 1;
                 }
             }
-            console.log(aRating, bRating);
             return bRating - aRating;
         }
         subjects.sort(sortFunction);
         this.subjects = subjects;
-        console.log(subjects);
     }
 
     yleshaal(haal){
