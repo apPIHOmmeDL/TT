@@ -5,17 +5,11 @@ export class comment{
 
     activate(params, routeConfig){
         let client = new HttpClient();
-        this.ssid = params.sid;
-        this.tid = params.tid;
-        //console.log(this.ssid);
-        client.fetch(environment.URL + 'profs/' + params.pid)
-            .then(response => response.json())
-            .then(singleProf => this.singleProf = singleProf);
+        this.id = params.id;
 
-        client.fetch(environment.URL + 'teachings/' + params.tid)
+        client.fetch(environment.URL + 'teachings/' + params.id)
             .then(response => response.json())
-            .then(teachin => this.teachins = teachin);
-
+            .then(singleTeaching => this.singleTeaching = singleTeaching);
     }
 
     constructor(router){
@@ -89,7 +83,7 @@ export class comment{
         let commentJSON = "{\n" +
             "\t\"comment\": \"" + comment.name +"\",\n" +
             "\t\"teaching\":{\n" +
-            "\t\t\"id\":"+ this.tid +"\n" +
+            "\t\t\"id\":"+ this.id +"\n" +
             "\t}\n" +
             "}";
         //console.log(commentJSON);

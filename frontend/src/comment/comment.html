@@ -1,12 +1,12 @@
 <template>
     <div class="container">
         <div class="eleven columns">
-        <h1>${singleProf.firstName} ${singleProf.lastName}, ${singleProf.teachings[ssid].subject.title}
+        <h1>${singleTeaching.professor.firstName} ${singleTeaching.professor.lastName}, ${singleTeaching.subject.title}
         </h1>
         <br/>
         <h2>
-            <a click.delegate="rateSubject(singleProf.teachings[ssid].id , 1)" style="color:green">${teachins.teachingRatings.filter(yleshaal).length} &#128077;</a>
-            <a click.delegate="rateSubject(singleProf.teachings[ssid].id , 0)" style="color:red">&#128078; ${teachins.teachingRatings.filter(alahaal).length}</a>
+            <a click.delegate="rateSubject(singleTeaching.id , 1)" style="color:green">${singleTeaching.teachingRatings.filter(yleshaal).length} &#128077;</a>
+            <a click.delegate="rateSubject(singleTeaching.id , 0)" style="color:red">&#128078; ${singleTeaching.teachingRatings.filter(alahaal).length}</a>
         </h2>
         <br/>
         <form  role="form" submit.trigger="addComment(comment)">
@@ -21,7 +21,7 @@
         <table class="u-full-width">
 
             <th><h2>Kommentaarid:</h2></th>
-            <tr repeat.for="comment of singleProf.teachings[ssid].comments">
+            <tr repeat.for="comment of singleTeaching.comments">
                 <td>
                     ${comment.comment}
                 </td>
