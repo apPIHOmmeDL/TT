@@ -12,7 +12,7 @@ public class CommentRatingController {
     public CommentRatingController(CommentRatingService commentRatingService) {
         this.commentRatingService = commentRatingService;
     }
-    @CrossOrigin(origins = "http://localhost:9000")
+    @CrossOrigin()
     @RequestMapping(value="/commentRatings/add", method=RequestMethod.POST,
             consumes = "application/json")
     public CommentRating addCommentRating(@RequestBody CommentRating commentRating) {

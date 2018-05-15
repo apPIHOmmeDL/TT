@@ -19,7 +19,7 @@ public class TeachingController {
     public TeachingController(TeachingService teachingService) {
         this.teachingService = teachingService;
     }
-    @CrossOrigin(origins = "http://localhost:9000")
+    @CrossOrigin()
     @RequestMapping(value="/teachings/add", method=RequestMethod.POST,
             consumes = "application/json")
     public Teaching addTeaching(@RequestBody Teaching teaching) {
