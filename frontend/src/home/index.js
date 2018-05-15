@@ -138,7 +138,6 @@ export class home{
         }
 
         for(let s = 0; s < subjects.length; s++){
-            console.log(subjects[s]);
             if(subjects[s].countRatings === 0) subjects[s].percentRatings = 0;
             else if(subjects[s].negRatings === 0) subjects[s].percentRatings = 100;
             else  subjects[s].percentRatings =  subjects[s].posRatings *100 / (subjects[s].posRatings + subjects[s].negRatings);
