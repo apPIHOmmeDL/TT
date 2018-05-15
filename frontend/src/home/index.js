@@ -83,8 +83,6 @@ export class home{
 
     sortSubjectsByRatings(subjects){
         function sortFunction (a, b){
-            var bRating = 0;
-            var aRating = 0;
             var aPosRating = 0;
             var aNegRating = 0;
             var bPosRating = 0;
@@ -111,7 +109,8 @@ export class home{
                     else bPosRating = bPosRating + 1;
                 }
             }
-            return (bPosRating / bNegRating) - (aPosRating / aNegRating);
+            if (bPosRating === 0 && bNegRating === 0) return -1;
+            else return (bPosRating / bNegRating) - (aPosRating / aNegRating);
         }
         subjects.sort(sortFunction);
 
@@ -138,7 +137,6 @@ export class home{
         }
 
         for(let s = 0; s < subjects.length; s++){
-            console.log(subjects[s]);
             if(subjects[s].countRatings === 0) subjects[s].percentRatings = 0;
             else if(subjects[s].negRatings === 0) subjects[s].percentRatings = 100;
             else  subjects[s].percentRatings =  subjects[s].posRatings *100 / (subjects[s].posRatings + subjects[s].negRatings);
