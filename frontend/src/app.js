@@ -1,8 +1,6 @@
 import { Professor } from './prof/prof';
 import {PLATFORM} from 'aurelia-pal';
 
-// import 'bootstrap';
-
 export class App {
 
     configureRouter(config, router) {
