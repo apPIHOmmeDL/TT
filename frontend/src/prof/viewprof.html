@@ -21,12 +21,12 @@
             </tr>
         </table>
 
-        <form submit.trigger="addTeaching(singleProf.id, subject.id)">
+        <form submit.trigger="addTeaching(singleProf.id, selectedSubjectId)">
             <div class="seven columns">
             <h2>Lisa uus õppeaine</h2>
-                <select class="u-full-width" style>
+                <select class="u-full-width" style value.bind="selectedSubjectId">
                     <option value="">vali õppeaine</option>
-                    <option repeat.for="subject of subjectList">${subject.title}, ${subject.school.name</option>
+                    <option model.bind="subject.id" repeat.for="subject of subjectList">${subject.title}, ${subject.school.name}</option>
                 </select>
                 <button type="submit" class="button-primary">Lisa Õppeaine</button>
             </div>

@@ -35,7 +35,7 @@ export class viewProf {
     }
 
     addTeaching(profId, subjectId){
-
+        var selectedSubjectId = null;
         var teachingData = new Object();
         teachingData.professor = Object();
         teachingData.professor.id = profId;
