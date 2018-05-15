@@ -1,6 +1,9 @@
 package com.example.backend.professor;
 
+import java.util.ArrayList;
+import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.stereotype.Service;
 
@@ -27,6 +30,13 @@ public class ProfessorService {
 	}
 
 	List<Professor> searchProfessors(String searchString) {
-		return professorRepository.findByLastNameContaining(searchString);
+		List<Professor> searchByFirstName = professorRepository.findByFirstNameContaining(searchString);
+		List<Professor> searchByLastName = professorRepository.findByLastNameContaining(searchString);
+
+		Set<Professor> onlyUnique = new LinkedHashSet<>(searchByFirstName);
+		onlyUnique.addAll(searchByLastName);
+		List<Professor> finalResult = new ArrayList<>(onlyUnique);
+
+		return finalResult;
 	}
 }

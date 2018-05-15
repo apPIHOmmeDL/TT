@@ -18,15 +18,11 @@ export class prof {
 
     addProf() {
         let client = new HttpClient();
-        debugger;
         client.fetch(environment.URL + 'profs/add', {
             'method': "POST",
             'body': JSON.stringify(this.profData)
         })
-            .then(response => response.json())
-            .then(data => {
-               console.log(data.firstName)
-            });
+            .then(response => response.json());
         location.reload();
     }
 

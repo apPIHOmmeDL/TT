@@ -32,15 +32,12 @@ export class viewProf {
         ratingData.teaching = Object();
         ratingData.teaching.id = teachingId;
         let client = new HttpClient();
-        console.log(ratingData);
+
         client.fetch(environment.URL + 'teachingRatings/add', {
             'method': "POST",
             'body': JSON.stringify(ratingData)
         })
-            .then(response => response.json())
-            .then(data => {
-                console.log(data)
-            });
+            .then(response => response.json());
         location.reload();
     }
 

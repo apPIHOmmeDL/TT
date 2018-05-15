@@ -10,5 +10,6 @@ public interface ProfessorRepository extends CrudRepository<Professor, Long>{
 	@Override
 	public List<Professor> findAll();
 
+	public List<Professor> findByFirstNameContaining(String searchString);
 	public List<Professor> findByLastNameContaining(String searchString);
 }
