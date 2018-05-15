@@ -1,7 +1,11 @@
 import {HttpClient, json} from 'aurelia-fetch-client'
 import environment from '../environment'
+import {inject} from 'aurelia-framework';
+import {Router} from 'aurelia-router';
 
 export class subject {
+
+    static inject() { return [Router]; }
 
     activate(params, routeConfig){
         let client = new HttpClient();
@@ -13,10 +17,6 @@ export class subject {
         client.fetch(environment.URL + 'subjects/')
             .then(response => response.json())
             .then(subjects => this.subjectList = subjects);
-    }
-
-    constructor(router){
-        this.router = router;
     }
 
     addSubject(subjectTitle, schoolId) {
@@ -39,5 +39,13 @@ export class subject {
                 console.log(data)
             });
         location.reload();
+    }
+
+    constructor(router){
+        this.router = router;
+    }
+
+    subjectView(id){
+        this.router.navigate(`viewsubject` +'/'+ id);
     }
 }
