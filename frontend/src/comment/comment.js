@@ -16,15 +16,6 @@ export class comment{
         this.router = router;
     }
 
-    createComment(){
-        this.commentList.push(this.commentData);
-        this.commentData ='';
-    }
-
-    deleteComment(index){
-        this.commentList.splice(index, 1);
-    }
-
     yleshaal(haal){
         if (haal.rating === 1)
             return haal;
@@ -35,68 +26,47 @@ export class comment{
     }
 
     rateComment(id, rating){
-        console.log(id + ' Liked');
-
-        let ratingJSON = "{\n" +
-            "\t\"rating\": \"" + rating +"\",\n" +
-            "\t\"comment\":{\n" +
-            "\t\t\"id\":"+ id +"\n" +
-            "\t}\n" +
-            "}";
+        let ratingData = new Object();
+        ratingData.rating = rating;
+        ratingData.comment = Object();
+        ratingData.comment.id = id;
 
         let client = new HttpClient();
         client.fetch(environment.URL + 'commentRatings/add', {
             'method': "POST",
-            'body': ratingJSON
+            'body': JSON.stringify(ratingData)
         })
-            .then(response => response.json())
-            .then(data => {
-                console.log(data)
-            });
+            .then(response => response.json());
         location.reload();
     }
 
     rateSubject(id, rating){
-        console.log(id + ' Liked');
-
-        let ratingJSON = "{\n" +
-            "\t\"rating\": \"" + rating +"\",\n" +
-            "\t\"teaching\":{\n" +
-            "\t\t\"id\":"+ id +"\n" +
-            "\t}\n" +
-            "}";
+        let ratingData = new Object();
+        ratingData.rating = rating;
+        ratingData.teaching = Object();
+        ratingData.teaching.id = id;
 
         let client = new HttpClient();
         client.fetch(environment.URL + 'teachingRatings/add', {
             'method': "POST",
-            'body': ratingJSON
+            'body': JSON.stringify(ratingData)
         })
-            .then(response => response.json())
-            .then(data => {
-                console.log(data)
-            });
+            .then(response => response.json());
         location.reload();
     }
 
-    addComment(comment)
-    {
-        let commentJSON = "{\n" +
-            "\t\"comment\": \"" + comment.name +"\",\n" +
-            "\t\"teaching\":{\n" +
-            "\t\t\"id\":"+ this.id +"\n" +
-            "\t}\n" +
-            "}";
-        //console.log(commentJSON);
+    addComment(comment) {
+        let commentData = new Object();
+        commentData.comment = comment.name;
+        commentData.teaching = Object();
+        commentData.teaching.id = this.id;
+
         let client = new HttpClient();
         client.fetch(environment.URL + 'comments/add', {
             'method': "POST",
-            'body': commentJSON
+            'body': JSON.stringify(commentData)
         })
-            .then(response => response.json())
-            .then(data => {
-                console.log(data)
-            });
+            .then(response => response.json());
         location.reload();
     }
-
 }

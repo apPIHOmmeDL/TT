@@ -20,13 +20,10 @@ export class subject {
     }
 
     addSubject(subjectTitle, schoolId) {
-        var selectedSchoolId = null;
-        var subjectData = new Object();
+        let subjectData = new Object();
         subjectData.title = subjectTitle;
         subjectData.school = new Object();
         subjectData.school.id = schoolId;
-
-        console.log(subjectData);
 
         let client = new HttpClient();
 
@@ -34,10 +31,7 @@ export class subject {
             'method': "POST",
             'body': JSON.stringify(subjectData)
         })
-            .then(response => response.json())
-            .then(data => {
-                console.log(data)
-            });
+            .then(response => response.json());
         location.reload();
     }
 
