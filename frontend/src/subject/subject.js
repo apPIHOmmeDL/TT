@@ -6,34 +6,38 @@ export class subject {
     activate(params, routeConfig){
         let client = new HttpClient();
 
-        client.fetch(environment.URL + 'profs/' + params.id)
-            .then(response => response.json())
-            .then(singleProf => this.singleProf = singleProf);
-
         client.fetch(environment.URL + 'schools/')
             .then(response => response.json())
-            .then(schoolsz => this.schoolList = schoolsz);
+            .then(schools => this.schoolList = schools);
+
+        client.fetch(environment.URL + 'subjects/')
+            .then(response => response.json())
+            .then(subjects => this.subjectList = subjects);
     }
 
     constructor(router){
         this.router = router;
     }
 
-    addSubject() {
+    addSubject(subjectTitle, schoolId) {
+        var selectedSchoolId = null;
+        var subjectData = new Object();
+        subjectData.title = subjectTitle;
+        subjectData.school = new Object();
+        subjectData.school.id = schoolId;
+
+        console.log(subjectData);
+
         let client = new HttpClient();
 
         client.fetch(environment.URL + 'subjects/add', {
             'method': "POST",
-            'body': JSON.stringify(this.subjData)
+            'body': JSON.stringify(subjectData)
         })
             .then(response => response.json())
             .then(data => {
-                console.log(data.subjName)
+                console.log(data)
             });
         location.reload();
     }
-    cmntView(pid, sid){
-        this.router.navigate(`comment` +'/'+ pid +'/'+ sid);
-    }
-
 }
