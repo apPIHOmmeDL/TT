@@ -32,7 +32,7 @@ export class home{
                 for(let i = 0; i < a.teachings[j].teachingRatings.length; i++){
                     var teachingRating =  a.teachings[j].teachingRatings[i];
                     if (teachingRating.rating === 0)
-                        aRating = aRating -1;
+                        aRating = aRating +1;
                     else aRating = aRating + 1;
                 }
             }
@@ -42,7 +42,7 @@ export class home{
                 for (let i = 0; i < b.teachings[j].teachingRatings.length; i++) {
                     var teachingRating = b.teachings[j].teachingRatings[i];
                     if (teachingRating.rating === 0)
-                        bRating = bRating - 1;
+                        bRating = bRating + 1;
                     else bRating = bRating + 1;
                 }
             }
@@ -51,17 +51,33 @@ export class home{
         }
 
         profs.sort(sortFunction);
+
         profs.forEach(function(obj) { obj.posRatings = 0 ; });
         profs.forEach(function(obj) { obj.negRatings = 0 ; });
+        profs.forEach(function(obj) { obj.percentRatings = 0 ; });
+        profs.forEach(function(obj) { obj.countRatings = 0 ; });
         for(let p = 0; p < profs.length; p++){
             for(let i = 0; i< profs[p].teachings.length; i++){
                 for(let j = 0; j< profs[p].teachings[i].teachingRatings.length; j++){
-                        if (profs[p].teachings[i].teachingRatings[j].rating == 1)
+                        if (profs[p].teachings[i].teachingRatings[j].rating == 1){
                             profs[p].posRatings = profs[p].posRatings +1;
-                        else profs[p].negRatings = profs[p].negRatings +1;
+                            profs[p].countRatings = profs[p].countRatings +1;
+                        }
+                        else {
+                            profs[p].negRatings = profs[p].negRatings +1;
+                            profs[p].countRatings = profs[p].countRatings +1;
+                        }
                 }
             }
         }
+
+        for(let p = 0; p < profs.length; p++){
+            if (profs[p].negRatings == 0 && profs[p].posRatings!== 0) profs[p].percentRatings = 100;
+            else if (profs[p].negRatings == 0 ) profs[p].percentRatings = 0;
+            else  profs[p].percentRatings =  profs[p].posRatings *100 / (profs[p].posRatings + profs[p].negRatings);
+            profs[p].percentRatings =  profs[p].percentRatings.toFixed(1);
+        }
+
         this.profs = profs;
     }
 

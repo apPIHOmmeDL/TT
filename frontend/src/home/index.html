@@ -6,23 +6,23 @@
                     <form action="/search.html">
                         <input type="submit" class="btn btn-info btn-lg" value="Otsi õppejõudu!" />
                     </form>
-                    <h3>Parimad Õppejõud</h3>
+                    <h3>Hinnatumad Õppejõud</h3>
                     <table class="table table-hover">
                         <tbody>
                         <tr>
                             <td>1.</td>
                             <td><a href="viewprof/${profs[0].id}">${profs[0].firstName} ${profs[0].lastName}</a></td>
                             <td>
-                                <a style="color:green"> ${profs[0].posRatings} &#128077;  </a>
-                                <a style="color:red"  >&#128078; ${profs[0].negRatings} </a>
+                               <a>${profs[0].percentRatings}%</a>
+                                <a>(${profs[0].countRatings})</a>
                             </td>
                         </tr>
                         <tr>
                             <td>2.</td>
                             <td><a href="viewprof/${profs[1].id}">${profs[1].firstName} ${profs[1].lastName}</a></td>
                             <td>
-                                <a style="color:green"> ${profs[1].posRatings} &#128077;  </a>
-                                <a style="color:red"  >&#128078; ${profs[1].negRatings} </a>
+                                <a>${profs[1].percentRatings}%</a>
+                                <a>(${profs[1].countRatings})</a>
                             </td>
                         </tr>
 
@@ -30,8 +30,8 @@
                             <td>3.</td>
                             <td><a href="viewprof/${profs[2].id}">${profs[2].firstName} ${profs[2].lastName}</a></td>
                             <td>
-                                <a style="color:green"> ${profs[2].posRatings} &#128077;  </a>
-                                <a style="color:red"  >&#128078; ${profs[2].negRatings} </a>
+                                <a>${profs[2].percentRatings}%</a>
+                                <a>(${profs[2].countRatings})</a>
                             </td>
                         </tr>
 
@@ -39,8 +39,8 @@
                             <td>4.</td>
                             <td><a href="viewprof/${profs[3].id}">${profs[3].firstName} ${profs[3].lastName}</a></td>
                             <td>
-                                <a style="color:green"> ${profs[3].posRatings} &#128077;  </a>
-                                <a style="color:red"  >&#128078; ${profs[3].negRatings} </a>
+                                <a>  ${profs[3].percentRatings}%</a>
+                                <a>(${profs[3].countRatings})</a>
                             </td>
                         </tr>
 
@@ -48,8 +48,8 @@
                             <td>5.</td>
                             <td><a href="viewprof/${profs[4].id}">${profs[4].firstName} ${profs[4].lastName}</a></td>
                             <td>
-                                <a style="color:green"> ${profs[4].posRatings} &#128077;  </a>
-                                <a style="color:red"  >&#128078; ${profs[4].negRatings} </a>
+                                <a>${profs[4].percentRatings}%</a>
+                                <a>(${profs[4].countRatings})</a>
                             </td>
                         </tr>
 
