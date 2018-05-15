@@ -9,17 +9,9 @@ export class viewProf {
     activate(params, routeConfig){
         let client = new HttpClient();
 
-        client.fetch(environment.URL + 'profs/' + params.id)
+        client.fetch(environment.URL + 'subjects/' + params.id)
             .then(response => response.json())
-            .then(singleProf => this.singleProf = singleProf);
-
-        client.fetch(environment.URL + 'schools/')
-            .then(response => response.json())
-            .then(schools => this.schoolList = schools);
-
-        client.fetch(environment.URL + 'subjects/')
-            .then(response => response.json())
-            .then(subjects => this.subjectList = subjects);
+            .then(singleSubject => this.singleSubject = singleSubject);
     }
 
     constructor(router){
@@ -32,27 +24,6 @@ export class viewProf {
 
     subjAdd(id){
         this.router.navigate(`subs` +'/'+ id);
-    }
-
-    addTeaching(profId, subjectId){
-        var selectedSubjectId = null;
-        var teachingData = new Object();
-        teachingData.professor = Object();
-        teachingData.professor.id = profId;
-        teachingData.subject = Object();
-        teachingData.subject.id = subjectId;
-
-        console.log(teachingData);
-        let client = new HttpClient();
-        client.fetch(environment.URL + 'teachings/add', {
-            'method': "POST",
-            'body': JSON.stringify(teachingData)
-        })
-            .then(response => response.json())
-            .then(data => {
-                console.log(data)
-            });
-        location.reload();
     }
 
     rateSubject(ratingMark, teachingId){
