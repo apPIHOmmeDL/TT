@@ -72,8 +72,8 @@ export class home{
         }
 
         for(let p = 0; p < profs.length; p++){
-            if (profs[p].negRatings == 0 && profs[p].posRatings!== 0) profs[p].percentRatings = 100;
-            else if (profs[p].negRatings == 0 ) profs[p].percentRatings = 0;
+            if (profs[p].negRatings === 0 && profs[p].posRatings!== 0) profs[p].percentRatings = 100;
+            else if (profs[p].negRatings === 0 ) profs[p].percentRatings = 0;
             else  profs[p].percentRatings =  profs[p].posRatings *100 / (profs[p].posRatings + profs[p].negRatings);
             profs[p].percentRatings =  profs[p].percentRatings.toFixed(1);
         }
@@ -81,27 +81,14 @@ export class home{
         this.profs = profs;
     }
 
-    getRatingsTotal(prof, rating){
-        let ratingsum = 0;
-        for(let i = 0; i< prof.teachings.length; i++){
-            for(let j = 0; j< prof.teachings[i].teachingRatings.length; j++){
-                if (rating == 1) {
-                    if (prof.teachings[i].teachingRatings[j].rating == 1)
-                    ratingsum = ratingsum +1;
-                }
-                else {
-                    if (prof.teachings[i].teachingRatings[j].rating == 0)
-                    ratingsum = ratingsum +1 ;
-                }
-            }
-        }
-        return ratingsum;
-    }
-
     sortSubjectsByRatings(subjects){
         function sortFunction (a, b){
             var bRating = 0;
             var aRating = 0;
+            var aPosRating = 0;
+            var aNegRating = 0;
+            var bPosRating = 0;
+            var bNegRating = 0;
 
             for(let j = 0; j < a.teachings.length; j++){
 
@@ -109,9 +96,10 @@ export class home{
 
                     var teachingRating =  a.teachings[j].teachingRatings[i];
                     if (teachingRating.rating === 0)
-                        aRating = aRating - 1;
-                    else aRating = aRating + 1;
+                        aNegRating = aNegRating + 1;
+                    else aPosRating = aPosRating + 1;
                 }
+
             }
 
             for(let j = 0; j < b.teachings.length; j++) {
@@ -119,13 +107,44 @@ export class home{
                 for (let i = 0; i < b.teachings[j].teachingRatings.length; i++) {
                     var teachingRating = b.teachings[j].teachingRatings[i];
                     if (teachingRating.rating === 0)
-                        bRating = bRating - 1;
-                    else bRating = bRating + 1;
+                        bNegRating = bNegRating + 1;
+                    else bPosRating = bPosRating + 1;
                 }
             }
-            return bRating - aRating;
+            return (bPosRating / bNegRating) - (aPosRating / aNegRating);
         }
         subjects.sort(sortFunction);
+
+
+        subjects.forEach(function(obj) { obj.posRatings = 0 ; });
+        subjects.forEach(function(obj) { obj.negRatings = 0 ; });
+        subjects.forEach(function(obj) { obj.percentRatings = 0 ; });
+        subjects.forEach(function(obj) { obj.countRatings = 0 ; });
+
+        for(let s = 0; s < subjects.length; s++){
+            for(let i = 0; i < subjects[s].teachings.length; i++){
+
+                for(let j = 0; j < subjects[s].teachings[i].teachingRatings.length; j++){
+                    if(subjects[s].teachings[i].teachingRatings[j].rating === 1){
+                        subjects[s].posRatings = subjects[s].posRatings +1;
+                        subjects[s].countRatings = subjects[s].countRatings +1;
+                    }
+                    else {
+                        subjects[s].negRatings = subjects[s].negRatings +1;
+                        subjects[s].countRatings = subjects[s].countRatings +1;
+                    }
+                }
+            }
+        }
+
+        for(let s = 0; s < subjects.length; s++){
+            console.log(subjects[s]);
+            if(subjects[s].countRatings === 0) subjects[s].percentRatings = 0;
+            else if(subjects[s].negRatings === 0) subjects[s].percentRatings = 100;
+            else  subjects[s].percentRatings =  subjects[s].posRatings *100 / (subjects[s].posRatings + subjects[s].negRatings);
+            subjects[s].percentRatings =  subjects[s].percentRatings.toFixed(1);
+        }
+
         this.subjects = subjects;
     }
 
