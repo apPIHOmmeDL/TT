@@ -14,7 +14,7 @@ export class App {
             { route: 'subject',         name: 'subject', moduleId: PLATFORM.moduleName('subject/subject'),  nav: true,     title:'Õppeanete lisamine'  },
             { route: 'viewsubject/:id',     name: 'viewsubject', moduleId: PLATFORM.moduleName('subject/viewsubject'),  title:'Õppeaine vaatamine'  },
             { route: 'viewprof/:id',     name: 'viewprof', moduleId: PLATFORM.moduleName('prof/viewprof'),  title:'Õppejõu vaatamine'  },
-            { route: 'comment/:pid/:tid/:sid',     name: 'comment', moduleId: PLATFORM.moduleName('comment/comment'),  title:'Kommentaari lisamine'  },
+            { route: 'comment/:id',     name: 'comment', moduleId: PLATFORM.moduleName('comment/comment'),  title:'Kommentaari lisamine'  },
             { route: 'search',         name: 'search', moduleId: PLATFORM.moduleName('search/search'),   nav: true, title:'Õppejõu otsing'  },
             { route: 'searchSub',         name: 'searchSub', moduleId: PLATFORM.moduleName('searchSub/searchSub'),   nav: true, title:'Õppeaine otsing'  },
 
