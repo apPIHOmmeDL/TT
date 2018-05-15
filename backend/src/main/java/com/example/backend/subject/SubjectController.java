@@ -18,7 +18,7 @@ public class SubjectController {
     public SubjectController(SubjectService subjectService) {
         this.subjectService = subjectService;
     }
-    @CrossOrigin(origins = "http://localhost:9000")
+    @CrossOrigin()
     @RequestMapping(value="/subjects/add", method=RequestMethod.POST,
             consumes = "application/json")
     public Subject addSubject(@RequestBody Subject subject) {

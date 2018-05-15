@@ -19,7 +19,7 @@ public class CommentController {
     public CommentController(CommentService commentService) {
         this.commentService = commentService;
     }
-    @CrossOrigin(origins = "http://localhost:9000")
+    @CrossOrigin()
     @RequestMapping(value="/comments/add", method=RequestMethod.POST,
             consumes = "application/json")
     public Comment addComment(@RequestBody Comment comment) {

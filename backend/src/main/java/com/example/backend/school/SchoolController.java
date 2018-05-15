@@ -16,7 +16,7 @@ public class SchoolController {
     public SchoolController(SchoolService schoolService) {
         this.schoolService = schoolService;
     }
-    @CrossOrigin(origins = "http://localhost:9000")
+    @CrossOrigin()
     @RequestMapping(value="/schools/add", method=RequestMethod.POST,
             consumes = "application/json")
     public School addSubject(@RequestBody School school) {
