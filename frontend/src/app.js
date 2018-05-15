@@ -1,8 +1,6 @@
 import { Professor } from './prof/prof';
 import {PLATFORM} from 'aurelia-pal';
 
-// import 'bootstrap';
-
 export class App {
 
     configureRouter(config, router) {
@@ -13,7 +11,8 @@ export class App {
         config.map([
             { route: ['', 'index'],  name: 'home', moduleId: PLATFORM.moduleName('home/index'),  nav: true, title:'Esileht' },
             { route: 'prof',         name: 'prof', moduleId: PLATFORM.moduleName('prof/prof'),   nav: true, title:'Õppejõu lisamine'  },
-            { route: 'subs/:id',         name: 'subs', moduleId: PLATFORM.moduleName('subject/subject'),       title:'Õppeanete lisamine'  },
+            { route: 'subject',         name: 'subject', moduleId: PLATFORM.moduleName('subject/subject'),  nav: true,     title:'Õppeanete lisamine'  },
+            { route: 'viewsubject/:id',     name: 'viewsubject', moduleId: PLATFORM.moduleName('subject/viewsubject'),  title:'Õppeaine vaatamine'  },
             { route: 'viewprof/:id',     name: 'viewprof', moduleId: PLATFORM.moduleName('prof/viewprof'),  title:'Õppejõu vaatamine'  },
             { route: 'comment/:pid/:tid/:sid',     name: 'comment', moduleId: PLATFORM.moduleName('comment/comment'),  title:'Kommentaari lisamine'  },
             { route: 'search',         name: 'search', moduleId: PLATFORM.moduleName('search/search'),   nav: true, title:'Õppejõu otsing'  },

@@ -1,12 +1,12 @@
 <template>
     <div class="container">
-        <h1>Lisa õppeaine ${singleProf.firstName} ${singleProf.lastName} jaoks</h1>
-        <form submit.trigger="addSubject()">
-            <select class="u-full-width">
+        <h1>Lisa õppeaine</h1>
+        <form submit.trigger="addSubject(subjectTitle, selectedSchoolId)">
+            <select class="u-full-width" value.bind="selectedSchoolId">
                 <option>-----vali õppeasutus-----</option>
-                <option repeat.for="school of schoolList._embedded.schools">${school.name}</option>
+                <option model.bind="school.id" repeat.for="school of schoolList">${school.name}</option>
             </select>
-            <input type="text" class="u-full-width"  placeholder="Õppeaine">
+            <input value.bind="subjectTitle" type="text" class="u-full-width"  placeholder="Õppeaine">
             <button type="submit" class="u-full-width">Lisa Õppeaine</button>
         </form>
         <table class="u-full-width">
@@ -15,10 +15,10 @@
                     <th>Õppeasutus</th>
                     <th></th>
                 </tr>
-             <tr repeat.for="singleP of singleProf.teachings">
-                    <td>${singleP.subject.title}</td>
-                    <td>${singleP.subject.school.name}</td>
-                    <td><button click.delegate="cmntView(singleProf.id, singleProf.teachings.indexOf(singleP),0)">vaata kommentaare</button></td>
+             <tr repeat.for="subject of subjectList">
+                    <td>${subject.title}</td>
+                    <td>${subject.school.name}</td>
+                    <td><button click.delegate="subjectView(subject.id)">vaata õppeainet</button></td>
              </tr>
         </table>
     </div>

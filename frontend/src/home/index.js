@@ -51,6 +51,17 @@ export class home{
         }
 
         profs.sort(sortFunction);
+        profs.forEach(function(obj) { obj.posRatings = 0 ; });
+        profs.forEach(function(obj) { obj.negRatings = 0 ; });
+        for(let p = 0; p < profs.length; p++){
+            for(let i = 0; i< profs[p].teachings.length; i++){
+                for(let j = 0; j< profs[p].teachings[i].teachingRatings.length; j++){
+                        if (profs[p].teachings[i].teachingRatings[j].rating == 1)
+                            profs[p].posRatings = profs[p].posRatings +1;
+                        else profs[p].negRatings = profs[p].negRatings +1;
+                }
+            }
+        }
         this.profs = profs;
     }
 
@@ -68,7 +79,6 @@ export class home{
                 }
             }
         }
-        console.log(ratingsum);
         return ratingsum;
     }
 
