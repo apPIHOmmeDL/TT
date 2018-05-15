@@ -1,8 +1,10 @@
 import {HttpClient, json} from 'aurelia-fetch-client'
 import {bindable} from 'aurelia-framework';
 import environment from "../environment";
+import {Router} from 'aurelia-router';
 
 export class search{
+    static inject() { return [Router]; }
 
     constructor(router){
         this.router = router;
@@ -21,15 +23,13 @@ export class search{
     searchProfessors(){
         console.log('Search prof reached');
         let client = new HttpClient();
-        debugger;
         let professors = this.professors;
         client.fetch(environment.URL + 'profs/search/'+ this.searchString)
             .then(response => response.json())
             .then(profs => this.professors =  profs);
     }
 
-    profView(firstName, lastName, id){
+    profView(id){
         this.router.navigate(`viewprof` +'/'+ id);
     }
-
 }

@@ -1,0 +1,22 @@
+<template>
+    <div class="container text-center">
+        <h1>Otsi õppeainet</h1>
+        <div class="container text-center">
+            <br>
+            <form id="searchForm" submit.delegate="searchSubjects()">
+                <input type="text" name="subjectFilter" id="subjectFilter" value.bind="searchString"/>
+                <input type="submit" name="searchS" class="button-primary" id="searchS" value="Otsi"/>
+            </form>
+            <table class="u-full-width">
+                <tr repeat.for="subject of subjectList">
+                    <td>${subject.title}</td>
+                    <td>
+                        <button click.delegate="subjectView(subject.id)" class="button-primary">
+                            Vaata õppeainet!
+                        </button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</template>
