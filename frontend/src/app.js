@@ -9,14 +9,16 @@ export class App {
         config.options.pushState = true;
         config.options.root = '/';
         config.map([
-            { route: ['', 'index'],  name: 'home', moduleId: PLATFORM.moduleName('home/index'),  nav: true, title:'Esileht' },
-            { route: 'prof',         name: 'prof', moduleId: PLATFORM.moduleName('prof/prof'),   nav: true, title:'Õppejõu lisamine'  },
-            { route: 'subject',         name: 'subject', moduleId: PLATFORM.moduleName('subject/subject'),  nav: true,     title:'Õppeanete lisamine'  },
-            { route: 'viewsubject/:id',     name: 'viewsubject', moduleId: PLATFORM.moduleName('subject/viewsubject'),  title:'Õppeaine vaatamine'  },
-            { route: 'viewprof/:id',     name: 'viewprof', moduleId: PLATFORM.moduleName('prof/viewprof'),  title:'Õppejõu vaatamine'  },
-            { route: 'comment/:id',     name: 'comment', moduleId: PLATFORM.moduleName('comment/comment'),  title:'Kommentaari lisamine'  },
-            { route: 'search',         name: 'search', moduleId: PLATFORM.moduleName('search/search'),   nav: true, title:'Õppejõu otsing'  },
-            { route: 'searchSub',         name: 'searchSub', moduleId: PLATFORM.moduleName('searchSub/searchSub'),   nav: true, title:'Õppeaine otsing'  },
+            { route: ['', 'index'],         name: 'home', moduleId: PLATFORM.moduleName('home/index'),              nav: true, title:'Esileht' },
+            { route: 'profs',               name: 'profs', moduleId: PLATFORM.moduleName('prof/profs'),             nav: true, title:'Õppejõud'  },
+            { route: 'subjects',            name: 'subjects', moduleId: PLATFORM.moduleName('subject/subjects'),    nav: true, title:'Õppeained'  },
+            { route: 'prof',                name: 'prof', moduleId: PLATFORM.moduleName('prof/prof'),               nav: true, title:'Õppejõu lisamine'  },
+            { route: 'subject',             name: 'subject', moduleId: PLATFORM.moduleName('subject/subject'),      nav: true, title:'Õppeanete lisamine'  },
+            { route: 'viewsubject/:id',     name: 'viewsubject', moduleId: PLATFORM.moduleName('subject/viewsubject'),         title:'Õppeaine vaatamine'  },
+            { route: 'viewprof/:id',        name: 'viewprof', moduleId: PLATFORM.moduleName('prof/viewprof'),                  title:'Õppejõu vaatamine'  },
+            { route: 'comment/:pid/:tid/:sid',     name: 'comment', moduleId: PLATFORM.moduleName('comment/comment'),          title:'Kommentaari lisamine'  },
+            { route: 'search',              name: 'search', moduleId: PLATFORM.moduleName('search/search'),         nav: true, title:'Õppejõu otsing'  },
+            { route: 'searchSub',           name: 'searchSub', moduleId: PLATFORM.moduleName('searchSub/searchSub'),nav: true, title:'Õppeaine otsing'  },
 
         ]);
     }

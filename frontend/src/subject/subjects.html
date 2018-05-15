@@ -1,0 +1,17 @@
+<template>
+    <div class="container">
+        <h1>Õppeained</h1>
+        <table class="u-full-width">
+            <tr>
+                <th>Õppeaine</th>
+                <th>Õppeasutus</th>
+                <th></th>
+            </tr>
+            <tr repeat.for="subject of subjectList">
+                <td>${subject.title}</td>
+                <td>${subject.school.name}</td>
+                <td><button click.delegate="subjectView(subject.id)">vaata õppeainet</button></td>
+            </tr>
+        </table>
+    </div>
+</template>
