@@ -15,8 +15,8 @@
 
                 <td><button click.delegate="cmntView(teaching.id)">vaata kommentaare</button></td>
                 <td >
-                    <a click.delegate="rateSubject(1, teaching.id)" style="color:green" >${teaching.teachingRatings.filter(yleshaal).length} &#128077;</a>
-                    <a click.delegate="rateSubject(0, teaching.id)" style="color:red" >&#128078; ${teaching.teachingRatings.filter(alahaal).length}</a>
+                    <a click.delegate="rateSubject(1, teaching.id)" style="color:green;cursor: pointer;" >${teaching.teachingRatings.filter(yleshaal).length} &#128077;</a>
+                    <a click.delegate="rateSubject(0, teaching.id)" style="color:red;cursor: pointer;" >&#128078; ${teaching.teachingRatings.filter(alahaal).length}</a>
                 </td>
             </tr>
         </table>

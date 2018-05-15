@@ -5,8 +5,8 @@
         </h1>
         <br/>
         <h2>
-            <a click.delegate="rateSubject(singleTeaching.id , 1)" style="color:green">${singleTeaching.teachingRatings.filter(yleshaal).length} &#128077;</a>
-            <a click.delegate="rateSubject(singleTeaching.id , 0)" style="color:red">&#128078; ${singleTeaching.teachingRatings.filter(alahaal).length}</a>
+            <a click.delegate="rateSubject(singleTeaching.id , 1)" style="color:green;cursor: pointer;">${singleTeaching.teachingRatings.filter(yleshaal).length} &#128077;</a>
+            <a click.delegate="rateSubject(singleTeaching.id , 0)" style="color:red;cursor: pointer;">&#128078; ${singleTeaching.teachingRatings.filter(alahaal).length}</a>
         </h2>
         <br/>
         <form  role="form" submit.trigger="addComment(comment)">
@@ -26,10 +26,10 @@
                     ${comment.comment}
                 </td>
                 <td>
-                    <a click.delegate="rateComment(comment.id, 1)" style="color:green">
+                    <a click.delegate="rateComment(comment.id, 1)" style="color:green;cursor: pointer;">
                         ${comment.commentRatings.filter(yleshaal).length}
                         &#128077;</a>
-                    <a click.delegate="rateComment(comment.id, 0)"style="color:red">
+                    <a click.delegate="rateComment(comment.id, 0)"style="color:red;cursor: pointer;">
                         &#128078; ${comment.commentRatings.filter(alahaal).length} </a>
                 </td>
             </tr>
