@@ -1,7 +1,6 @@
 import {HttpClient, json} from 'aurelia-fetch-client'
 import {bindable} from 'aurelia-framework';
 import environment from "../environment";
-//import {Router} from "aurelia-router/dist/aurelia-router";
 import {Router} from 'aurelia-router';
 
 export class searchSub{
@@ -32,8 +31,7 @@ export class searchSub{
     }
 
     subjectView(id){
-        this.router.navigate(`subjectView` +'/'+ id);
+        debugger;
+        this.router.navigate(`viewsubject` +'/'+ id);
     }
-
-
 }
