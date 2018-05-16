@@ -1,15 +1,17 @@
 <template>
-    <div class="container">
-        <h1>Õppeaine lisamine</h1>
-        <form submit.trigger="addSubject(subjectTitle, selectedSchoolId)">
-            <select class="u-full-width" value.bind="selectedSchoolId">
+    <div class="container" >
+
+        <form  class="seven columns" submit.trigger="addSubject(subjectTitle, selectedSchoolId)">
+            <h1>Õppeaine lisamine</h1>
+            <select class="u-full-width"  value.bind="selectedSchoolId">
                 <option>-----vali õppeasutus-----</option>
                 <option model.bind="school.id" repeat.for="school of schoolList">${school.name}</option>
             </select>
             <input value.bind="subjectTitle" type="text" class="u-full-width"  placeholder="Õppeaine">
             <button type="submit" class="button-primary">Lisa Õppeaine</button>
         </form>
-        <table class="u-full-width">
+
+        <table class="u-full-width" >
                 <tr>
                     <th>Õppeaine</th>
                     <th>Õppeasutus</th>
