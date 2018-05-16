@@ -13,7 +13,7 @@ export class App {
             { route: 'profs',               name: 'profs', moduleId: PLATFORM.moduleName('prof/profs'),             nav: true, title:'Õppejõud'  },
             { route: 'subjects',            name: 'subjects', moduleId: PLATFORM.moduleName('subject/subjects'),    nav: true, title:'Õppeained'  },
             { route: 'prof',                name: 'prof', moduleId: PLATFORM.moduleName('prof/prof'),               nav: true, title:'Õppejõu lisamine'  },
-            { route: 'subject',             name: 'subject', moduleId: PLATFORM.moduleName('subject/subject'),      nav: true, title:'Õppeanete lisamine'  },
+            { route: 'subject',             name: 'subject', moduleId: PLATFORM.moduleName('subject/subject'),      nav: true, title:'Õppeaine lisamine'  },
             { route: 'viewsubject/:id',     name: 'viewsubject', moduleId: PLATFORM.moduleName('subject/viewsubject'),         title:'Õppeaine vaatamine'  },
             { route: 'viewprof/:id',        name: 'viewprof', moduleId: PLATFORM.moduleName('prof/viewprof'),                  title:'Õppejõu vaatamine'  },
             { route: 'comment/:id',     name: 'comment', moduleId: PLATFORM.moduleName('comment/comment'),          title:'Kommentaari lisamine'  },

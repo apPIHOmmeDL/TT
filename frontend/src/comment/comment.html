@@ -9,14 +9,6 @@
             <a click.delegate="rateSubject(singleTeaching.id , 0)" style="color:red;cursor: pointer;">&#128078; ${singleTeaching.teachingRatings.filter(alahaal).length}</a>
         </h2>
         <br/>
-        <form  role="form" submit.trigger="addComment(comment)">
-            <div class="seven columns">
-                <label for="1"><h4>Lisa kommentaar:</h4></label>
-                <textarea value.bind="comment.name" placeholder="Kommentaar" class="u-full-width" id="1"></textarea>
-                <br/>
-                <button type="submit" class="button-primary">Lisa kommentaar </button>
-            </div>
-        </form>
         <br/>
         <table class="u-full-width">
 
@@ -34,6 +26,14 @@
                 </td>
             </tr>
         </table>
+            <form  role="form" submit.trigger="addComment(comment)">
+                <div class="seven columns">
+                    <label for="1"><h4>Lisa kommentaar:</h4></label>
+                    <textarea value.bind="comment.name" placeholder="Kommentaar" class="u-full-width" id="1"></textarea>
+                    <br/>
+                    <button type="submit" class="button-primary">Lisa kommentaar </button>
+                </div>
+            </form>
         </div>
     </div>
 </template>

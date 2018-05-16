@@ -21,7 +21,6 @@ export class searchSub{
     }
 
     searchSubjects(){
-        debugger;
         console.log('Search subject reached');
         let client = new HttpClient();
         let subjects = this.subjectList;
@@ -31,7 +30,6 @@ export class searchSub{
     }
 
     subjectView(id){
-        debugger;
         this.router.navigate(`viewsubject` +'/'+ id);
     }
 }
